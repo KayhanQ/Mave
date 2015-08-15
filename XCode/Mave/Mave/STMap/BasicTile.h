@@ -14,6 +14,6 @@
 }
 
 
-- (id)initWithType:(enum TileType)type texture:(SPTexture*)texture;
+- (id)initWithType:(enum STType)type texture:(SPTexture*)texture coordinate:(STCoordinate*)coordinate;
 
 @end

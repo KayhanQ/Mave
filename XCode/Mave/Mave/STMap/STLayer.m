@@ -17,7 +17,7 @@
 
 @interface STLayer ()
 - (void)loadTileWithGID:(int)gid tileset:(STTileset *)tileset index:(int)i;
-- (void)loadLayer;
+- (void)redrawLayer;
 @end
 
 @implementation STLayer
@@ -47,6 +47,7 @@
 		_pixelWidth = _width * _tileWidth;
 		_pixelHeight = _height * _tileHeight;
         _tileSet = tileset;
+
         
 		int i = 0;
         
@@ -56,7 +57,9 @@
 			[self loadTileWithGID:[gid intValue] index:i++];
 		}
 		
-		[self loadLayer];
+        _image = [[SPImage alloc] initWithTexture:_renderTexture];
+        [self addChild:_image];
+		[self redrawLayer];
 	}
 	return self;
 }
@@ -70,36 +73,38 @@
 	}
     
     STTile* tile;
+    int cooY = (int)(i/_width);
+    int cooX = i-(cooY*_width);
+    STCoordinate* coordinate = [[STCoordinate alloc] initWithX:cooX y:cooY];
+    
     switch (gid) {
-        case CHARACTER:
+        case STCHARACTER:
         {
-            tile = [[Player alloc] initWithType:CHARACTER];
+            tile = [[Player alloc] initWithType:STCHARACTER texture:texture coordinate:coordinate];
             break;
         }
         default:
         {
-            tile = [[BasicTile alloc] initWithType:gid texture:texture];
+            tile = [[BasicTile alloc] initWithType:gid texture:texture coordinate:coordinate];
             break;
         }
     }
+    
 	[_tiles addObject:tile];
-	
-    tile.y = [self getcooYForTile:tile]*_tileHeight;
-    tile.x = [self getcooXForTile:tile]*_tileWidth;
 }
 
-- (void)loadLayer {
+- (void)redrawLayer {
     [_renderTexture clear];
     for (STTile* t in _tiles) {
-        if (t.type != EMPTY) [_renderTexture drawObject:t];
+        if (t.type != STEMPTY) [_renderTexture drawObject:t];
     }
-	_image = [[SPImage alloc] initWithTexture:_renderTexture];
-	[self addChild:_image];
+    SPImage* newImage = [[SPImage alloc] initWithTexture:_renderTexture];
+    _image = newImage;
 }
 
 - (Player*)getPlayer {
     for (STTile* tile in _tiles) {
-        if (tile.type == CHARACTER) {
+        if (tile.type == STCHARACTER) {
             return (Player*)tile;
         }
     }
@@ -108,30 +113,33 @@
 
 - (void)insertTileAtGid:(STTile *)tile gid:(int)gid {
     [_tiles replaceObjectAtIndex:gid withObject:tile];
-    [self loadLayer];
+    [self redrawLayer];
 }
 
 - (STTile *)tileAtIndex:(int)index {
 	return [_tiles objectAtIndex:index];
 }
 
-- (int)getcooXForTile:(STTile *)tile {
-    int i = [_tiles indexOfObject:tile];
-    int cooY = (int)(i/_width);
-    int cooX = i-(cooY*_width);
-    return cooX;
-}
-
-- (int)getcooYForTile:(STTile *)tile {
-    int i = [_tiles indexOfObject:tile];
-    int cooY = (int)(i/_width);
-    return cooY;
-}
-
 //- (STTile *)tileAtX:(int)x y:(int)y {
 //	int i = (y*_width)+x;
 //	return [_tiles objectAtIndex:i];
 //}
+
+- (NSMutableArray*)getTilesInRowOfTile:(STTile*)tile {
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    for (STTile* curTile in _tiles) {
+        if (tile.coordinate.y == curTile.coordinate.y) [array addObject:curTile];
+    }
+    return array;
+}
+
+- (NSMutableArray*)getTilesInColumnOfTile:(STTile*)tile {
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    for (STTile* curTile in _tiles) {
+        if (tile.coordinate.x == curTile.coordinate.x) [array addObject:curTile];
+    }
+    return array;
+}
 
 - (float)trueRotation {
 	float rotation = 0;
@@ -163,7 +171,4 @@
 	}
 }
 
-- (void)dealloc {
-
-}
 @end

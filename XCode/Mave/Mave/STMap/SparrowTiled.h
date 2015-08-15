@@ -14,5 +14,6 @@
 #import "STMap.h"
 #import "STTileset.h"
 #import "STLayer.h"
+#import "STCoordinate.h"
 #import "STTile.h"
 #import "BasicTile.h"

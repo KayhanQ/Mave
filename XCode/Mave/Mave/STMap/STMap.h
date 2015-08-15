@@ -44,4 +44,6 @@
 - (id)initWithTMXFile:(NSString *)filename;
 + (STMap *)mapWithTMXFile:(NSString *)filename;
 - (STLayer *)layerByName:(NSString *)name;
+- (STTile*)getTileClosestToTileInDirection:(STTile*)tile direction:(UISwipeGestureRecognizerDirection)direction;
+
 @end

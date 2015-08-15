@@ -11,8 +11,8 @@
 
 @implementation Character
 
-- (id)initWithType:(enum TileType)type texture:(SPTexture *)texture {
-    if (self = [super initWithType:type]) {
+- (id)initWithType:(enum STType)type texture:(SPTexture *)texture coordinate:(STCoordinate*)coordinate {
+    if (self = [super initWithType:type texture:texture coordinate:coordinate]) {
         SPImage* image = [SPImage imageWithTexture:texture];
         [self addChild:image];
     }

@@ -7,13 +7,13 @@
 //
 
 
-#import "STTile.h"
+#import "BasicTile.h"
 
-@interface Character : STTile {
+@interface Character : BasicTile {
     
 }
 
 
-- (id)initWithType:(enum TileType)type texture:(SPTexture*)texture;
+- (id)initWithType:(enum STType)type texture:(SPTexture*)texture coordinate:(STCoordinate*)coordinate;
 
 @end

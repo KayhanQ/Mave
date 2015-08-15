@@ -9,9 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "Game.h"
 #import "SparrowTiled.h"
+#import "LevelsMenu.h"
 #import "LevelEngine.h"
+#import "GameEvents.h"
 
 @implementation Game
+{
+    LevelEngine* _currentLevel;
+    SPSprite* _levelSprite;
+}
 
 -(id)init
 {
@@ -19,18 +25,30 @@
         
         // This is where the code of your game will start;
         // in this sample, we add just a simple quad to see if it works.
-        
-        SPQuad *quad = [SPQuad quadWithWidth:100 height:100];
-        quad.color = 0xffffff;
-        quad.x = 50;
-        quad.y = 50;
-        [self addChild:quad];
 
-        LevelEngine* newLevel = [[LevelEngine alloc] initWithName:@"Level_1.tmx"];
-        [self addChild:newLevel];
+        LevelsMenu* menu = [[LevelsMenu alloc] initWithName:@"world1"];
+        [self addChild:menu];
         
+        _levelSprite = [[SPSprite alloc] init];
+        [self addChild:_levelSprite];
+        
+        [self addEventListener:@selector(loadLevel:) atObject:self forType:EVENT_TYPE_LOAD_LEVEL];
+        [self addEventListener:@selector(levelCompleted:) atObject:self forType:EVENT_TYPE_LEVEL_COMPLETED];
+
     }
     return self;
 }
+
+- (void)loadLevel:(LoadLevelEvent*)event
+{
+    LevelEngine* newLevel = [[LevelEngine alloc] initWithName:event.levelName];
+    [_levelSprite addChild:newLevel];
+}
+
+- (void)levelCompleted:(LevelCompletedEvent*)event
+{
+    [_levelSprite removeAllChildren];
+}
+
 
 @end

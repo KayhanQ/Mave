@@ -10,15 +10,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STCoordinate.h"
 
 @class SPTexture;
+@class STCoordinate;
 
 @interface STTile : SPSprite {
-    enum TileType {EMPTY = 0, GROUND = 30, ROUGH = 15, ROCK = 32, HOLE = 31, START = 34, FINISH = 10, CHARACTER = 46};
+    enum STType {STEMPTY = 0, STGROUND = 30, STROUGH = 15, STROCK = 32, STHOLE = 31, STSTART = 34, STFINISH = 10, STCHARACTER = 46};
+    enum CollisionType {NONE = 0, STOPBEFORE, STOPONTOPOF, KILL};
 }
 
-@property (nonatomic, readonly) enum TileType type;
+@property (nonatomic, readonly) enum STType type;
+@property (nonatomic, readonly) enum CollisionType collisionType;
+@property (nonatomic) STCoordinate* coordinate;
+@property (nonatomic) int tileWidth;
+@property (nonatomic) int tileHeight;
 
-- (id)initWithType:(enum TileType)type;
+- (id)initWithType:(enum STType)type coordinate:(STCoordinate*)coordinate;
 
 @end

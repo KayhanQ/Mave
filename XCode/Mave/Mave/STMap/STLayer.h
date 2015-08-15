@@ -48,10 +48,10 @@
 
 - (id)initWithName:(NSString *)name width:(int)width height:(int)height gids:(NSMutableArray *)gids tileset:(STTileset *)tileset;
 - (STTile *)tileAtIndex:(int)index;
-- (int)getcooXForTile:(STTile*)tile;
-- (int)getcooYForTile:(STTile*)tile;
 - (void)insertTileAtGid:(STTile*)tile gid:(int)gid;
 - (STTile*)getObstacleRelativeToTile:(enum RelativePosition)position tile:(STTile*)tile;
 - (Player*)getPlayer;
-
+- (NSMutableArray*)getTilesInRowOfTile:(STTile*)tile;
+- (NSMutableArray*)getTilesInColumnOfTile:(STTile*)tile;
+- (void)redrawLayer;
 @end

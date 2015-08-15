@@ -41,7 +41,7 @@
 @synthesize pixelHeight = _pixelHeight;
 @synthesize tileset = _tileset;
 @synthesize layers = _layers;
-@synthesize zoom;
+@synthesize zoom = _zoom;
 
 - (id)initWithTMXFile:(NSString *)filename {
 	if (self = [super init]) {
@@ -89,12 +89,6 @@
 	_tileHeight = [[TBXML valueOfAttributeNamed:@"tileheight" forElement:mapElement] intValue];
 	_pixelWidth = _width * _tileWidth;
 	_pixelHeight = _height * _tileHeight;
-	
-    NSLog(@"%d", _width);
-    NSLog(@"%d", _height);
-    NSLog(@"%d", _tileWidth);
-    NSLog(@"%d", _width);
-    NSLog(@"%d", _pixelWidth);
 
 	if (![_orientation isEqualToString:@"orthogonal"]) [self raiseXMLError:@"OrientationNotSupported" message:[NSString stringWithFormat:@"orientation \"%@\" not supported yet", _orientation]];
 }
@@ -146,6 +140,81 @@
 
 - (void)raiseXMLError:(NSString *)error message:(NSString *)message {
 	[NSException raise:error format:[NSString stringWithFormat:@"Error while reading \"%@\", %@.", _filename, message], NSStringFromSelector(_cmd)];
+}
+
+
+- (NSMutableArray*)mergeArrays:(NSMutableArray*)arrays {
+    NSMutableArray* result = [arrays objectAtIndex:0];
+    
+    for (NSMutableArray* curArray in arrays) {
+        if (result == curArray) continue;
+        
+        for (STTile* newTile in curArray) {
+            if (newTile.collisionType == NONE) continue;
+            int index = [curArray indexOfObject:newTile];
+            [result replaceObjectAtIndex:index withObject:newTile];
+        }
+    }
+    return result;
+}
+
+- (STTile*)getTileClosestToTileInDirection:(STTile*)tile direction:(UISwipeGestureRecognizerDirection)direction {
+    STTile* closestTile = nil;
+    NSMutableArray* arrayToMerge = [[NSMutableArray alloc] init];
+    NSMutableArray* curLineArray = [[NSMutableArray alloc] init];
+
+    NSEnumerator *enumerator = [_layers objectEnumerator];
+    for (STLayer* layer in enumerator) {
+        if (direction == UISwipeGestureRecognizerDirectionUp || direction == UISwipeGestureRecognizerDirectionDown) {
+            curLineArray = [layer getTilesInColumnOfTile:tile];
+        }
+        else if (direction == UISwipeGestureRecognizerDirectionRight || direction == UISwipeGestureRecognizerDirectionLeft) {
+            curLineArray = [layer getTilesInRowOfTile:tile];
+        }
+        [arrayToMerge addObject:curLineArray];
+    }
+
+    NSMutableArray* lineArray = [self mergeArrays:arrayToMerge];
+    
+    //We are going forwards in the arrays to find the next Tile
+    if (direction == UISwipeGestureRecognizerDirectionDown || direction == UISwipeGestureRecognizerDirectionRight) {
+        for (STTile* curTile in lineArray) {
+            if (curTile.type == STEMPTY) continue;
+            if (direction == UISwipeGestureRecognizerDirectionDown) {
+                if (curTile.coordinate.y > tile.coordinate.y) {
+                    closestTile = curTile;
+                    break;
+                }
+            }
+            else if (direction == UISwipeGestureRecognizerDirectionRight) {
+                if (curTile.coordinate.x > tile.coordinate.x) {
+                    closestTile = curTile;
+                    break;
+                }
+            }
+            
+        }
+    }
+    //We are going backwards in the arrays to find the next Tile
+    if (direction == UISwipeGestureRecognizerDirectionUp || direction == UISwipeGestureRecognizerDirectionLeft) {
+        for (STTile* curTile in [lineArray reverseObjectEnumerator]) {
+            if (curTile.type == STEMPTY) continue;
+            if (direction == UISwipeGestureRecognizerDirectionUp) {
+                if (curTile.coordinate.y < tile.coordinate.y) {
+                    closestTile = curTile;
+                    break;
+                }
+            }
+            else if (direction == UISwipeGestureRecognizerDirectionLeft) {
+                if (curTile.coordinate.x < tile.coordinate.x) {
+                    closestTile = curTile;
+                    break;
+                }
+            }
+        }
+    }
+    
+    return closestTile;
 }
 
 @end

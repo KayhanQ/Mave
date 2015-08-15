@@ -11,6 +11,7 @@
 @class STMap;
 @class STLayer;
 @class Player;
+@class BasicTile;
 
 @interface LevelEngine : SPSprite
 {

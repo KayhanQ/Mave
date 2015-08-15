@@ -11,9 +11,9 @@
 
 @implementation Player
 
-- (id)initWithType:(enum TileType)type texture:(SPTexture *)texture
+- (id)initWithType:(enum STType)type texture:(SPTexture *)texture coordinate:(STCoordinate*)coordinate
 {
-    if ((self = [super initWithType:CHARACTER texture:texture])) {
+    if ((self = [super initWithType:type texture:texture coordinate:coordinate])) {
 
         
     }
