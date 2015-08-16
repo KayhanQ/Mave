@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="11" displayName="bob">
+ <npcSpeech text="How are you?">
+ 	<response npcID="wit" text="Great!">
+ 		<npcSpeech text="Why so happy?">
+ 			<response npcID="wit" text="No Idea!"/>
+ 		</npcSpeech>
+ 	</response>
+ 	<response npcID="wit" text="Not the Best">
+ 		<npcSpeech text="oh..."/>
+ 	</response>
+</npcSpeech>
+</npc>

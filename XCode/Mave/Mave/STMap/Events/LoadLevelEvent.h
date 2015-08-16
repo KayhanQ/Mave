@@ -6,16 +6,16 @@
 //
 //
 
-#import "BaseEvent.h"
+#import "BasicEvent.h"
 
 #define EVENT_TYPE_LOAD_LEVEL @"loadLevel"
 
-@interface LoadLevelEvent : BaseEvent
+@interface LoadLevelEvent : BasicEvent
 {
     
 }
 
-@property(nonatomic) NSString* levelName;
+@property(nonatomic, readonly) NSString* levelName;
 
 - (id)initWithType:(NSString *)type levelName:(NSString*)levelName;
 

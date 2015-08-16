@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Kayhan Qaiser. All rights reserved.
 //
 
-#import "Character.h"
+#import "NPC.h"
 
-@interface Player : Character
+@interface Player : NPC
 {
     
 }

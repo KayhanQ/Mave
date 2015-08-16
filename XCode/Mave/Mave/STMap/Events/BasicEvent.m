@@ -6,12 +6,11 @@
 //  Copyright (c) 2015 CivetAtelier. All rights reserved.
 //
 
-#import "GHEvent.h"
+#import "BasicEvent.h"
 
-@implementation GHEvent
+@implementation BasicEvent
 {
 }
-
 
 - (id)initWithType:(NSString *)type
 {

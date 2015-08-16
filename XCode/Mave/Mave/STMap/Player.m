@@ -13,7 +13,7 @@
 
 - (id)initWithType:(enum STType)type texture:(SPTexture *)texture coordinate:(STCoordinate*)coordinate
 {
-    if ((self = [super initWithType:type texture:texture coordinate:coordinate])) {
+    if ((self = [super initWithType:STCHARACTER texture:texture coordinate:coordinate])) {
 
         
     }

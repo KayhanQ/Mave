@@ -12,6 +12,7 @@
 #import <UIKit/UIKit.h>
 #import "Player.h"
 #import "GameEvents.h"
+#import "NPCDialogueHandler.h"
 
 @interface LevelEngine ()
 - (void)swipeLeft:(UISwipeGestureRecognizer *)gestureRecognizer;
@@ -63,7 +64,9 @@
     
     
     _player = [_characterLayer getPlayer];
+    
     [self addSwipeRecognizers];
+    [self addEventListener:@selector(npcTouched:) atObject:self forType:EVENT_TYPE_NPC_TOUCHED];
 }
 
 - (void)swipeInDirection:(UISwipeGestureRecognizerDirection)direction {
@@ -84,6 +87,7 @@
         case KILL:
         {
             coordinate = obstacle.coordinate;
+            
             break;
         }
         default:
@@ -93,7 +97,9 @@
     _player.coordinate = coordinate;
     [_characterLayer redrawLayer];
     
-    if (obstacle.type == STFINISH) {
+    
+    //TEMP collision says level completed
+    if (obstacle.type == STFINISH || obstacle.collisionType == KILL) {
         LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
         [self dispatchEvent:event];
     }
@@ -131,6 +137,22 @@
     STCoordinate* result = [[STCoordinate alloc] initWithX:x y:y];
     return result;
 }
+
+- (int)getDistanceFromTiles:(STTile*)tile1 tile:(STTile*)tile2 {
+    int distx = abs(tile1.coordinate.x - tile2.coordinate.x);
+    int disty = abs(tile1.coordinate.y - tile2.coordinate.y);
+    return distx + disty;
+}
+
+- (void)npcTouched:(NPCTouchedEvent*)event {
+    NPC* npc = event.npc;
+    if ([self getDistanceFromTiles:_player tile:npc] <= 1) {
+        //make speak
+        NPCDialogueHandler* dialogueHandler = [[NPCDialogueHandler alloc] initWithNPC:npc];
+        [dialogueHandler playDialogue];
+    }
+}
+
 
 - (void)addSwipeRecognizers {
     UISwipeGestureRecognizer *swipeUpRecognizer=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeUp:)];

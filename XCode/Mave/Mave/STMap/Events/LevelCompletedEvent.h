@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Kayhan Qaiser. All rights reserved.
 //
 
-#import "BaseEvent.h"
+#import "BasicEvent.h"
 
 #define EVENT_TYPE_LEVEL_COMPLETED @"levelCompleted"
 
-@interface LevelCompletedEvent : BaseEvent
+@interface LevelCompletedEvent : BasicEvent
 {
     
 }

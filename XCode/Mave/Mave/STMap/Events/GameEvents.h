@@ -8,3 +8,5 @@
 
 #import "LoadLevelEvent.h"
 #import "LevelCompletedEvent.h"
+#import "NPCTouchedEvent.h"
+#import "NPCSpeechFinishedEvent.h"

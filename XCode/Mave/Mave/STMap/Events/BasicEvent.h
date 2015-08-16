@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BaseEvent : SPEvent
+@interface BasicEvent : SPEvent
 
 - (id)initWithType:(NSString *)type;
 
