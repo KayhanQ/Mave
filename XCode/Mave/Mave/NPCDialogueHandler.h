@@ -16,6 +16,6 @@
 @property(nonatomic, readonly) NPC* npc;
 
 - (id)initWithNPC:(NPC*)npc;
-- (void)playDialogue;
+- (void)startDialogue;
 
 @end

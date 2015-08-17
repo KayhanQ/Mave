@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define EVENT_NPC_DIALOGUE_FINISHED @"npcDialogueFinished"
+
 @interface BasicEvent : SPEvent
 
 - (id)initWithType:(NSString *)type;

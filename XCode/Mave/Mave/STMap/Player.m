@@ -11,9 +11,8 @@
 
 @implementation Player
 
-- (id)initWithType:(enum STType)type texture:(SPTexture *)texture coordinate:(STCoordinate*)coordinate
-{
-    if ((self = [super initWithType:STCHARACTER texture:texture coordinate:coordinate])) {
+- (id)initWithType:(enum STType)type texture:(SPTexture*)texture coordinate:(STCoordinate*)coordinate filename:(NSString*)filename {
+    if ((self = [super initWithType:STCHARACTER texture:texture coordinate:coordinate filename:filename])) {
 
         
     }

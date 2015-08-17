@@ -8,9 +8,8 @@
 
 
 #import "BasicTile.h"
+#import "TBXML.h"
 
-#define ST_EXC_FILE_NOT_FOUND @"FileNotFoundOrInvalid"
-#define ST_EXC_ELEMENT_NOT_FOUND @"ElementNotFound"
 
 @interface NPC : BasicTile {
     
@@ -21,6 +20,6 @@
 @property(nonatomic, readonly) NSString* displayName;
 @property(nonatomic, readonly) NSMutableArray* speeches;
 
-- (id)initWithType:(enum STType)type texture:(SPTexture*)texture coordinate:(STCoordinate*)coordinate dialogueFileName:(NSString*)filename;
+- (id)initWithType:(enum STType)type texture:(SPTexture*)texture coordinate:(STCoordinate*)coordinate filename:(NSString*)filename;
 
 @end

@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Response.h"
+#import "NPCResponse.h"
 
-@implementation Response
+@implementation NPCResponse
 
 @synthesize textToRespondWith = _textToRespondWith;
 @synthesize npcSpeech = _npcSpeech;

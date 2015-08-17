@@ -19,13 +19,24 @@
     if (self = [super init]) {
         _npcSpeech = npcSpeech;
         
-        SPTextField* speech = [SPTextField textFieldWithWidth:480 height:320 text: _npcSpeech.textToSpeak];
-        speech.y = 200;
+        SPQuad* background = [SPQuad quadWithWidth:400 height:40];
+        [self addChild:background];
+        
+        SPTextField* speech = [SPTextField textFieldWithWidth:480 height:40 text: _npcSpeech.textToSpeak];
         [self addChild:speech];
         
-        
+        [self addEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     }
     return self;
+}
+
+- (void)onTouch:(SPTouchEvent*)event
+{
+    SPTouch *touchBegan = [[event touchesWithTarget:self andPhase:SPTouchPhaseBegan] anyObject];
+    if (touchBegan)
+    {
+        [self loadNext];
+    }
 }
 
 - (void)loadNext {
@@ -33,5 +44,6 @@
     NPCSpeechFinsihedEvent *event = [[NPCSpeechFinsihedEvent alloc] initWithNPCSpeech:_npcSpeech];
     [self dispatchEvent:event];
 }
+
 
 @end

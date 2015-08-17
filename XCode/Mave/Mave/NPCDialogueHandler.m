@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "NPCDialogueHandler.h"
 #import "NPCSpeechBox.h"
+#import "NPCResponse.h"
+#import "NPCResponseBox.h"
 #import "NPC.h"
 #import "NPCSpeech.h"
 #import "GameEvents.h"
@@ -26,17 +28,20 @@
         _speechContainer = [[SPSprite alloc] init];
         [self addChild:_speechContainer];
         
-        [self addEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         [self addEventListener:@selector(currentSpeechFinished:) atObject:self forType:EVENT_TYPE_NPCSPEECH_FINISHED];
+        [self addEventListener:@selector(responseClicked:) atObject:self forType:EVENT_TYPE_NPCRESPONSE_CLICKED];
 
     }
     return self;
 }
 
-- (void)playDialogue {
-    NPCSpeechBox* speechBox = [[NPCSpeechBox alloc] initWithNPCSpeech:_npc.speeches[0]];
+- (void)startDialogue {
+    [self presentSpeechBoxWithNPCSpeech:_npc.speeches[0]];
+}
+
+- (void)presentSpeechBoxWithNPCSpeech:(NPCSpeech*)npcSpeech {
+    NPCSpeechBox* speechBox = [[NPCSpeechBox alloc] initWithNPCSpeech:npcSpeech];
     [_speechContainer addChild:speechBox];
-    
 }
 
 - (NPCSpeechBox*)getSpeechBox {
@@ -44,22 +49,47 @@
     else return (NPCSpeechBox*) [_speechContainer childAtIndex:0];
 }
 
-- (void)onTouch:(SPTouchEvent*)event
-{
-    SPTouch *touchBegan = [[event touchesWithTarget:self andPhase:SPTouchPhaseBegan] anyObject];
-    if (touchBegan)
-    {
-        [[self getSpeechBox] loadNext];
-    }
-}
-
 - (void)currentSpeechFinished:(NPCSpeechFinsihedEvent*)event {
     NPCSpeech* npcSpeech = event.npcSpeech;
-    [self presentResponses: npcSpeech.responses];
+    if ([self npcSpeechIsTerminatingSpeech:npcSpeech]) [self endDialogue];
+    else [self presentResponses: npcSpeech.responses];
 }
 
 - (void)presentResponses:(NSArray*)responses {
+    [self getSpeechBox].touchable = false;
+    int y = 200;
+    for (NPCResponse* response in responses) {
+        NPCResponseBox* responceBox = [[NPCResponseBox alloc] initWithResponse:response];
+        [_speechContainer addChild:responceBox];
+        responceBox.y = y;
+        y += 40;
+    }
+}
+
+- (void)responseClicked:(NPCResponseClickedEvent*)event {
+    [self clearDialogue];
+    NPCResponse* response = event.npcResponse;
+    //carry out any response related actions
     
+    NPCSpeech* nextSpeech = response.npcSpeech;
+    if (nextSpeech) [self presentSpeechBoxWithNPCSpeech:nextSpeech];
+    else [self endDialogue];
+}
+- (void)clearDialogue {
+    [_speechContainer removeAllChildren];
+    
+}
+- (void)endDialogue {
+    [self clearDialogue];
+    BasicEvent *event = [[BasicEvent alloc] initWithType:EVENT_NPC_DIALOGUE_FINISHED];
+    [self dispatchEvent:event];
+}
+
+- (BOOL)npcSpeechIsTerminatingSpeech:(NPCSpeech*)npcSpeech {
+    for (NPCResponse* responce in npcSpeech.responses) {
+        if (responce.textToRespondWith == nil) return true;
+    }
+    return false;
 }
 
 

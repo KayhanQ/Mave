@@ -22,16 +22,16 @@
 @implementation LevelEngine
 {
     NSMutableArray* _swipeGestureRecognizers;
-    
+    STMap* _map;
+    STLayer* _groundLayer;
+    STLayer* _obstacleLayer;
+    STLayer* _startAndEndLayer;
+    NPCLayer* _characterLayer;
+    Player* _player;
+    SPSprite* _dialogueSprite;
 }
 
 @synthesize levelName = _levelName;
-@synthesize map = _map;
-@synthesize groundLayer = _groundLayer;
-@synthesize obstacleLayer = _obstacleLayer;
-@synthesize startAndEndLayer = _startAndEndLayer;
-@synthesize characterLayer = _characterLayer;
-@synthesize player = _player;
 
 - (id)initWithName:(NSString *)levelName
 {
@@ -52,21 +52,25 @@
     _groundLayer = [_map layerByName:@"Ground"];
     _obstacleLayer = [_map layerByName:@"Obstacles"];
     _startAndEndLayer = [_map layerByName:@"StartAndEnd"];
-    _characterLayer = [_map layerByName:@"Characters"];
+    _characterLayer = (NPCLayer*)[_map layerByName:@"Characters"];
     
     [container addChild:_groundLayer];
     [container addChild:_obstacleLayer];
     [container addChild:_startAndEndLayer];
     [container addChild:_characterLayer];
 
-    container.scale = 0.7;
-    _swipeGestureRecognizers = [[NSMutableArray alloc] initWithCapacity:1];
+    _dialogueSprite = [[SPSprite alloc] init];
+    [container addChild:_dialogueSprite];
     
+    container.scale = 0.7;
+    _swipeGestureRecognizers = [[NSMutableArray alloc] init];
     
     _player = [_characterLayer getPlayer];
     
     [self addSwipeRecognizers];
     [self addEventListener:@selector(npcTouched:) atObject:self forType:EVENT_TYPE_NPC_TOUCHED];
+    [self addEventListener:@selector(npcDialogueFinished:) atObject:self forType:EVENT_NPC_DIALOGUE_FINISHED];
+
 }
 
 - (void)swipeInDirection:(UISwipeGestureRecognizerDirection)direction {
@@ -87,19 +91,17 @@
         case KILL:
         {
             coordinate = obstacle.coordinate;
-            
             break;
         }
         default:
             break;
     }
     
-    _player.coordinate = coordinate;
-    [_characterLayer redrawLayer];
+    [_characterLayer moveNPCTo:coordinate];
     
     
     //TEMP collision says level completed
-    if (obstacle.type == STFINISH || obstacle.collisionType == KILL) {
+    if (obstacle.type == STFINISH) {
         LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
         [self dispatchEvent:event];
     }
@@ -146,13 +148,24 @@
 
 - (void)npcTouched:(NPCTouchedEvent*)event {
     NPC* npc = event.npc;
-    if ([self getDistanceFromTiles:_player tile:npc] <= 1) {
-        //make speak
-        NPCDialogueHandler* dialogueHandler = [[NPCDialogueHandler alloc] initWithNPC:npc];
-        [dialogueHandler playDialogue];
+    
+    //set value to 1 to get real gameplay
+    if ([self getDistanceFromTiles:_player tile:npc] <= 999999999) {
+        [self startDialogue:npc];
     }
 }
 
+- (void)startDialogue:(NPC*)npc {
+    NPCDialogueHandler* dialogueHandler = [[NPCDialogueHandler alloc] initWithNPC:npc];
+    [_dialogueSprite addChild:dialogueHandler];
+    _characterLayer.touchable = false;
+    [dialogueHandler startDialogue];
+}
+
+- (void)npcDialogueFinished:(BasicEvent*)event {
+    [_dialogueSprite removeAllChildren];
+    _characterLayer.touchable = true;
+}
 
 - (void)addSwipeRecognizers {
     UISwipeGestureRecognizer *swipeUpRecognizer=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeUp:)];

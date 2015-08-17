@@ -12,6 +12,7 @@
 @class STLayer;
 @class Player;
 @class BasicTile;
+@class NPCLayer;
 
 @interface LevelEngine : SPSprite
 {
@@ -19,12 +20,6 @@
 }
 
 @property(nonatomic, strong)NSString* levelName;
-@property(nonatomic, strong)STMap* map;
-@property(nonatomic, strong)STLayer* groundLayer;
-@property(nonatomic, strong)STLayer* obstacleLayer;
-@property(nonatomic, strong)STLayer* startAndEndLayer;
-@property(nonatomic, strong)STLayer* characterLayer;
-@property(nonatomic, strong)Player* player;
 
 - (id)initWithName:(NSString*)levelName;
 

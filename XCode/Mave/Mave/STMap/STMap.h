@@ -22,8 +22,8 @@
 //	int mHeight;
 //	int mTileWidth;
 //	int mTileHeight;
-//	int mPixelWidth;
-//	int mPixelHeight;
+	int mPixelWidth;
+	int mPixelHeight;
 //	STTileset *mTileset;
 	NSMutableDictionary *layers;
 }

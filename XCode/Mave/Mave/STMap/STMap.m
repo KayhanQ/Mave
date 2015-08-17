@@ -17,6 +17,7 @@
 #import "NSDataAdditions.h"
 #import "STTileset.h"
 #import "STLayer.h"
+#import "NPCLayer.h"
 #import "STTile.h"
 
 @interface STMap ()
@@ -69,7 +70,10 @@
 	
 	TBXMLElement *tilesetElement = [TBXML childElementNamed:@"tileset" parentElement:mapElement];
 	if (!tilesetElement) [self raiseXMLError:ST_EXC_ELEMENT_NOT_FOUND message:@"\"tileset\" element doesn't exist"];
-	[self loadTileset:tilesetElement];
+    NSString* tilesetFileName = [TBXML valueOfAttributeNamed:@"source" forElement:tilesetElement];
+    TBXML *tilesetXml = [[TBXML alloc] initWithXMLFile:tilesetFileName];
+    TBXMLElement *tilesetFileRoot = tilesetXml.rootXMLElement;
+    [self loadTileset:tilesetFileRoot];
 	
 	TBXMLElement *layerElement = [TBXML childElementNamed:@"layer" parentElement:mapElement];
 	if (!layerElement) [self raiseXMLError:ST_EXC_ELEMENT_NOT_FOUND message:@"\"layer\" element doesn't exist"];
@@ -108,28 +112,22 @@
 	int width = [[TBXML valueOfAttributeNamed:@"width" forElement:imageElement] intValue];
 	int height = [[TBXML valueOfAttributeNamed:@"height" forElement:imageElement] intValue];
 	
+    //tsx files don't contain first gid info for some reason
+    firstGID = 1;
 	_tileset = [[STTileset alloc] initWithFile:filename name:name firstGID:firstGID tileWidth:tileWidth tileHeight:tileHeight spacing:spacing margin:margin transparentColor:transparentColor width:width height:height];
 }
 
 - (void)loadLayer:(TBXMLElement *)layerElement {
 	NSString *name = [TBXML valueOfAttributeNamed:@"name" forElement:layerElement];
-	int width = [[TBXML valueOfAttributeNamed:@"width" forElement:layerElement] intValue];
-	int height = [[TBXML valueOfAttributeNamed:@"height" forElement:layerElement] intValue];
-	NSString *opacity = [TBXML valueOfAttributeNamed:@"opacity" forElement:layerElement];
-	
-	TBXMLElement *dataElement = [TBXML childElementNamed:@"data" parentElement:layerElement];
-	if (!dataElement) [self raiseXMLError:ST_EXC_ELEMENT_NOT_FOUND message:@"\"data\" element doesn't exist"];
-	TBXMLElement *tileElement = [TBXML childElementNamed:@"tile" parentElement:dataElement];
-	if (!tileElement) [self raiseXMLError:ST_EXC_ELEMENT_NOT_FOUND message:@"\"tile\" element doesn't exist"];
-	NSMutableArray *tileGIDS = [NSMutableArray arrayWithCapacity:10];
-	while (tileElement) {
-		NSNumber *tileGID = [NSNumber numberWithInt:[[TBXML valueOfAttributeNamed:@"gid" forElement:tileElement] intValue]];
-		[tileGIDS addObject:tileGID];
-		tileElement = [TBXML nextSiblingNamed:@"tile" searchFromElement:tileElement];
-	}
-	
-	STLayer *layer = [[STLayer alloc] initWithName:name width:width height:height gids:tileGIDS tileset:_tileset];
-	if (opacity) layer.alpha = [opacity floatValue]; 
+
+    STLayer *layer;
+    if ([name isEqualToString:@"Characters"]) {
+        layer = [[NPCLayer alloc] initWithName:name LayerElement:layerElement tileset:_tileset];
+    }
+    else {
+        layer = [[STLayer alloc] initWithName:name LayerElement:layerElement tileset:_tileset];
+    }
+    
 	[_layers setObject:layer forKey:[name lowercaseString]];
 }
 
@@ -150,9 +148,8 @@
         if (result == curArray) continue;
         
         for (STTile* newTile in curArray) {
-            if (newTile.collisionType == NONE) continue;
-            int index = [curArray indexOfObject:newTile];
-            [result replaceObjectAtIndex:index withObject:newTile];
+            if (newTile.collisionType == NONE || newTile.type == STEMPTY) continue;
+            [result replaceObjectAtIndex:[curArray indexOfObject:newTile] withObject:newTile];
         }
     }
     return result;
@@ -165,6 +162,8 @@
 
     NSEnumerator *enumerator = [_layers objectEnumerator];
     for (STLayer* layer in enumerator) {
+        //we don't want the ground layer in our obstacle detection
+        //if ([layer.name isEqualToString:@"Characters"]) continue;
         if (direction == UISwipeGestureRecognizerDirectionUp || direction == UISwipeGestureRecognizerDirectionDown) {
             curLineArray = [layer getTilesInColumnOfTile:tile];
         }
@@ -175,6 +174,20 @@
     }
 
     NSMutableArray* lineArray = [self mergeArrays:arrayToMerge];
+    NSLog(@"test");
+    for (STTile* t in lineArray) NSLog(@"%d",t.type);
+//
+//    STLayer* layer = [self layerByName:@"Obstacles"];
+//    
+//        if (direction == UISwipeGestureRecognizerDirectionUp || direction == UISwipeGestureRecognizerDirectionDown) {
+//            curLineArray = [layer getTilesInColumnOfTile:tile];
+//        }
+//        else if (direction == UISwipeGestureRecognizerDirectionRight || direction == UISwipeGestureRecognizerDirectionLeft) {
+//            curLineArray = [layer getTilesInRowOfTile:tile];
+//        }
+//      NSMutableArray* lineArray = [[NSMutableArray alloc] initWithArray:curLineArray];
+//    
+//    
     
     //We are going forwards in the arrays to find the next Tile
     if (direction == UISwipeGestureRecognizerDirectionDown || direction == UISwipeGestureRecognizerDirectionRight) {

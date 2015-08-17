@@ -17,3 +17,4 @@
 #import "STCoordinate.h"
 #import "STTile.h"
 #import "BasicTile.h"
+#import "NPCLayer.h"

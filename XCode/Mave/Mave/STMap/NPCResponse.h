@@ -10,7 +10,7 @@
 
 @class NPCSpeech;
 
-@interface Response : NSObject
+@interface NPCResponse : NSObject
 {
 
 }

@@ -918,7 +918,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="46"/>
+   <tile gid="46" id="ogre32" displayName="BobMan"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -1006,7 +1006,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="46" id="player" displayName="You"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>

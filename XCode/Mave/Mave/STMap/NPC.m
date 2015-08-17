@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "NPC.h"
 #import "GameEvents.h"
-#import "TBXML.h"
 #import "NPCSpeech.h"
-#import "Response.h"
+#import "NPCResponse.h"
 
 @implementation NPC
 
@@ -20,15 +19,17 @@
 @synthesize displayName = _displayName;
 @synthesize speeches = _speeches;
 
-- (id)initWithType:(enum STType)type texture:(SPTexture *)texture coordinate:(STCoordinate *)coordinate dialogueFileName:(NSString *)filename {
+- (id)initWithType:(enum STType)type texture:(SPTexture *)texture coordinate:(STCoordinate *)coordinate filename:(NSString *)filename {
     if (self = [super initWithType:type texture:texture coordinate:coordinate]) {
         
         SPImage* image = [SPImage imageWithTexture:texture];
         [self addChild:image];
         
+        _filename = filename;
+        
         _speeches = [[NSMutableArray alloc] init];
         
-        [self loadXMLFile:filename];
+        [self loadXMLFile:_filename];
         
         [self addEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     }
@@ -55,20 +56,29 @@
 
 - (void)setNPCProperties:(TBXMLElement *)npcElement {
     _npcID = [TBXML valueOfAttributeNamed:@"npcID" forElement:npcElement];
-    _npcID = [TBXML valueOfAttributeNamed:@"displayName" forElement:npcElement];
+    _displayName = [TBXML valueOfAttributeNamed:@"displayName" forElement:npcElement];
 }
 
 - (NPCSpeech*)loadNPCSpeechTreeWithNode:(TBXMLElement*)npcSpeechElement {
     TBXMLElement *responseElement = [TBXML childElementNamed:@"response" parentElement:npcSpeechElement];
-    if (!responseElement) [self raiseXMLError:ST_EXC_ELEMENT_NOT_FOUND message:@"\"responseElement\" element doesn't exist"];
+    
+    //if (!responseElement) [self raiseXMLError:ST_EXC_ELEMENT_NOT_FOUND message:@"\"responseElement\" element doesn't exist"];
     NSMutableArray* responses = [[NSMutableArray alloc] init];
+    if (!responseElement) {
+        NPCResponse* response = [[NPCResponse alloc] initWithTextToRespondWith:nil npcSpeech:nil];
+        [responses addObject:response];
+    }
     while (responseElement) {
         //recursive call
         TBXMLElement *nextNPCSpeechElement = [TBXML childElementNamed:@"npcSpeech" parentElement:responseElement];
-        NPCSpeech* nextNPCSpeech = [self loadNPCSpeechTreeWithNode:nextNPCSpeechElement];
+        
+        NPCSpeech* nextNPCSpeech = nil;
+        if (nextNPCSpeechElement) {
+            nextNPCSpeech = [self loadNPCSpeechTreeWithNode:nextNPCSpeechElement];
+        }
         
         NSString* responseString = [TBXML valueOfAttributeNamed:@"text" forElement:responseElement];
-        Response* response = [[Response alloc] initWithTextToRespondWith:responseString npcSpeech:nextNPCSpeech];
+        NPCResponse* response = [[NPCResponse alloc] initWithTextToRespondWith:responseString npcSpeech:nextNPCSpeech];
         
         [responses addObject:response];
         

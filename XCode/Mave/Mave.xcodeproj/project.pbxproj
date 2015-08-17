@@ -9,12 +9,18 @@
 /* Begin PBXBuildFile section */
 		F16FD6451B7FB1A500860749 /* NPCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6441B7FB1A500860749 /* NPCAction.m */; };
 		F16FD6481B7FB54E00860749 /* NPCSpeech.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6471B7FB54E00860749 /* NPCSpeech.m */; };
-		F16FD64B1B7FB7BB00860749 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD64A1B7FB7BB00860749 /* Response.m */; };
+		F16FD64B1B7FB7BB00860749 /* NPCResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD64A1B7FB7BB00860749 /* NPCResponse.m */; };
 		F16FD64E1B7FEB5000860749 /* NPCTouchedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD64D1B7FEB5000860749 /* NPCTouchedEvent.m */; };
 		F16FD6521B7FF50900860749 /* NPCDialogueHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6511B7FF50900860749 /* NPCDialogueHandler.m */; };
 		F16FD6541B80938E00860749 /* NPCSpeechBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6531B80938E00860749 /* NPCSpeechBox.m */; };
 		F16FD6591B80987D00860749 /* NPCD_Level_1_bob.xml in Resources */ = {isa = PBXBuildFile; fileRef = F16FD6581B80987D00860749 /* NPCD_Level_1_bob.xml */; };
 		F16FD65D1B80D5B200860749 /* NPCSpeechFinishedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD65C1B80D5B200860749 /* NPCSpeechFinishedEvent.m */; };
+		F16FD6601B81D30E00860749 /* NPCLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD65F1B81D30E00860749 /* NPCLayer.m */; };
+		F16FD6621B81F78C00860749 /* tileset.tsx in Resources */ = {isa = PBXBuildFile; fileRef = F16FD6611B81F78C00860749 /* tileset.tsx */; };
+		F16FD6651B822EF600860749 /* level_1_bob.xml in Resources */ = {isa = PBXBuildFile; fileRef = F16FD6631B822EF500860749 /* level_1_bob.xml */; };
+		F16FD6661B822EF600860749 /* level_1_player.xml in Resources */ = {isa = PBXBuildFile; fileRef = F16FD6641B822EF500860749 /* level_1_player.xml */; };
+		F16FD6691B8249BD00860749 /* NPCResponseBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6681B8249BD00860749 /* NPCResponseBox.m */; };
+		F16FD66C1B824D0C00860749 /* NPCResponseClickedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD66B1B824D0C00860749 /* NPCResponseClickedEvent.m */; };
 		F17101421B7D259F00349039 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F17101411B7D259F00349039 /* main.m */; };
 		F17101451B7D259F00349039 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F17101441B7D259F00349039 /* AppDelegate.m */; };
 		F17101481B7D259F00349039 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F17101471B7D259F00349039 /* ViewController.m */; };
@@ -72,8 +78,8 @@
 		F16FD6441B7FB1A500860749 /* NPCAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPCAction.m; path = STMap/NPCAction.m; sourceTree = "<group>"; };
 		F16FD6461B7FB54E00860749 /* NPCSpeech.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPCSpeech.h; path = STMap/NPCSpeech.h; sourceTree = "<group>"; };
 		F16FD6471B7FB54E00860749 /* NPCSpeech.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPCSpeech.m; path = STMap/NPCSpeech.m; sourceTree = "<group>"; };
-		F16FD6491B7FB7BB00860749 /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Response.h; path = STMap/Response.h; sourceTree = "<group>"; };
-		F16FD64A1B7FB7BB00860749 /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Response.m; path = STMap/Response.m; sourceTree = "<group>"; };
+		F16FD6491B7FB7BB00860749 /* NPCResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPCResponse.h; path = STMap/NPCResponse.h; sourceTree = "<group>"; };
+		F16FD64A1B7FB7BB00860749 /* NPCResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPCResponse.m; path = STMap/NPCResponse.m; sourceTree = "<group>"; };
 		F16FD64D1B7FEB5000860749 /* NPCTouchedEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCTouchedEvent.m; sourceTree = "<group>"; };
 		F16FD64F1B7FEB5800860749 /* NPCTouchedEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPCTouchedEvent.h; sourceTree = "<group>"; };
 		F16FD6501B7FF50000860749 /* NPCDialogueHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPCDialogueHandler.h; sourceTree = "<group>"; };
@@ -83,6 +89,15 @@
 		F16FD6581B80987D00860749 /* NPCD_Level_1_bob.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NPCD_Level_1_bob.xml; sourceTree = "<group>"; };
 		F16FD65B1B80D5B200860749 /* NPCSpeechFinishedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPCSpeechFinishedEvent.h; sourceTree = "<group>"; };
 		F16FD65C1B80D5B200860749 /* NPCSpeechFinishedEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCSpeechFinishedEvent.m; sourceTree = "<group>"; };
+		F16FD65E1B81D2F600860749 /* NPCLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPCLayer.h; sourceTree = "<group>"; };
+		F16FD65F1B81D30E00860749 /* NPCLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCLayer.m; sourceTree = "<group>"; };
+		F16FD6611B81F78C00860749 /* tileset.tsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tileset.tsx; sourceTree = "<group>"; };
+		F16FD6631B822EF500860749 /* level_1_bob.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_1_bob.xml; sourceTree = "<group>"; };
+		F16FD6641B822EF500860749 /* level_1_player.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_1_player.xml; sourceTree = "<group>"; };
+		F16FD6671B8249BD00860749 /* NPCResponseBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPCResponseBox.h; sourceTree = "<group>"; };
+		F16FD6681B8249BD00860749 /* NPCResponseBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCResponseBox.m; sourceTree = "<group>"; };
+		F16FD66A1B824D0C00860749 /* NPCResponseClickedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPCResponseClickedEvent.h; sourceTree = "<group>"; };
+		F16FD66B1B824D0C00860749 /* NPCResponseClickedEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCResponseClickedEvent.m; sourceTree = "<group>"; };
 		F171013C1B7D259F00349039 /* Mave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17101401B7D259F00349039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F17101411B7D259F00349039 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -186,12 +201,14 @@
 				F16FD6441B7FB1A500860749 /* NPCAction.m */,
 				F16FD6461B7FB54E00860749 /* NPCSpeech.h */,
 				F16FD6471B7FB54E00860749 /* NPCSpeech.m */,
-				F16FD6491B7FB7BB00860749 /* Response.h */,
-				F16FD64A1B7FB7BB00860749 /* Response.m */,
+				F16FD6491B7FB7BB00860749 /* NPCResponse.h */,
+				F16FD64A1B7FB7BB00860749 /* NPCResponse.m */,
 				F16FD6501B7FF50000860749 /* NPCDialogueHandler.h */,
 				F16FD6511B7FF50900860749 /* NPCDialogueHandler.m */,
 				F16FD6551B80939600860749 /* NPCSpeechBox.h */,
 				F16FD6531B80938E00860749 /* NPCSpeechBox.m */,
+				F16FD6671B8249BD00860749 /* NPCResponseBox.h */,
+				F16FD6681B8249BD00860749 /* NPCResponseBox.m */,
 				F196D6F61B7DFDE100AE89B4 /* NPC.h */,
 				F196D6F41B7DFDDB00AE89B4 /* NPC.m */,
 				F196D6FE1B7E218500AE89B4 /* Player.h */,
@@ -301,6 +318,8 @@
 				F17101781B7D26C900349039 /* SparrowTiled.h */,
 				F171017A1B7D26C900349039 /* STLayer.h */,
 				F171017B1B7D26C900349039 /* STLayer.m */,
+				F16FD65E1B81D2F600860749 /* NPCLayer.h */,
+				F16FD65F1B81D30E00860749 /* NPCLayer.m */,
 				F171017D1B7D26C900349039 /* STMap.h */,
 				F171017E1B7D26C900349039 /* STMap.m */,
 				F196D6F71B7DFDF100AE89B4 /* Tiles */,
@@ -354,8 +373,11 @@
 				F196D7181B7F54C900AE89B4 /* button_square.png */,
 				F196D70C1B7EB65C00AE89B4 /* benchmark_object.png */,
 				F196D6E51B7D3D6B00AE89B4 /* Level_1.tmx */,
+				F16FD6631B822EF500860749 /* level_1_bob.xml */,
+				F16FD6641B822EF500860749 /* level_1_player.xml */,
 				F196D6E61B7D3D6B00AE89B4 /* tmw_desert_spacing.png */,
 				F17101941B7D27EA00349039 /* sewer_tileset.png */,
+				F16FD6611B81F78C00860749 /* tileset.tsx */,
 				F17101951B7D27EA00349039 /* sewers.tmx */,
 			);
 			name = Graphics;
@@ -418,6 +440,8 @@
 				F16FD64D1B7FEB5000860749 /* NPCTouchedEvent.m */,
 				F16FD65B1B80D5B200860749 /* NPCSpeechFinishedEvent.h */,
 				F16FD65C1B80D5B200860749 /* NPCSpeechFinishedEvent.m */,
+				F16FD66A1B824D0C00860749 /* NPCResponseClickedEvent.h */,
+				F16FD66B1B824D0C00860749 /* NPCResponseClickedEvent.m */,
 			);
 			name = Events;
 			path = STMap/Events;
@@ -503,6 +527,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F16FD6651B822EF600860749 /* level_1_bob.xml in Resources */,
 				F196D70D1B7EB65C00AE89B4 /* benchmark_object.png in Resources */,
 				F16FD6591B80987D00860749 /* NPCD_Level_1_bob.xml in Resources */,
 				F171014B1B7D25A000349039 /* Main.storyboard in Resources */,
@@ -510,8 +535,10 @@
 				F196D6E71B7D3D6B00AE89B4 /* Level_1.tmx in Resources */,
 				F17101501B7D25A000349039 /* LaunchScreen.xib in Resources */,
 				F171014D1B7D25A000349039 /* Images.xcassets in Resources */,
+				F16FD6621B81F78C00860749 /* tileset.tsx in Resources */,
 				F196D6E81B7D3D6C00AE89B4 /* tmw_desert_spacing.png in Resources */,
 				F17101971B7D27EA00349039 /* sewers.tmx in Resources */,
+				F16FD6661B822EF600860749 /* level_1_player.xml in Resources */,
 				F17101961B7D27EA00349039 /* sewer_tileset.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,16 +560,18 @@
 				F196D7001B7E21AA00AE89B4 /* Player.m in Sources */,
 				F16FD6521B7FF50900860749 /* NPCDialogueHandler.m in Sources */,
 				F171018D1B7D26C900349039 /* TBXML.m in Sources */,
+				F16FD6691B8249BD00860749 /* NPCResponseBox.m in Sources */,
 				F196D6EF1B7DCD8E00AE89B4 /* STLayer+Viewport.m in Sources */,
 				F196D7211B7F55E100AE89B4 /* LoadLevelEvent.m in Sources */,
 				F171018B1B7D26C900349039 /* STTileset.m in Sources */,
 				F171018A1B7D26C900349039 /* STTile.m in Sources */,
 				F17101881B7D26C900349039 /* STLayer.m in Sources */,
-				F16FD64B1B7FB7BB00860749 /* Response.m in Sources */,
+				F16FD64B1B7FB7BB00860749 /* NPCResponse.m in Sources */,
 				F17101481B7D259F00349039 /* ViewController.m in Sources */,
 				F196D6FA1B7E01B000AE89B4 /* BasicTile.m in Sources */,
 				F17101901B7D272A00349039 /* Game.m in Sources */,
 				F196D70F1B7F3AE300AE89B4 /* STCoordinate.m in Sources */,
+				F16FD66C1B824D0C00860749 /* NPCResponseClickedEvent.m in Sources */,
 				F196D7251B7F604800AE89B4 /* LevelCompletedEvent.m in Sources */,
 				F196D6F01B7DCD8E00AE89B4 /* STMap+Viewport.m in Sources */,
 				F17101451B7D259F00349039 /* AppDelegate.m in Sources */,
@@ -555,6 +584,7 @@
 				F16FD6481B7FB54E00860749 /* NPCSpeech.m in Sources */,
 				F196D7171B7F53E400AE89B4 /* LevelButton.m in Sources */,
 				F196D7201B7F55E100AE89B4 /* BasicEvent.m in Sources */,
+				F16FD6601B81D30E00860749 /* NPCLayer.m in Sources */,
 				F17101421B7D259F00349039 /* main.m in Sources */,
 				F16FD6451B7FB1A500860749 /* NPCAction.m in Sources */,
 				F16FD65D1B80D5B200860749 /* NPCSpeechFinishedEvent.m in Sources */,

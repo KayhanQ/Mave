@@ -122,13 +122,14 @@
 }
 
 - (float)zoom {
-	id key = [[layers allKeys] objectAtIndex:0];
-	if (key) {
-		STLayer *layer = (STLayer *)[layers objectForKey:key];
-		return layer.image.scaleX;
-	} else {
-		return 0;
-	}
+//	id key = [[layers allKeys] objectAtIndex:0];
+//	if (key) {
+//		STLayer *layer = (STLayer *)[layers objectForKey:key];
+//		return layer.image.scaleX;
+//	} else {
+//		return 0;
+//	}
+    return 0;
 }
 
 - (void)zoomTweenViewToRate:(float)rate {

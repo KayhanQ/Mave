@@ -8,7 +8,7 @@
 
 #import "NPCAction.h"
 
-@class Response;
+@class NPCResponse;
 
 @interface NPCSpeech : NPCAction
 {

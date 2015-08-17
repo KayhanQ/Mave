@@ -6,7 +6,9 @@
 //  Copyright (c) 2015 Kayhan Qaiser. All rights reserved.
 //
 
+#import "BasicEvent.h"
 #import "LoadLevelEvent.h"
 #import "LevelCompletedEvent.h"
 #import "NPCTouchedEvent.h"
 #import "NPCSpeechFinishedEvent.h"
+#import "NPCResponseClickedEvent.h"

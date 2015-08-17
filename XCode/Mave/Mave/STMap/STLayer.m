@@ -14,6 +14,7 @@
 #import "STTile.h"
 #import "BasicTile.h"
 #import "Player.h"
+#import "TBXML.h"
 
 @interface STLayer ()
 - (void)loadTileWithGID:(int)gid tileset:(STTileset *)tileset index:(int)i;
@@ -21,11 +22,6 @@
 @end
 
 @implementation STLayer
-{
-    NSMutableArray* _tiles;
-    SPRenderTexture* _renderTexture;
-    STTileset* _tileSet;
-}
 
 @synthesize name = _name;
 @synthesize width = _width;
@@ -35,33 +31,69 @@
 @synthesize pixelWidth = _pixelWidth;
 @synthesize pixelHeight = _pixelHeight;
 @synthesize zoom;
-@synthesize image = _image;
 
-- (id)initWithName:(NSString *)name width:(int)width height:(int)height gids:(NSMutableArray *)gids tileset:(STTileset *)tileset {
-	if (self = [super init]) {
-		_name = name;
-		_width = width;
-		_height = height;
-		_tileWidth = tileset.tileWidth;
-		_tileHeight = tileset.tileHeight;
-		_pixelWidth = _width * _tileWidth;
-		_pixelHeight = _height * _tileHeight;
+- (id)initWithName:(NSString *)name LayerElement:(TBXMLElement*)layerElement tileset:(STTileset *)tileset {
+    if (self = [super init]) {
+        _name = [TBXML valueOfAttributeNamed:@"name" forElement:layerElement];
+        _width = [[TBXML valueOfAttributeNamed:@"width" forElement:layerElement] intValue];
+        _height = [[TBXML valueOfAttributeNamed:@"height" forElement:layerElement] intValue];
+        _tileWidth = tileset.tileWidth;
+        _tileHeight = tileset.tileHeight;
+        _pixelWidth = _width * _tileWidth;
+        _pixelHeight = _height * _tileHeight;
         _tileSet = tileset;
+        
+        NSString *opacity = [TBXML valueOfAttributeNamed:@"opacity" forElement:layerElement];
+        
+        TBXMLElement *dataElement = [TBXML childElementNamed:@"data" parentElement:layerElement];
+        if (!dataElement) [self raiseXMLError:ST_EXC_ELEMENT_NOT_FOUND message:@"\"data\" element doesn't exist"];
+        TBXMLElement *tileElement = [TBXML childElementNamed:@"tile" parentElement:dataElement];
+        if (!tileElement) [self raiseXMLError:ST_EXC_ELEMENT_NOT_FOUND message:@"\"tile\" element doesn't exist"];
+        
+        _tiles = [[SPSprite alloc] init];
+        [self addChild:_tiles];
+        int i = 0;
+        while (tileElement) {
+            [self loadTile:tileElement index:i++];
+            tileElement = [TBXML nextSiblingNamed:@"tile" searchFromElement:tileElement];
+        }
+    }
+    return self;
+}
 
-        
-		int i = 0;
-        
-        _tiles = [[NSMutableArray alloc] initWithCapacity:10];
-        _renderTexture = [[SPRenderTexture alloc] initWithWidth:_width*_tileWidth height:_height*_tileHeight];
-        for (NSNumber *gid in gids) {
-			[self loadTileWithGID:[gid intValue] index:i++];
-		}
-		
-        _image = [[SPImage alloc] initWithTexture:_renderTexture];
-        [self addChild:_image];
-		[self redrawLayer];
-	}
-	return self;
+- (void)loadTile:(TBXMLElement*)tileElement index:(int)i {
+    int gid = [[TBXML valueOfAttributeNamed:@"gid" forElement:tileElement] intValue];
+    
+    SPTexture *texture;
+    if (gid >= _tileSet.firstGID) {
+        texture = [_tileSet textureByGID:gid];
+    } else {
+        texture = [SPTexture textureWithWidth:_tileSet.tileWidth height:_tileSet.tileHeight draw:nil];
+    }
+    
+    int cooY = (int)(i/_width);
+    int cooX = i-(cooY*_width);
+    STCoordinate* coordinate = [[STCoordinate alloc] initWithX:cooX y:cooY];
+    
+    STTile* tile;
+    
+    switch (gid) {
+        case STCHARACTER:
+        {
+            NSString* npcFilename = [TBXML valueOfAttributeNamed:@"npcFile" forElement:tileElement];
+            NPC* npc = [[NPC alloc] initWithType:STCHARACTER texture:texture coordinate:coordinate filename:npcFilename];
+            tile = npc;
+            break;
+        }
+        default:
+        {
+            tile = [[BasicTile alloc] initWithType:gid texture:texture coordinate:coordinate];
+            break;
+        }
+    }
+    
+    [_tiles addChild:tile];
+    
 }
 
 - (void)loadTileWithGID:(int)gid index:(int)i {
@@ -90,40 +122,17 @@
         }
     }
     
-	[_tiles addObject:tile];
+	[_tiles addChild:tile];
 }
 
-- (void)redrawLayer {
-    [_renderTexture clear];
-    for (STTile* t in _tiles) {
-        if (t.type != STEMPTY) [_renderTexture drawObject:t];
-    }
-    SPImage* newImage = [[SPImage alloc] initWithTexture:_renderTexture];
-    _image = newImage;
+
+
+- (int)convertCoordinateToGID:(STCoordinate*)coordinate {
+    int result = (coordinate.y*_width) + coordinate.x;
+    return result;
 }
 
-- (Player*)getPlayer {
-    for (STTile* tile in _tiles) {
-        if (tile.type == STCHARACTER) {
-            return (Player*)tile;
-        }
-    }
-    return nil;
-}
 
-- (void)insertTileAtGid:(STTile *)tile gid:(int)gid {
-    [_tiles replaceObjectAtIndex:gid withObject:tile];
-    [self redrawLayer];
-}
-
-- (STTile *)tileAtIndex:(int)index {
-	return [_tiles objectAtIndex:index];
-}
-
-//- (STTile *)tileAtX:(int)x y:(int)y {
-//	int i = (y*_width)+x;
-//	return [_tiles objectAtIndex:i];
-//}
 
 - (NSMutableArray*)getTilesInRowOfTile:(STTile*)tile {
     NSMutableArray* array = [[NSMutableArray alloc] init];
@@ -169,6 +178,11 @@
 	} else {
 		return self.stage.height;
 	}
+}
+
+- (void)raiseXMLError:(NSString *)error message:(NSString *)message {
+    
+//    [NSException raise:error format:[NSString stringWithFormat:@"Error while reading \"%@\", %@.", _filename, message], NSStringFromSelector(_cmd)];
 }
 
 @end

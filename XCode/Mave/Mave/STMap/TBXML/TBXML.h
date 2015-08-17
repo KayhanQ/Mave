@@ -40,6 +40,8 @@
 #define TBXML_ATTRIBUTE_VALUE_END 3
 #define TBXML_ATTRIBUTE_CDATA_END 4
 
+#define ST_EXC_FILE_NOT_FOUND @"FileNotFoundOrInvalid"
+#define ST_EXC_ELEMENT_NOT_FOUND @"ElementNotFound"
 // ================================================================================================
 //  Structures
 // ================================================================================================

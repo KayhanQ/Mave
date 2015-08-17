@@ -10,12 +10,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TBXML.h"
+
 
 @class STTileset;
 @class STTile;
 @class SPImage;
 @class SPRenderTexture;
 @class Player;
+@class STCoordinate;
+
 
 @interface STLayer : SPSprite {
     enum RelativePosition {ABOVE = 0, RIGHT, BELOW, LEFT};
@@ -25,10 +29,15 @@
 //	int mHeight;
 //	int mTileWidth;
 //	int mTileHeight;
+
     int pixelWidth;
-	int pixelHeight;
-//	NSMutableArray *mTiles;
-//	SPImage *mImage;
+    int pixelHeight;
+
+    @protected
+    SPSprite* _tiles;
+    STTileset* _tileSet;
+    
+    //	NSMutableArray *mTiles;
 //	SPRenderTexture *mRenderTexture;
     
 }
@@ -44,14 +53,16 @@
 @property (nonatomic, readonly) float viewWidth;
 @property (nonatomic, readonly) float viewHeight;
 @property (nonatomic) float zoom;
-@property (nonatomic, strong, readonly) SPImage *image;
+@property (nonatomic) SPImage* image;
 
-- (id)initWithName:(NSString *)name width:(int)width height:(int)height gids:(NSMutableArray *)gids tileset:(STTileset *)tileset;
+- (id)initWithName:(NSString *)name LayerElement:(TBXMLElement*)layerElement tileset:(STTileset *)tileset;
+
 - (STTile *)tileAtIndex:(int)index;
-- (void)insertTileAtGid:(STTile*)tile gid:(int)gid;
+- (int)convertCoordinateToGID:(STCoordinate*)coordinate;
 - (STTile*)getObstacleRelativeToTile:(enum RelativePosition)position tile:(STTile*)tile;
-- (Player*)getPlayer;
 - (NSMutableArray*)getTilesInRowOfTile:(STTile*)tile;
 - (NSMutableArray*)getTilesInColumnOfTile:(STTile*)tile;
-- (void)redrawLayer;
+
+
+
 @end
