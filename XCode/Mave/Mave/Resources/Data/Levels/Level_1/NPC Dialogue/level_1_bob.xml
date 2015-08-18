@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="ogre1" displayName="Bob the Good">
+ <npcSpeech text="How are you?">
+ 	<response displayName="wit" text="Great!">
+ 		<npcSpeech text="Why so happy? Did you know that my favorite animal is the buffalo? It is a magestic beast. I would love to see one. I don't suppose that you would be able to help me with that would you? I would greatly appreciate that. What is the time by the way?">
+ 			<response displayName="wit" text="No Idea!"/>
+ 		</npcSpeech>
+ 	</response>
+ 	<response displayName="wit" text="Not the Best">
+ 		<npcSpeech text="oh... well the third door is the correct one." condition="hasItem:fish"/>
+ 		<npcSpeech text="I need a horse!"/>
+ 	</response>
+</npcSpeech>
+</npc>
