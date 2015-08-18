@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NPCSpeech.h"
+#import "Condition.h"
 
 @implementation NPCSpeech
 
@@ -16,8 +17,20 @@
 @synthesize responses = _responses;
 @synthesize condition = _condition;
 
+- (id)initWithTBXMLElement:(TBXMLElement*)npcSpeechElement responses:(NSArray*)responses {
+    if (self = [super init]) {
+        _textToSpeak = [TBXML valueOfAttributeNamed:@"text" forElement:npcSpeechElement];
+        _displayName = [TBXML valueOfAttributeNamed:@"displayName" forElement:npcSpeechElement];
+        _responses = responses;
+        _condition = nil;
+        NSString* conditionString = [TBXML valueOfAttributeNamed:@"condition" forElement:npcSpeechElement];
+        if (conditionString) _condition = [[Condition alloc] initWithString:conditionString];
+    }
+    return self;
+}
+
 - (id)initWithText:(NSString *)textToSpeak displayName:(NSString *)displayName responses:(NSArray *)responses condition:(Condition *)condition{
-    if (self = [super initWithType:NPCSPEAK]) {
+    if (self = [super init]) {
         _textToSpeak = textToSpeak;
         _displayName = displayName;
         _responses = responses;

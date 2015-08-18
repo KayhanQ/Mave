@@ -7,11 +7,12 @@
 //
 
 #import "NPCAction.h"
+#import "TBXML.h"
 
 @class NPCResponse;
 @class Condition;
 
-@interface NPCSpeech : NPCAction
+@interface NPCSpeech : NSObject
 {
 
 }
@@ -21,6 +22,7 @@
 @property(nonatomic, readonly) NSArray* responses;
 @property(nonatomic, readonly) Condition* condition;
 
+- (id)initWithTBXMLElement:(TBXMLElement*)npcSpeechElement responses:(NSArray*)responses;
 - (id)initWithText:(NSString*)textToSpeak displayName:(NSString*)displayName responses:(NSArray*)responses condition:(Condition*)condition;
 
 @end

@@ -75,12 +75,16 @@
     NPCResponse* response = event.npcResponse;
     //carry out any response related actions
     
-    NPCSpeech* nextSpeech = response.npcSpeech;
-    if (nextSpeech) {
-        if ([_conditionHandler checkCondition:nextSpeech.condition]) [self presentSpeechBoxWithNPCSpeech:nextSpeech];
-        else [self endDialogue];
+    NSArray* npcSpeeches = response.npcSpeeches;
+    for (NPCSpeech* npcSpeech in npcSpeeches) {
+        if (npcSpeech) {
+            if ([_conditionHandler checkCondition:npcSpeech.condition]) {
+                [self presentSpeechBoxWithNPCSpeech:npcSpeech];
+                return;
+            }
+        }
     }
-    else [self endDialogue];
+    [self endDialogue];
 }
 
 - (void)clearDialogue {

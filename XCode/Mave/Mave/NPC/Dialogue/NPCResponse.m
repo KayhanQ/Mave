@@ -12,12 +12,20 @@
 @implementation NPCResponse
 
 @synthesize textToRespondWith = _textToRespondWith;
-@synthesize npcSpeech = _npcSpeech;
+@synthesize npcSpeeches = _npcSpeeches;
 
-- (id)initWithTextToRespondWith:(NSString *)textToRespondWith npcSpeech:(NPCSpeech *)npcSpeech {
+- (id)initWithTBXMLElement:(TBXMLElement*)responseElement npcSpeeches:(NSArray*)npcSpeeches {
+    if (self = [super init]) {
+        _textToRespondWith = [TBXML valueOfAttributeNamed:@"text" forElement:responseElement];
+        _npcSpeeches = npcSpeeches;
+    }
+    return self;
+}
+
+- (id)initWithTextToRespondWith:(NSString *)textToRespondWith npcSpeeches:(NSArray *)npcSpeeches {
     if (self = [super init]) {
         _textToRespondWith = textToRespondWith;
-        _npcSpeech = npcSpeech;
+        _npcSpeeches = npcSpeeches;
     }
     return self;
 }

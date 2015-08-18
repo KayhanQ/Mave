@@ -9,6 +9,7 @@
 #import "NPCAction.h"
 
 @class NPCSpeech;
+#import "TBXML.h"
 
 @interface NPCResponse : NSObject
 {
@@ -16,8 +17,10 @@
 }
 
 @property(nonatomic, readonly) NSString* textToRespondWith;
-@property(nonatomic, readonly) NPCSpeech* npcSpeech;
+@property(nonatomic, readonly) NSArray* npcSpeeches;
 
-- (id)initWithTextToRespondWith:(NSString*)textToRespondWith npcSpeech:(NPCSpeech*)npcSpeech;
+- (id)initWithTBXMLElement:(TBXMLElement*)responseElement npcSpeeches:(NSArray*)npcSpeeches;
+
+- (id)initWithTextToRespondWith:(NSString*)textToRespondWith npcSpeeches:(NSArray*)npcSpeeches;
 
 @end
