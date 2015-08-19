@@ -12,7 +12,8 @@
 }
 
 @property(nonatomic, readonly) NSString* condition;
-@property(nonatomic, readonly) NSString* value;
+@property(nonatomic, readonly) NSArray* values;
+
 
 
 - (id)initWithString:(NSString*)string;

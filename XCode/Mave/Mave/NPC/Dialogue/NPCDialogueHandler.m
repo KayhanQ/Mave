@@ -78,7 +78,7 @@
     NSArray* npcSpeeches = response.npcSpeeches;
     for (NPCSpeech* npcSpeech in npcSpeeches) {
         if (npcSpeech) {
-            if ([_conditionHandler checkCondition:npcSpeech.condition]) {
+            if ([_conditionHandler checkConditions:npcSpeech.conditions]) {
                 [self presentSpeechBoxWithNPCSpeech:npcSpeech];
                 return;
             }

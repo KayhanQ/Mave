@@ -15,16 +15,21 @@
 @synthesize textToSpeak = _textToSpeak;
 @synthesize displayName = _displayName;
 @synthesize responses = _responses;
-@synthesize condition = _condition;
+@synthesize conditions = _conditions;
 
 - (id)initWithTBXMLElement:(TBXMLElement*)npcSpeechElement responses:(NSArray*)responses {
     if (self = [super init]) {
         _textToSpeak = [TBXML valueOfAttributeNamed:@"text" forElement:npcSpeechElement];
         _displayName = [TBXML valueOfAttributeNamed:@"displayName" forElement:npcSpeechElement];
         _responses = responses;
-        _condition = nil;
-        NSString* conditionString = [TBXML valueOfAttributeNamed:@"condition" forElement:npcSpeechElement];
-        if (conditionString) _condition = [[Condition alloc] initWithString:conditionString];
+        
+        NSMutableArray* mutableConditions = [[NSMutableArray alloc] init];
+        NSString* unparsedString = [TBXML valueOfAttributeNamed:@"condition" forElement:npcSpeechElement];
+        NSArray* conditionStrings = [unparsedString componentsSeparatedByString:@"|"];
+        for (NSString* conditionString in conditionStrings) {
+            if (conditionString) [mutableConditions addObject:[[Condition alloc] initWithString:conditionString]];
+        }
+        _conditions = mutableConditions;
     }
     return self;
 }
@@ -34,7 +39,7 @@
         _textToSpeak = textToSpeak;
         _displayName = displayName;
         _responses = responses;
-        _condition = condition;
+        //_condition = condition;
     }
     return self;
 }

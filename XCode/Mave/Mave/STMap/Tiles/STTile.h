@@ -16,7 +16,7 @@
 @class STCoordinate;
 
 @interface STTile : SPSprite {
-    enum STType {STEMPTY = 0, STGROUND = 30, STROUGH = 15, STROCK = 32, STHOLE = 31, STSTART = 34, STFINISH = 10, STCHARACTER = 46, STPLAYER = 47};
+    enum STType {STEMPTY = 0, STGROUND = 30, STROUGH = 15, STROCK = 32, STHOLE = 31, STFINISH = 10, STCHARACTER = 46, STPLAYER = 47};
     enum CollisionType {NONE = 0, STOPBEFORE, STOPONTOPOF, KILL};
 }
 

@@ -8,6 +8,7 @@
 
 @class Player;
 @class Condition;
+@class NPCSpeech;
 
 @interface ConditionHandler : NSObject
 {
@@ -17,7 +18,7 @@
 
 + (id)sharedConditionHandler;
 - (id)init;
-- (BOOL)checkCondition:(Condition*)condition;
+- (BOOL)checkConditions:(NSArray*)conditions;
 
 
 @end

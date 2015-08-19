@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F14302461B831FE800AC4A62 /* Level_1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F14302421B831FE800AC4A62 /* Level_1.tmx */; };
 		F14302471B831FE800AC4A62 /* level_1_bob.xml in Resources */ = {isa = PBXBuildFile; fileRef = F14302441B831FE800AC4A62 /* level_1_bob.xml */; };
 		F14302481B831FE800AC4A62 /* level_1_player.xml in Resources */ = {isa = PBXBuildFile; fileRef = F14302451B831FE800AC4A62 /* level_1_player.xml */; };
 		F143024E1B837F5F00AC4A62 /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = F143024B1B837F5F00AC4A62 /* Condition.m */; };
 		F143024F1B837F6000AC4A62 /* ConditionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F143024D1B837F5F00AC4A62 /* ConditionHandler.m */; };
 		F14302531B838EF100AC4A62 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = F14302521B838EF100AC4A62 /* Item.m */; };
+		F14302551B848D1900AC4A62 /* Level_1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F14302541B848D1900AC4A62 /* Level_1.tmx */; };
 		F16FD68E1B82711000860749 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD67F1B82711000860749 /* Game.m */; };
 		F16FD68F1B82711000860749 /* LevelEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6811B82711000860749 /* LevelEngine.m */; };
 		F16FD6901B82711000860749 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6851B82711000860749 /* NSDataAdditions.m */; };
@@ -74,7 +74,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F14302421B831FE800AC4A62 /* Level_1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Level_1.tmx; sourceTree = "<group>"; };
 		F14302441B831FE800AC4A62 /* level_1_bob.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_1_bob.xml; sourceTree = "<group>"; };
 		F14302451B831FE800AC4A62 /* level_1_player.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_1_player.xml; sourceTree = "<group>"; };
 		F143024A1B837F5F00AC4A62 /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
@@ -83,6 +82,7 @@
 		F143024D1B837F5F00AC4A62 /* ConditionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionHandler.m; sourceTree = "<group>"; };
 		F14302511B838EF100AC4A62 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		F14302521B838EF100AC4A62 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		F14302541B848D1900AC4A62 /* Level_1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Level_1.tmx; sourceTree = "<group>"; };
 		F16FD67E1B82711000860749 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		F16FD67F1B82711000860749 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		F16FD6801B82711000860749 /* LevelEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelEngine.h; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 		F14302411B831FE800AC4A62 /* Level */ = {
 			isa = PBXGroup;
 			children = (
-				F14302421B831FE800AC4A62 /* Level_1.tmx */,
+				F14302541B848D1900AC4A62 /* Level_1.tmx */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -685,13 +685,13 @@
 			files = (
 				F16FD6A01B82712300860749 /* Images.xcassets in Resources */,
 				F16FD69E1B82712300860749 /* LaunchScreen.xib in Resources */,
-				F14302461B831FE800AC4A62 /* Level_1.tmx in Resources */,
 				F14302481B831FE800AC4A62 /* level_1_player.xml in Resources */,
 				F14302471B831FE800AC4A62 /* level_1_bob.xml in Resources */,
 				F16FD7541B82785E00860749 /* button_square.png in Resources */,
 				F16FD7521B82785E00860749 /* tmw_desert_spacing.png in Resources */,
 				F16FD69F1B82712300860749 /* Main.storyboard in Resources */,
 				F16FD7531B82785E00860749 /* benchmark_object.png in Resources */,
+				F14302551B848D1900AC4A62 /* Level_1.tmx in Resources */,
 				F16FD7511B82785E00860749 /* tileset.tsx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

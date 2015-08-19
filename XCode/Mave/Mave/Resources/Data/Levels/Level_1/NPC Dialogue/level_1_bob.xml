@@ -8,7 +8,7 @@
  	</response>
  	<response displayName="wit" text="Not the Best">
  		<npcSpeech displayName="Bob the Good" text="oh... well the third door is the correct one." condition="hasItem:dogfish"/>
- 		<npcSpeech displayName="Bob the Good" text="I need a horse!" condition="hasItem:car">
+ 		<npcSpeech displayName="Bob the Good" text="I need a horse!" condition="hasItem:car|hasItem:fish|inPosition:player,3,8" action="move:ogre1,up|move:ogre1,left">
  		 	<response displayName="wit" text="Don't have one.">
  				<npcSpeech displayName="Bob the Good" text="You are really no help you know"/>
  			</response>

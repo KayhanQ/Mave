@@ -11,6 +11,8 @@
 #import "Condition.h"
 #import "Item.h"
 #import "Player.h"
+#import "NPCSpeech.h"
+#import "STCoordinate.h"
 
 @implementation ConditionHandler
 {
@@ -41,26 +43,43 @@
     _conditions = @[@"hasItem",
                     @"levelProgress",
                     @"noItemsGreater",
-                    @"tileTriggered"];
+                    @"tileTriggered",
+                    @"inPosition"];
 }
 
-- (BOOL)checkCondition:(Condition*)condition {
-    if (!condition) return true;
-    
-    NSString* conditionString = condition.condition;
-    int index = (int)[_conditions indexOfObject:conditionString];
-    
-    switch (index) {
-        case 0:
-        {
-            Item* item = [[Item alloc] initWithName:condition.value];
-            return [_player hasItem:item];
-            break;
+- (BOOL)checkConditions:(NSArray*)conditions {
+    for (Condition* condition in conditions) {
+        if (!condition) return true;
+        
+        NSString* conditionString = condition.condition;
+        int index = (int)[_conditions indexOfObject:conditionString];
+        
+        switch (index) {
+            case 0:
+            {
+                Item* item = [[Item alloc] initWithName:[condition.values objectAtIndex:0]];
+                if (![_player hasItem:item]) return false;
+                break;
+            }
+            case 4:
+            {
+                int x = [condition.values[1] intValue];
+                int y = [condition.values[2] intValue];
+                STCoordinate* coordinate = [[STCoordinate alloc] initWithX:x y:y];
+                
+                if (![self tileHasCoordinates:_player coordinate:coordinate]) return false;
+
+                break;
+            }
+            default:
+                break;
         }
-        default:
-            break;
     }
-    
+    return true;
+}
+
+- (BOOL)tileHasCoordinates:(STTile*)tile coordinate:(STCoordinate*)coordinate {
+    if (tile.coordinate.x == coordinate.x && tile.coordinate.y == coordinate.y) return true;
     return false;
 }
 

@@ -20,7 +20,7 @@
 @property(nonatomic, readonly) NSString* textToSpeak;
 @property(nonatomic, readonly) NSString* displayName;
 @property(nonatomic, readonly) NSArray* responses;
-@property(nonatomic, readonly) Condition* condition;
+@property(nonatomic, readonly) NSArray* conditions;
 
 - (id)initWithTBXMLElement:(TBXMLElement*)npcSpeechElement responses:(NSArray*)responses;
 - (id)initWithText:(NSString*)textToSpeak displayName:(NSString*)displayName responses:(NSArray*)responses condition:(Condition*)condition;

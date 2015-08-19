@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <npc npcID="player" displayName="Your Name">
- <npcSpeech text="Where to go...">
+ <npcSpeech displayName="Player" text="Where to go...">
 </npcSpeech>
 </npc>

@@ -12,13 +12,20 @@
 @implementation Condition
 
 @synthesize condition = _condition;
-@synthesize value = _value;
+@synthesize values = _values;
 
 - (id)initWithString:(NSString *)string {
     if (self = [super init]) {
         NSArray* splitStrings = [string componentsSeparatedByString:@":"];
         _condition = [splitStrings objectAtIndex:0];
-        _value = [splitStrings objectAtIndex:1];
+        
+        NSArray* values = [[splitStrings objectAtIndex:1] componentsSeparatedByString:@","];
+        NSMutableArray* mutableValues = [[NSMutableArray alloc] init];
+        for (NSString* value in values) {
+            [mutableValues addObject:value];
+        }
+        
+        _values = mutableValues;
     }
     return self;
 }

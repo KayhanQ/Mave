@@ -119,7 +119,10 @@
 - (NSMutableArray*)getTilesInColumnOfTile:(STTile*)tile {
     NSMutableArray* array = [[NSMutableArray alloc] init];
     for (STTile* curTile in _tiles) {
-        if (tile.coordinate.x == curTile.coordinate.x) [array addObject:curTile];
+        if (tile.coordinate.x == curTile.coordinate.x) {
+            [array addObject:curTile];
+            
+        }
     }
     return array;
 }

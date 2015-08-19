@@ -26,7 +26,6 @@
     STMap* _map;
     STLayer* _groundLayer;
     STLayer* _obstacleLayer;
-    STLayer* _startAndEndLayer;
     NPCLayer* _characterLayer;
     Player* _player;
     SPSprite* _dialogueSprite;
@@ -54,12 +53,10 @@
     _map = [[STMap alloc] initWithTMXFile:_levelName];
     _groundLayer = [_map layerByName:@"Ground"];
     _obstacleLayer = [_map layerByName:@"Obstacles"];
-    _startAndEndLayer = [_map layerByName:@"StartAndEnd"];
     _characterLayer = (NPCLayer*)[_map layerByName:@"Characters"];
     
     [container addChild:_groundLayer];
     [container addChild:_obstacleLayer];
-    [container addChild:_startAndEndLayer];
     [container addChild:_characterLayer];
 
     _dialogueSprite = [[SPSprite alloc] init];
