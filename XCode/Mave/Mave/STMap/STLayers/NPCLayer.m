@@ -27,18 +27,7 @@
     return nil;
 }
 
-- (void)moveNPCTo:(STCoordinate*)coordinate {
-    Player* player = [self getPlayer];
-    int playerIndex = [self convertCoordinateToGID:player.coordinate];
-    int destinationIndex = [self convertCoordinateToGID:coordinate];
-    STTile* destTile = (STTile*) [_tiles childAtIndex:destinationIndex];
-    
-    [_tiles swapChildAtIndex:playerIndex withChildAtIndex:destinationIndex];
-    
-    STCoordinate* tmpCoordinate = [[STCoordinate alloc] initWithX:coordinate.x y:coordinate.y];
-    destTile.coordinate = player.coordinate;
-    player.coordinate = tmpCoordinate;
-}
+
 
 
 @end

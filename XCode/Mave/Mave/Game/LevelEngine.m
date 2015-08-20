@@ -77,7 +77,11 @@
 }
 
 - (void)swipeInDirection:(UISwipeGestureRecognizerDirection)direction {
-    STTile* obstacle = [_map getTileClosestToTileInDirection:_player direction:direction];
+    [self moveTileInDirection:_player direction:direction];
+}
+
+- (void)moveTileInDirection:(STTile*)tile direction:(UISwipeGestureRecognizerDirection)direction {
+    STTile* obstacle = [_map getTileClosestToTileInDirection:tile direction:direction];
     STCoordinate* coordinate;
     
     switch (obstacle.collisionType) {
@@ -100,13 +104,30 @@
             break;
     }
     
-    [_characterLayer moveNPCTo:coordinate];
-    
+    if (tile == _player) [_characterLayer moveTileTo:tile coordinate:coordinate];
+    else [_obstacleLayer moveTileTo:tile coordinate:coordinate];
     
     //TEMP collision says level completed
-    if (obstacle.type == STFINISH) {
-        LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
-        [self dispatchEvent:event];
+    switch (obstacle.type) {
+        case STPUSHROCK:
+        {
+            [self moveTileInDirection:obstacle direction:direction];
+            break;
+        }
+        case STSPIKES:
+        {
+            LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
+            [self dispatchEvent:event];
+            break;
+        }
+        case STFINISH:
+        {
+            LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
+            [self dispatchEvent:event];
+            break;
+        }
+        default:
+            break;
     }
 }
 

@@ -49,6 +49,7 @@
 }
 
 - (SPTexture *)textureWithContentsOfFile:(NSString *)filename transparentColor:(NSString *)transparentColor width:(int)width height:(int)height {
+    //transparent colour code is broken. it wipes over everything
 	if (transparentColor) {
 		uint transColor;
 		[[NSScanner scannerWithString:transparentColor] scanHexInt:&transColor];

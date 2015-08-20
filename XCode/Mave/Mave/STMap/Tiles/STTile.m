@@ -27,7 +27,7 @@
         _tileHeight = 32;
         self.coordinate = coordinate;
         
-        if (_type == STROCK || _type == STCHARACTER) _collisionType = STOPBEFORE;
+        if (_type == STROCK || _type == STCHARACTER || _type == STPUSHROCK) _collisionType = STOPBEFORE;
         else if (_type == STROUGH || _type == STFINISH) _collisionType = STOPONTOPOF;
         else if (_type == STHOLE) _collisionType = KILL;
         else if (_type == STEMPTY || _type == STGROUND) _collisionType = NONE;

@@ -14,6 +14,5 @@
 }
 
 - (Player*)getPlayer;
-- (void)moveNPCTo:(STCoordinate*)coordinate;
 
 @end

@@ -102,6 +102,17 @@
     [_tiles addChild:tile];
     
 }
+- (void)moveTileTo:(STTile*)tile coordinate:(STCoordinate*)coordinate {
+    int playerIndex = [self convertCoordinateToGID:tile.coordinate];
+    int destinationIndex = [self convertCoordinateToGID:coordinate];
+    STTile* destTile = (STTile*) [_tiles childAtIndex:destinationIndex];
+    
+    [_tiles swapChildAtIndex:playerIndex withChildAtIndex:destinationIndex];
+    
+    STCoordinate* tmpCoordinate = [[STCoordinate alloc] initWithX:coordinate.x y:coordinate.y];
+    destTile.coordinate = tile.coordinate;
+    tile.coordinate = tmpCoordinate;
+}
 
 - (int)convertCoordinateToGID:(STCoordinate*)coordinate {
     int result = (coordinate.y*_width) + coordinate.x;

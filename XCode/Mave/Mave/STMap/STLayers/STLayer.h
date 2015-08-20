@@ -62,6 +62,7 @@
 - (STTile*)getObstacleRelativeToTile:(enum RelativePosition)position tile:(STTile*)tile;
 - (NSMutableArray*)getTilesInRowOfTile:(STTile*)tile;
 - (NSMutableArray*)getTilesInColumnOfTile:(STTile*)tile;
+- (void)moveTileTo:(STTile*)tile coordinate:(STCoordinate*)coordinate;
 
 
 
