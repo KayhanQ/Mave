@@ -7,6 +7,7 @@
 //
 
 #import "STLayer.h"
+@class NPC;
 
 @interface NPCLayer : STLayer
 {
@@ -14,5 +15,6 @@
 }
 
 - (Player*)getPlayer;
+- (NPC*)getNPCWithID:(NSString*)npcID;
 
 @end

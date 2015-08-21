@@ -15,6 +15,9 @@
 #import "NPCSpeech.h"
 #import "GameEvents.h"
 #import "ConditionHandler.h"
+#import "ActionEvent.h"
+#import "GiveItemEvent.h"
+
 
 @implementation NPCDialogueHandler
 {
@@ -40,12 +43,20 @@
 }
 
 - (void)startDialogue {
-    [self presentSpeechBoxWithNPCSpeech:_npc.speeches[0]];
+    [self presentSpeechBoxForNPCSpeeches:_npc.speeches];
 }
 
-- (void)presentSpeechBoxWithNPCSpeech:(NPCSpeech*)npcSpeech {
-    NPCSpeechBox* speechBox = [[NPCSpeechBox alloc] initWithNPCSpeech:npcSpeech];
-    [_speechContainer addChild:speechBox];
+- (void)presentSpeechBoxForNPCSpeeches:(NSArray*)npcSpeeches {
+    for (NPCSpeech* npcSpeech in npcSpeeches) {
+        if (npcSpeech) {
+            if ([_conditionHandler checkConditions:npcSpeech.conditions]) {
+                NPCSpeechBox* speechBox = [[NPCSpeechBox alloc] initWithNPCSpeech:npcSpeech];
+                [_speechContainer addChild:speechBox];
+                return;
+            }
+        }
+    }
+    [self endDialogue];
 }
 
 - (NPCSpeechBox*)getSpeechBox {
@@ -55,6 +66,10 @@
 
 - (void)currentSpeechFinished:(NPCSpeechFinsihedEvent*)event {
     NPCSpeech* npcSpeech = event.npcSpeech;
+    for (ActionEvent* actionEvent in npcSpeech.actionEvents) {
+        if (actionEvent) [self dispatchEvent: actionEvent];
+    }
+    
     if ([self npcSpeechIsTerminatingSpeech:npcSpeech]) [self endDialogue];
     else [self presentResponses: npcSpeech.responses];
 }
@@ -73,18 +88,7 @@
 - (void)responseClicked:(NPCResponseClickedEvent*)event {
     [self clearDialogue];
     NPCResponse* response = event.npcResponse;
-    //carry out any response related actions
-    
-    NSArray* npcSpeeches = response.npcSpeeches;
-    for (NPCSpeech* npcSpeech in npcSpeeches) {
-        if (npcSpeech) {
-            if ([_conditionHandler checkConditions:npcSpeech.conditions]) {
-                [self presentSpeechBoxWithNPCSpeech:npcSpeech];
-                return;
-            }
-        }
-    }
-    [self endDialogue];
+    [self presentSpeechBoxForNPCSpeeches:response.npcSpeeches];
 }
 
 - (void)clearDialogue {

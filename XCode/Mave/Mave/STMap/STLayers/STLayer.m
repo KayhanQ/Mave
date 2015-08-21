@@ -12,7 +12,6 @@
 #import "STLayer.h"
 #import "STTileset.h"
 #import "STTile.h"
-#import "BasicTile.h"
 #import "Player.h"
 #import "TBXML.h"
 
@@ -78,23 +77,23 @@
     STTile* tile;
     
     switch (gid) {
-        case STCHARACTER:
+        case STNPC:
         {
             NSString* npcFilename = [TBXML valueOfAttributeNamed:@"npcFile" forElement:tileElement];
-            NPC* npc = [[NPC alloc] initWithType:STCHARACTER texture:texture coordinate:coordinate filename:npcFilename];
+            NPC* npc = [[NPC alloc] initWithType:STNPC texture:texture coordinate:coordinate filename:npcFilename];
             tile = npc;
             break;
         }
         case STPLAYER:
         {
             NSString* playerFilename = [TBXML valueOfAttributeNamed:@"npcFile" forElement:tileElement];
-            Player* npc = [[Player alloc] initWithType:STCHARACTER texture:texture coordinate:coordinate filename:playerFilename];
+            Player* npc = [[Player alloc] initWithType:STPLAYER texture:texture coordinate:coordinate filename:playerFilename];
             tile = npc;
             break;
         }
         default:
         {
-            tile = [[BasicTile alloc] initWithType:gid texture:texture coordinate:coordinate];
+            tile = [[STTile alloc] initWithType:gid texture:texture coordinate:coordinate];
             break;
         }
     }
@@ -136,6 +135,13 @@
         }
     }
     return array;
+}
+
+- (BOOL)containsTile:(STTile*)tile {
+    for (STTile* curTile in _tiles) {
+        if (curTile == tile) return true;
+    }
+    return false;
 }
 
 - (float)trueRotation {

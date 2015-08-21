@@ -14,6 +14,8 @@
 #import "GameEvents.h"
 #import "NPCDialogueHandler.h"
 #import "ConditionHandler.h"
+#import "MoveNPCEvent.h"
+#import "GiveItemEvent.h"
 
 @interface LevelEngine ()
 - (void)swipeLeft:(UISwipeGestureRecognizer *)gestureRecognizer;
@@ -73,6 +75,8 @@
     [self addSwipeRecognizers];
     [self addEventListener:@selector(npcTouched:) atObject:self forType:EVENT_TYPE_NPC_TOUCHED];
     [self addEventListener:@selector(npcDialogueFinished:) atObject:self forType:EVENT_NPC_DIALOGUE_FINISHED];
+    [self addEventListener:@selector(moveNPCWithIDEvent:) atObject:self forType:EVENT_TYPE_MOVE_NPC];
+    [self addEventListener:@selector(giveItemEvent:) atObject:self forType:EVENT_TYPE_GIVE_ITEM];
 
 }
 
@@ -104,31 +108,39 @@
             break;
     }
     
-    if (tile == _player) [_characterLayer moveTileTo:tile coordinate:coordinate];
-    else [_obstacleLayer moveTileTo:tile coordinate:coordinate];
+    STLayer* layer = [_map getLayerWithTile:tile];
+    [layer moveTileTo:tile coordinate:coordinate];
     
-    //TEMP collision says level completed
     switch (obstacle.type) {
         case STPUSHROCK:
         {
             [self moveTileInDirection:obstacle direction:direction];
             break;
         }
-        case STSPIKES:
-        {
-            LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
-            [self dispatchEvent:event];
-            break;
-        }
-        case STFINISH:
-        {
-            LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
-            [self dispatchEvent:event];
-            break;
-        }
         default:
             break;
     }
+
+    
+    if (tile == _player) {
+        switch (obstacle.type) {
+            case STSPIKES:
+            {
+                LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
+                [self dispatchEvent:event];
+                break;
+            }
+            case STFINISH:
+            {
+                LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
+                [self dispatchEvent:event];
+                break;
+            }
+            default:
+                break;
+        }
+    }
+
 }
 
 - (STCoordinate*)getCoordinateForCollisionInDirection:(UISwipeGestureRecognizerDirection)direction distance:(int)distance fromCoordinate:(STCoordinate*)coordinate {
@@ -170,6 +182,15 @@
     return distx + disty;
 }
 
+
+- (void)moveNPCWithIDEvent:(MoveNPCEvent*)event {
+    NSString* npcID = event.npcID;
+    UISwipeGestureRecognizerDirection direction = event.direction;
+    NPC* npc = [_characterLayer getNPCWithID:npcID];
+    [self moveTileInDirection:npc direction:direction];
+}
+
+
 - (void)npcTouched:(NPCTouchedEvent*)event {
     NPC* npc = event.npc;
     
@@ -192,6 +213,13 @@
     [_dialogueSprite removeAllChildren];
     _characterLayer.touchable = true;
     [self addSwipeRecognizers];
+}
+
+
+- (void)giveItemEvent:(GiveItemEvent*)event {
+    GiveItemEvent* itemEvent = (GiveItemEvent*)event;
+    Item* item = itemEvent.item;
+    [_player giveItem:item];
 }
 
 - (void)addSwipeRecognizers {

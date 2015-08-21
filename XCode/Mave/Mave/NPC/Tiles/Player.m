@@ -16,16 +16,19 @@
 }
 
 - (id)initWithType:(enum STType)type texture:(SPTexture*)texture coordinate:(STCoordinate*)coordinate filename:(NSString*)filename {
-    if ((self = [super initWithType:STCHARACTER texture:texture coordinate:coordinate filename:filename])) {
+    if ((self = [super initWithType:STPLAYER texture:texture coordinate:coordinate filename:filename])) {
         
         _items = [[NSMutableArray alloc] init];
         [_items addObject:[[Item alloc] initWithName:@"Bus Ticket"]];
         [_items addObject:[[Item alloc] initWithName:@"fish"]];
         [_items addObject:[[Item alloc] initWithName:@"car"]];
 
-
     }
     return self;
+}
+
+- (void)giveItem:(Item*)item {
+    [_items addObject:item];
 }
 
 - (BOOL)hasItem:(Item *)item {

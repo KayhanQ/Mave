@@ -19,6 +19,7 @@
 #import "STLayer.h"
 #import "NPCLayer.h"
 #import "STTile.h"
+#import "NPC.h"
 
 @interface STMap ()
 - (void)loadXMLFile:(NSString *)filename;
@@ -176,18 +177,6 @@
     NSMutableArray* lineArray = [self mergeArrays:arrayToMerge];
     NSLog(@"test");
     for (STTile* t in lineArray) NSLog(@"%d",t.type);
-//
-//    STLayer* layer = [self layerByName:@"Obstacles"];
-//    
-//        if (direction == UISwipeGestureRecognizerDirectionUp || direction == UISwipeGestureRecognizerDirectionDown) {
-//            curLineArray = [layer getTilesInColumnOfTile:tile];
-//        }
-//        else if (direction == UISwipeGestureRecognizerDirectionRight || direction == UISwipeGestureRecognizerDirectionLeft) {
-//            curLineArray = [layer getTilesInRowOfTile:tile];
-//        }
-//      NSMutableArray* lineArray = [[NSMutableArray alloc] initWithArray:curLineArray];
-//    
-//    
     
     //We are going forwards in the arrays to find the next Tile
     if (direction == UISwipeGestureRecognizerDirectionDown || direction == UISwipeGestureRecognizerDirectionRight) {
@@ -229,5 +218,14 @@
     
     return closestTile;
 }
+
+- (STLayer*)getLayerWithTile:(STTile*)tile {
+    NSEnumerator *enumerator = [_layers objectEnumerator];
+    for (STLayer* layer in enumerator) {
+        if ([layer containsTile:tile]) return layer;
+    }
+    return nil;
+}
+
 
 @end

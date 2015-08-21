@@ -16,7 +16,7 @@
 @class STCoordinate;
 
 @interface STTile : SPSprite {
-    enum STType {STEMPTY = 0, STSPIKES, STGROUND, STROCK, STROCK2, STROUGH, STCRACK, STHOLE, STPLAYER, STPUSHROCK, STONEWAY, STORANGE, STSIGN, STSWITCH, STTRIGGER, STTELEPORTPAD, STFIREPORT, STBOX, STCHARACTER, STTOMATO, STDICE, STWATER, STFINISH};
+    enum STType {STEMPTY = 0, STGROUND, STSPIKES, STROCK, STROCK2, STROUGH, STCRACK, STHOLE, STPLAYER, STPUSHROCK, STONEWAY, STORANGE, STSIGN, STSWITCH, STTRIGGER, STTELEPORTPAD, STFIREPORT, STBOX, STNPC, STTOMATO, STDICE, STWATER, STFINISH};
     enum CollisionType {NONE = 0, STOPBEFORE, STOPONTOPOF, KILL};
 }
 
@@ -26,6 +26,6 @@
 @property (nonatomic) int tileWidth;
 @property (nonatomic) int tileHeight;
 
-- (id)initWithType:(enum STType)type coordinate:(STCoordinate*)coordinate;
+- (id)initWithType:(enum STType)type texture:(SPTexture*)texture coordinate:(STCoordinate*)coordinate;
 
 @end

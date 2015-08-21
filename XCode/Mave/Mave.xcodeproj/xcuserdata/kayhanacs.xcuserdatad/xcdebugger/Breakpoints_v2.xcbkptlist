@@ -95,7 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
             endingLineNumber = "80"
-            landmarkName = "-responseClicked:"
+            landmarkName = "-presentResponses:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -111,7 +111,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
             endingLineNumber = "41"
-            landmarkName = "-initWithText:displayName:responses:condition:"
+            landmarkName = "-initWithTBXMLElement:responses:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

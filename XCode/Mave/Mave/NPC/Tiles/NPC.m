@@ -104,6 +104,10 @@
     }
 }
 
+- (BOOL)npcIDEquals:(NSString*)npcID {
+    return [_npcID isEqualToString:npcID];
+}
+
 - (void)dealloc {
     [self removeEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
 }

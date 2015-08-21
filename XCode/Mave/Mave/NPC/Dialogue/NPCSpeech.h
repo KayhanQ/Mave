@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Kayhan Qaiser. All rights reserved.
 //
 
-#import "NPCAction.h"
 #import "TBXML.h"
 
 @class NPCResponse;
@@ -21,6 +20,7 @@
 @property(nonatomic, readonly) NSString* displayName;
 @property(nonatomic, readonly) NSArray* responses;
 @property(nonatomic, readonly) NSArray* conditions;
+@property(nonatomic, readonly) NSArray* actionEvents;
 
 - (id)initWithTBXMLElement:(TBXMLElement*)npcSpeechElement responses:(NSArray*)responses;
 - (id)initWithText:(NSString*)textToSpeak displayName:(NSString*)displayName responses:(NSArray*)responses condition:(Condition*)condition;

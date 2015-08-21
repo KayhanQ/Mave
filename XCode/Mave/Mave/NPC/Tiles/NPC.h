@@ -7,11 +7,11 @@
 //
 
 
-#import "BasicTile.h"
+#import "STTile.h"
 #import "TBXML.h"
 
 
-@interface NPC : BasicTile {
+@interface NPC : STTile {
     
 }
 
@@ -21,6 +21,7 @@
 @property(nonatomic, readonly) NSMutableArray* speeches;
 
 - (id)initWithType:(enum STType)type texture:(SPTexture*)texture coordinate:(STCoordinate*)coordinate filename:(NSString*)filename;
+- (BOOL)npcIDEquals:(NSString*)npcID;
 
 
 @end

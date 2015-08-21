@@ -16,18 +16,24 @@
 
 - (Player*)getPlayer {
     for (STTile* tile in _tiles) {
-        if (tile.type == STCHARACTER) {
-            NPC* npc = (NPC*)tile;
-            if ([npc.npcID isEqualToString:@"player"]) {
-                Player* player = (Player*)npc;
-                return player;
-            }
+        if (tile.type == STPLAYER) {
+            Player* player = (Player*)tile;
+            return player;
         }
     }
     return nil;
 }
 
-
+- (NPC*)getNPCWithID:(NSString*)npcID {
+    NPC* matchedNPC;
+    for (STTile* tile in _tiles) {
+        if (tile.type == STNPC) {
+            NPC* npc = (NPC*)tile;
+            if ([npc npcIDEquals:npcID]) matchedNPC = npc;
+        }
+    }
+    return matchedNPC;
+}
 
 
 @end

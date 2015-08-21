@@ -13,7 +13,7 @@
 @class STTileset;
 @class STLayer;
 @class STTile;
-
+@class NPC;
 @interface STMap : NSObject {
 //	NSString *mFilename;
 //	NSString *mVersion;
@@ -45,5 +45,6 @@
 + (STMap *)mapWithTMXFile:(NSString *)filename;
 - (STLayer *)layerByName:(NSString *)name;
 - (STTile*)getTileClosestToTileInDirection:(STTile*)tile direction:(UISwipeGestureRecognizerDirection)direction;
+- (STLayer*)getLayerWithTile:(STTile*)tile;
 
 @end
