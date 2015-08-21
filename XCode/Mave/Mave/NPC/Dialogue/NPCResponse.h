@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Kayhan Qaiser. All rights reserved.
 //
 
-#import "NPCAction.h"
-
 @class NPCSpeech;
 #import "TBXML.h"
 

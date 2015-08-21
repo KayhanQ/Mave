@@ -12,6 +12,9 @@
 		F143024E1B837F5F00AC4A62 /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = F143024B1B837F5F00AC4A62 /* Condition.m */; };
 		F143024F1B837F6000AC4A62 /* ConditionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F143024D1B837F5F00AC4A62 /* ConditionHandler.m */; };
 		F14302531B838EF100AC4A62 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = F14302521B838EF100AC4A62 /* Item.m */; };
+		F1530B9C1B87957C001872EF /* ActionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F1530B991B87957C001872EF /* ActionEvent.m */; };
+		F1530B9D1B87957C001872EF /* MoveNPCEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F1530B9B1B87957C001872EF /* MoveNPCEvent.m */; };
+		F1530BA01B879698001872EF /* ActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F1530B9F1B879698001872EF /* ActionHandler.m */; };
 		F16FD68E1B82711000860749 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD67F1B82711000860749 /* Game.m */; };
 		F16FD68F1B82711000860749 /* LevelEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6811B82711000860749 /* LevelEngine.m */; };
 		F16FD6901B82711000860749 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6851B82711000860749 /* NSDataAdditions.m */; };
@@ -24,7 +27,6 @@
 		F16FD6A21B82712300860749 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD69C1B82712300860749 /* ViewController.m */; };
 		F16FD6F61B82713700860749 /* LevelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6A51B82713700860749 /* LevelButton.m */; };
 		F16FD6F71B82713700860749 /* LevelsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6A71B82713700860749 /* LevelsMenu.m */; };
-		F16FD6F81B82713700860749 /* NPCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6AB1B82713700860749 /* NPCAction.m */; };
 		F16FD6F91B82713700860749 /* NPCDialogueHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6AE1B82713700860749 /* NPCDialogueHandler.m */; };
 		F16FD6FA1B82713700860749 /* NPCResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6B01B82713700860749 /* NPCResponse.m */; };
 		F16FD6FB1B82713700860749 /* NPCSpeech.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6B21B82713700860749 /* NPCSpeech.m */; };
@@ -81,6 +83,12 @@
 		F143024D1B837F5F00AC4A62 /* ConditionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionHandler.m; sourceTree = "<group>"; };
 		F14302511B838EF100AC4A62 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		F14302521B838EF100AC4A62 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		F1530B981B87957C001872EF /* ActionEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionEvent.h; sourceTree = "<group>"; };
+		F1530B991B87957C001872EF /* ActionEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionEvent.m; sourceTree = "<group>"; };
+		F1530B9A1B87957C001872EF /* MoveNPCEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveNPCEvent.h; sourceTree = "<group>"; };
+		F1530B9B1B87957C001872EF /* MoveNPCEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveNPCEvent.m; sourceTree = "<group>"; };
+		F1530B9E1B879698001872EF /* ActionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionHandler.h; sourceTree = "<group>"; };
+		F1530B9F1B879698001872EF /* ActionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionHandler.m; sourceTree = "<group>"; };
 		F16FD67E1B82711000860749 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		F16FD67F1B82711000860749 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		F16FD6801B82711000860749 /* LevelEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelEngine.h; sourceTree = "<group>"; };
@@ -101,8 +109,6 @@
 		F16FD6A51B82713700860749 /* LevelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelButton.m; sourceTree = "<group>"; };
 		F16FD6A61B82713700860749 /* LevelsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsMenu.h; sourceTree = "<group>"; };
 		F16FD6A71B82713700860749 /* LevelsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelsMenu.m; sourceTree = "<group>"; };
-		F16FD6AA1B82713700860749 /* NPCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPCAction.h; sourceTree = "<group>"; };
-		F16FD6AB1B82713700860749 /* NPCAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCAction.m; sourceTree = "<group>"; };
 		F16FD6AD1B82713700860749 /* NPCDialogueHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPCDialogueHandler.h; sourceTree = "<group>"; };
 		F16FD6AE1B82713700860749 /* NPCDialogueHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCDialogueHandler.m; sourceTree = "<group>"; };
 		F16FD6AF1B82713700860749 /* NPCResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPCResponse.h; sourceTree = "<group>"; };
@@ -240,6 +246,19 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
+		F1530B971B87957C001872EF /* Action Events */ = {
+			isa = PBXGroup;
+			children = (
+				F1530B9E1B879698001872EF /* ActionHandler.h */,
+				F1530B9F1B879698001872EF /* ActionHandler.m */,
+				F1530B981B87957C001872EF /* ActionEvent.h */,
+				F1530B991B87957C001872EF /* ActionEvent.m */,
+				F1530B9A1B87957C001872EF /* MoveNPCEvent.h */,
+				F1530B9B1B87957C001872EF /* MoveNPCEvent.m */,
+			);
+			path = "Action Events";
+			sourceTree = "<group>";
+		};
 		F16FD67D1B82711000860749 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,7 +318,6 @@
 		F16FD6A81B82713700860749 /* NPC */ = {
 			isa = PBXGroup;
 			children = (
-				F16FD6A91B82713700860749 /* Actions */,
 				F16FD6AC1B82713700860749 /* Dialogue */,
 				F14302491B837F5F00AC4A62 /* Conditions */,
 				F16FD6B31B82713700860749 /* Tiles */,
@@ -307,15 +325,6 @@
 				F16FD6B81B82713700860749 /* UI */,
 			);
 			path = NPC;
-			sourceTree = "<group>";
-		};
-		F16FD6A91B82713700860749 /* Actions */ = {
-			isa = PBXGroup;
-			children = (
-				F16FD6AA1B82713700860749 /* NPCAction.h */,
-				F16FD6AB1B82713700860749 /* NPCAction.m */,
-			);
-			path = Actions;
 			sourceTree = "<group>";
 		};
 		F16FD6AC1B82713700860749 /* Dialogue */ = {
@@ -437,6 +446,7 @@
 		F16FD71A1B82722A00860749 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				F1530B971B87957C001872EF /* Action Events */,
 				F16FD71B1B82722A00860749 /* Level Events */,
 				F16FD7201B82722A00860749 /* NPCEvents */,
 				F16FD7281B82722A00860749 /* Other Events */,
@@ -715,7 +725,6 @@
 				F16FD6FE1B82713700860749 /* NPCResponseBox.m in Sources */,
 				F16FD6F91B82713700860749 /* NPCDialogueHandler.m in Sources */,
 				F16FD6911B82711000860749 /* TBXML.m in Sources */,
-				F16FD6F81B82713700860749 /* NPCAction.m in Sources */,
 				F16FD6901B82711000860749 /* NSDataAdditions.m in Sources */,
 				F16FD7121B82713700860749 /* STTileset.m in Sources */,
 				F16FD7131B82713700860749 /* NPCLayer.m in Sources */,
@@ -725,6 +734,7 @@
 				F16FD6A21B82712300860749 /* ViewController.m in Sources */,
 				F16FD7161B82713700860749 /* STMap+Viewport.m in Sources */,
 				F16FD72E1B82722B00860749 /* NPCResponseClickedEvent.m in Sources */,
+				F1530B9D1B87957C001872EF /* MoveNPCEvent.m in Sources */,
 				F16FD68E1B82711000860749 /* Game.m in Sources */,
 				F16FD68F1B82711000860749 /* LevelEngine.m in Sources */,
 				F16FD6FF1B82713700860749 /* NPCSpeechBox.m in Sources */,
@@ -734,6 +744,8 @@
 				F16FD6A11B82712300860749 /* main.m in Sources */,
 				F16FD7191B82713700860749 /* STTile.m in Sources */,
 				F16FD6F71B82713700860749 /* LevelsMenu.m in Sources */,
+				F1530B9C1B87957C001872EF /* ActionEvent.m in Sources */,
+				F1530BA01B879698001872EF /* ActionHandler.m in Sources */,
 				F16FD7171B82713700860749 /* STMap.m in Sources */,
 				F16FD6FD1B82713700860749 /* Player.m in Sources */,
 				F16FD72C1B82722B00860749 /* LevelCompletedEvent.m in Sources */,
