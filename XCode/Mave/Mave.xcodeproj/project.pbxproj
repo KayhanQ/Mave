@@ -15,6 +15,11 @@
 		F1530B9C1B87957C001872EF /* ActionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F1530B991B87957C001872EF /* ActionEvent.m */; };
 		F1530B9D1B87957C001872EF /* MoveNPCEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F1530B9B1B87957C001872EF /* MoveNPCEvent.m */; };
 		F1530BA01B879698001872EF /* ActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F1530B9F1B879698001872EF /* ActionHandler.m */; };
+		F1530BA31B879A23001872EF /* GiveItemEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F1530BA21B879A23001872EF /* GiveItemEvent.m */; };
+		F1530BAB1B879CBD001872EF /* Level_2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F1530BA61B879CBD001872EF /* Level_2.tmx */; };
+		F1530BAC1B879CBD001872EF /* level_2_bob.xml in Resources */ = {isa = PBXBuildFile; fileRef = F1530BA81B879CBD001872EF /* level_2_bob.xml */; };
+		F1530BAD1B879CBD001872EF /* level_2_player.xml in Resources */ = {isa = PBXBuildFile; fileRef = F1530BA91B879CBD001872EF /* level_2_player.xml */; };
+		F1530BAE1B879CBD001872EF /* level_2_snake.xml in Resources */ = {isa = PBXBuildFile; fileRef = F1530BAA1B879CBD001872EF /* level_2_snake.xml */; };
 		F16FD68E1B82711000860749 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD67F1B82711000860749 /* Game.m */; };
 		F16FD68F1B82711000860749 /* LevelEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6811B82711000860749 /* LevelEngine.m */; };
 		F16FD6901B82711000860749 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6851B82711000860749 /* NSDataAdditions.m */; };
@@ -89,6 +94,12 @@
 		F1530B9B1B87957C001872EF /* MoveNPCEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveNPCEvent.m; sourceTree = "<group>"; };
 		F1530B9E1B879698001872EF /* ActionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionHandler.h; sourceTree = "<group>"; };
 		F1530B9F1B879698001872EF /* ActionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionHandler.m; sourceTree = "<group>"; };
+		F1530BA11B879A23001872EF /* GiveItemEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiveItemEvent.h; sourceTree = "<group>"; };
+		F1530BA21B879A23001872EF /* GiveItemEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiveItemEvent.m; sourceTree = "<group>"; };
+		F1530BA61B879CBD001872EF /* Level_2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Level_2.tmx; sourceTree = "<group>"; };
+		F1530BA81B879CBD001872EF /* level_2_bob.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_2_bob.xml; sourceTree = "<group>"; };
+		F1530BA91B879CBD001872EF /* level_2_player.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_2_player.xml; sourceTree = "<group>"; };
+		F1530BAA1B879CBD001872EF /* level_2_snake.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_2_snake.xml; sourceTree = "<group>"; };
 		F16FD67E1B82711000860749 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		F16FD67F1B82711000860749 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		F16FD6801B82711000860749 /* LevelEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelEngine.h; sourceTree = "<group>"; };
@@ -255,8 +266,37 @@
 				F1530B991B87957C001872EF /* ActionEvent.m */,
 				F1530B9A1B87957C001872EF /* MoveNPCEvent.h */,
 				F1530B9B1B87957C001872EF /* MoveNPCEvent.m */,
+				F1530BA11B879A23001872EF /* GiveItemEvent.h */,
+				F1530BA21B879A23001872EF /* GiveItemEvent.m */,
 			);
 			path = "Action Events";
+			sourceTree = "<group>";
+		};
+		F1530BA41B879CBD001872EF /* Level_2 */ = {
+			isa = PBXGroup;
+			children = (
+				F1530BA51B879CBD001872EF /* Level */,
+				F1530BA71B879CBD001872EF /* NPC Dialogue */,
+			);
+			path = Level_2;
+			sourceTree = "<group>";
+		};
+		F1530BA51B879CBD001872EF /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				F1530BA61B879CBD001872EF /* Level_2.tmx */,
+			);
+			path = Level;
+			sourceTree = "<group>";
+		};
+		F1530BA71B879CBD001872EF /* NPC Dialogue */ = {
+			isa = PBXGroup;
+			children = (
+				F1530BA81B879CBD001872EF /* level_2_bob.xml */,
+				F1530BA91B879CBD001872EF /* level_2_player.xml */,
+				F1530BAA1B879CBD001872EF /* level_2_snake.xml */,
+			);
+			path = "NPC Dialogue";
 			sourceTree = "<group>";
 		};
 		F16FD67D1B82711000860749 /* Game */ = {
@@ -383,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				F14302401B831FE800AC4A62 /* Level_1 */,
+				F1530BA41B879CBD001872EF /* Level_2 */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -692,11 +733,15 @@
 				F16FD69E1B82712300860749 /* LaunchScreen.xib in Resources */,
 				F17FD93E1B8504B90024C272 /* tileset_1.tsx in Resources */,
 				F17FD93A1B8504650024C272 /* Level_1.tmx in Resources */,
+				F1530BAD1B879CBD001872EF /* level_2_player.xml in Resources */,
 				F14302481B831FE800AC4A62 /* level_1_player.xml in Resources */,
+				F1530BAC1B879CBD001872EF /* level_2_bob.xml in Resources */,
 				F14302471B831FE800AC4A62 /* level_1_bob.xml in Resources */,
+				F1530BAE1B879CBD001872EF /* level_2_snake.xml in Resources */,
 				F17FD93D1B8504B90024C272 /* tileset_1.png in Resources */,
 				F16FD7541B82785E00860749 /* button_square.png in Resources */,
 				F16FD69F1B82712300860749 /* Main.storyboard in Resources */,
+				F1530BAB1B879CBD001872EF /* Level_2.tmx in Resources */,
 				F16FD7531B82785E00860749 /* benchmark_object.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,6 +772,7 @@
 				F16FD6911B82711000860749 /* TBXML.m in Sources */,
 				F16FD6901B82711000860749 /* NSDataAdditions.m in Sources */,
 				F16FD7121B82713700860749 /* STTileset.m in Sources */,
+				F1530BA31B879A23001872EF /* GiveItemEvent.m in Sources */,
 				F16FD7131B82713700860749 /* NPCLayer.m in Sources */,
 				F16FD7301B82722B00860749 /* NPCTouchedEvent.m in Sources */,
 				F16FD72D1B82722B00860749 /* LoadLevelEvent.m in Sources */,

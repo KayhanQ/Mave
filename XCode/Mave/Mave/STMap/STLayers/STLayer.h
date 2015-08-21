@@ -63,6 +63,7 @@
 - (NSMutableArray*)getTilesInRowOfTile:(STTile*)tile;
 - (NSMutableArray*)getTilesInColumnOfTile:(STTile*)tile;
 - (void)moveTileTo:(STTile*)tile coordinate:(STCoordinate*)coordinate;
+- (BOOL)containsTile:(STTile*)tile;
 
 
 
