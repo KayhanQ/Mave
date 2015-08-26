@@ -19,11 +19,15 @@
 @synthesize responses = _responses;
 @synthesize conditions = _conditions;
 @synthesize actionEvents = _actionEvents;
+@synthesize maxPlayCount = _maxPlayCount;
+@synthesize playCount = _playCount;
 
 - (id)initWithTBXMLElement:(TBXMLElement*)npcSpeechElement responses:(NSArray*)responses {
     if (self = [super init]) {
         _textToSpeak = [TBXML valueOfAttributeNamed:@"text" forElement:npcSpeechElement];
         _displayName = [TBXML valueOfAttributeNamed:@"displayName" forElement:npcSpeechElement];
+        _maxPlayCount = [[TBXML valueOfAttributeNamed:@"maxPlayCount" forElement:npcSpeechElement] intValue];
+        _playCount = 0;
         _responses = responses;
         
         NSMutableArray* mutableConditions = [[NSMutableArray alloc] init];

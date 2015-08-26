@@ -21,6 +21,8 @@
 @property(nonatomic, readonly) NSArray* responses;
 @property(nonatomic, readonly) NSArray* conditions;
 @property(nonatomic, readonly) NSArray* actionEvents;
+@property(nonatomic, readonly) int maxPlayCount;
+@property(nonatomic) int playCount;
 
 - (id)initWithTBXMLElement:(TBXMLElement*)npcSpeechElement responses:(NSArray*)responses;
 - (id)initWithText:(NSString*)textToSpeak displayName:(NSString*)displayName responses:(NSArray*)responses condition:(Condition*)condition;

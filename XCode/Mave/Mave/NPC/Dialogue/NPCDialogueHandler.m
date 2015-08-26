@@ -48,13 +48,16 @@
 
 - (void)presentSpeechBoxForNPCSpeeches:(NSArray*)npcSpeeches {
     for (NPCSpeech* npcSpeech in npcSpeeches) {
-        if (npcSpeech) {
-            if ([_conditionHandler checkConditions:npcSpeech.conditions]) {
-                NPCSpeechBox* speechBox = [[NPCSpeechBox alloc] initWithNPCSpeech:npcSpeech];
-                [_speechContainer addChild:speechBox];
-                return;
-            }
+        if (!npcSpeech) continue;
+        if (npcSpeech.maxPlayCount) if (npcSpeech.playCount >= npcSpeech.maxPlayCount) continue;
+            
+        if ([_conditionHandler checkConditions:npcSpeech.conditions]) {
+            NPCSpeechBox* speechBox = [[NPCSpeechBox alloc] initWithNPCSpeech:npcSpeech];
+            [_speechContainer addChild:speechBox];
+            npcSpeech.playCount++;
+            return;
         }
+        
     }
     [self endDialogue];
 }
