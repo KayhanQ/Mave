@@ -21,7 +21,9 @@
 }
 
 @property(nonatomic, readonly) Item* item;
+@property(nonatomic, readonly) NSString* fromNPCID;
+@property(nonatomic, readonly) NSString* toNPCID;
 
-- (id)initWithItem:(Item*)item;
+- (id)initWithItem:(Item*)item fromNPC:(NSString*)fromNPCID toNPC:(NSString*)toNPCID;
 
 @end

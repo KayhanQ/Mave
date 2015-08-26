@@ -6,7 +6,8 @@
  		</npcSpeech>
  	</response>
  	<response displayName="wit" text="Are you looking for something?">
- 		<npcSpeech displayName="Bob the Good" text="Oh you found it! Thank you! Now I can stop looking." conditions="hasItem:ring" actions="moveNPC:bob,right"/>
+ 		<npcSpeech displayName="Bob the Good" text="Oh you found it! Thank you! Now I can stop looking." conditions="hasItem:player,ring" actions="giveItem:player,bob,ring|moveNPC:bob,right"/>
+ 		<npcSpeech displayName="Bob the Good" text="Not anymore!" conditions="hasItem:bob,ring"/>
  		<npcSpeech displayName="Bob the Good" text="Yes, but you wouldn't be able to help. Now go away"/>
  	</response>
 </npcSpeech>

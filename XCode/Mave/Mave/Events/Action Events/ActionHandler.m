@@ -46,9 +46,12 @@
         }
         case 1:
         {
-            NSString* itemName = [values objectAtIndex:0];
+            NSString* fromNPCID = [values objectAtIndex:0];
+            NSString* toNPCID = [values objectAtIndex:1];
+            NSString* itemName = [values objectAtIndex:2];
+
             Item* item = [[Item alloc] initWithName:itemName];
-            actionEvent = [[GiveItemEvent alloc] initWithItem:item];
+            actionEvent = [[GiveItemEvent alloc] initWithItem:item fromNPC:fromNPCID toNPC:toNPCID];
             break;
         }
         default:

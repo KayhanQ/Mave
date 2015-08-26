@@ -70,7 +70,7 @@
     _player = [_characterLayer getPlayer];
     _conditionHandler = [ConditionHandler sharedConditionHandler];
     _conditionHandler.player = _player;
-    
+    _conditionHandler.npcLayer = _characterLayer;
     
     [self addSwipeRecognizers];
     [self addEventListener:@selector(npcTouched:) atObject:self forType:EVENT_TYPE_NPC_TOUCHED];
@@ -217,9 +217,11 @@
 
 
 - (void)giveItemEvent:(GiveItemEvent*)event {
-    GiveItemEvent* itemEvent = (GiveItemEvent*)event;
-    Item* item = itemEvent.item;
-    [_player giveItem:item];
+    NPC* fromNPC = [_characterLayer getNPCWithID:event.fromNPCID];
+    NPC* toNPC = [_characterLayer getNPCWithID:event.toNPCID];
+    Item* item = event.item;
+    
+    [fromNPC giveItem:item toNPC:toNPC];
 }
 
 - (void)addSwipeRecognizers {

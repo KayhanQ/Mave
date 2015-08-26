@@ -27,7 +27,7 @@
 - (NPC*)getNPCWithID:(NSString*)npcID {
     NPC* matchedNPC;
     for (STTile* tile in _tiles) {
-        if (tile.type == STNPC) {
+        if (tile.type == STNPC || tile.type == STPLAYER) {
             NPC* npc = (NPC*)tile;
             if ([npc npcIDEquals:npcID]) matchedNPC = npc;
         }

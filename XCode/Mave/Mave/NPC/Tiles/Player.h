@@ -16,7 +16,6 @@
 
 
 - (id)initWithType:(enum STType)type texture:(SPTexture*)texture coordinate:(STCoordinate*)coordinate filename:(NSString*)filename;
-- (BOOL)hasItem:(Item*)item;
-- (void)giveItem:(Item*)item;
+
 
 @end

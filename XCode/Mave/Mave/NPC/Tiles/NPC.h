@@ -10,6 +10,7 @@
 #import "STTile.h"
 #import "TBXML.h"
 
+@class Item;
 
 @interface NPC : STTile {
     
@@ -22,6 +23,9 @@
 
 - (id)initWithType:(enum STType)type texture:(SPTexture*)texture coordinate:(STCoordinate*)coordinate filename:(NSString*)filename;
 - (BOOL)npcIDEquals:(NSString*)npcID;
-
+- (BOOL)hasItemWithName:(NSString*)itemName;
+- (void)giveItem:(Item*)item toNPC:(NPC*)npc;
+- (void)addItem:(Item*)item;
+- (void)removeItemWithName:(NSString*)itemName;
 
 @end

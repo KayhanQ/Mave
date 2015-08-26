@@ -9,12 +9,14 @@
 @class Player;
 @class Condition;
 @class NPCSpeech;
+@class NPCLayer;
 
 @interface ConditionHandler : NSObject
 {
 }
 
 @property(nonatomic)Player* player;
+@property(nonatomic)NPCLayer* npcLayer;
 
 + (id)sharedConditionHandler;
 - (id)init;

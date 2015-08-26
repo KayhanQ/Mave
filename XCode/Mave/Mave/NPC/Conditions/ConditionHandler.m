@@ -13,6 +13,8 @@
 #import "Player.h"
 #import "NPCSpeech.h"
 #import "STCoordinate.h"
+#import "NPC.h"
+#import "NPCLayer.h"
 
 @implementation ConditionHandler
 {
@@ -20,6 +22,7 @@
 }
 
 @synthesize player = _player;
+@synthesize npcLayer = _npcLayer;
 
 #pragma mark Singleton Methods
 
@@ -57,8 +60,9 @@
         switch (index) {
             case 0:
             {
-                Item* item = [[Item alloc] initWithName:[condition.values objectAtIndex:0]];
-                if (![_player hasItem:item]) return false;
+                NPC* npc = [_npcLayer getNPCWithID:[condition.values objectAtIndex:0]];
+                Item* item = [[Item alloc] initWithName:[condition.values objectAtIndex:1]];
+                if (![npc hasItemWithName:item.itemName]) return false;
                 break;
             }
             case 4:

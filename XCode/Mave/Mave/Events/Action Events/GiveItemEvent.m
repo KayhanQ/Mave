@@ -12,12 +12,16 @@
 @implementation GiveItemEvent
 
 @synthesize item = _item;
+@synthesize fromNPCID = _fromNPCID;
+@synthesize toNPCID = _toNPCID;
 
-- (id)initWithItem:(Item *)item
+- (id)initWithItem:(Item*)item fromNPC:(NSString*)fromNPCID toNPC:(NSString*)toNPCID
 {
     if ((self = [super initWithType:EVENT_TYPE_GIVE_ITEM]))
     {
         _item = item;
+        _fromNPCID = fromNPCID;
+        _toNPCID = toNPCID;
     }
     return self;
 }

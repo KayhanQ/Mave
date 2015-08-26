@@ -12,8 +12,12 @@
 #import "NPCSpeech.h"
 #import "NPCResponse.h"
 #import "Condition.h"
+#import "Item.h"
 
 @implementation NPC
+{
+    NSMutableArray* _items;
+}
 
 @synthesize filename = _filename;
 @synthesize npcID = _npcID;
@@ -53,6 +57,12 @@
 - (void)setNPCProperties:(TBXMLElement *)npcElement {
     _npcID = [TBXML valueOfAttributeNamed:@"npcID" forElement:npcElement];
     _displayName = [TBXML valueOfAttributeNamed:@"displayName" forElement:npcElement];
+    NSArray* itemsArray = [[TBXML valueOfAttributeNamed:@"items" forElement:npcElement] componentsSeparatedByString:@","];
+    _items = [[NSMutableArray alloc] init];
+    for (NSString* itemName in itemsArray) {
+        Item* item = [[Item alloc] initWithName:itemName];
+        [_items addObject:item];;
+    }
 }
 
 - (NSArray*)loadNPCSpeechTreeWithNode:(TBXMLElement*)npcSpeechElement {
@@ -106,6 +116,33 @@
 
 - (BOOL)npcIDEquals:(NSString*)npcID {
     return [_npcID isEqualToString:npcID];
+}
+
+- (void)giveItem:(Item *)item toNPC:(NPC *)npc {
+    if ([self hasItemWithName:item.itemName]) {
+        [npc addItem:item];
+        [self removeItemWithName:item.itemName];
+    }
+}
+
+- (void)addItem:(Item *)item {
+    [_items addObject:item];
+}
+
+- (void)removeItemWithName:(NSString *)itemName {
+    for (Item* curItem in _items) {
+        if ([curItem.itemName isEqualToString:itemName]) {
+            [_items removeObject:curItem];
+            break;
+        }
+    }
+}
+
+- (BOOL)hasItemWithName:(NSString *)itemName {
+    for (Item* curItem in _items) {
+        if ([curItem.itemName isEqualToString:itemName]) return true;
+    }
+    return false;
 }
 
 - (void)dealloc {
