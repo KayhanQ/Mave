@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="darby" displayName="Darby" type="man">
+ <npcSpeech displayName="Darby" text="I'm quite scared of those spikes.">
+ 	<response displayName="wit" text="Why?">
+ 		<npcSpeech displayName="Darby" text="Well they'll kill you!"/>
+ 	</response>
+ 	<response displayName="wit" text="Me too.">
+ 		<npcSpeech displayName="Darby" text="Are you afraid of heights?">
+ 			<response displayName="wit" text="Yes!">
+ 				<npcSpeech displayName="Darby" text="I'm terrified of them. I could never sleep on a tree. Should I tell you a secret?">
+ 			 		<response displayName="wit" text="Please.">
+ 						<npcSpeech displayName="Darby" text="Maybe a little later..."/>
+ 					</response>
+ 					<response displayName="wit" text="No.">
+ 						<npcSpeech displayName="Darby" text="Ok... but just know that there's a creature here that isn't friendly. Don't trust him. I've said too much..." actions="moveNPC:darby,left"/>
+ 					</response>
+ 				</npcSpeech>
+ 			</response>
+ 		<response displayName="wit" text="A little bit.">
+ 			<npcSpeech displayName="Darby" text="I think we should stick together. This place gives me the creeps." conditions="inPosition:player,7,1" actions="moveNPC:darby,right"/>
+ 			<npcSpeech displayName="Darby" text="Isn't it strange... fear?"/>
+ 		</response>
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+</npc>

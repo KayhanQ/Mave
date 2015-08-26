@@ -20,7 +20,7 @@
     if (self = [super init]) {
 
         for (int i = 1; i<10; i++) {
-            NSString* levelName = [[NSString alloc] initWithFormat:@"Level_%d.tmx", i];
+            NSString* levelName = [[NSString alloc] initWithFormat:@"Level_%d", i];
             
             LevelButton* button = [[LevelButton alloc] initWithLevelName:levelName];
             button.x = button.width*i + 20;

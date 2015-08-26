@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="snake" displayName="Snake" items="ring">
+ <npcSpeech displayName="Snake" text="Hello... need some help?">
+ 	<response displayName="wit" text="Yes, do you have any advice of where to go?">
+ 		<npcSpeech displayName="Snake" text="Yeah, get back where you came from. You won't make it far.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response displayName="wit" text="Not from you. Leave me alone.">
+ 		<npcSpeech displayName="Snake" text="Hahaha, you must be angry because you lost this. Here." actions="giveItem:snake,player,ring" maxPlayCount="1"/>
+ 		<npcSpeech displayName="Snake" text="Still gruff eh... I recommend some calming tea. Perhaps with a wee bit of lemon."/>
+ 	</response>
+</npcSpeech>
+</npc>

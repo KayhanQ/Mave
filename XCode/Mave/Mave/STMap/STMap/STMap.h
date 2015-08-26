@@ -40,8 +40,9 @@
 @property (nonatomic, strong, readonly) STTileset *tileset;
 @property (nonatomic, strong, readonly) NSMutableDictionary *layers;
 @property (nonatomic) float zoom;
+@property (nonatomic, strong, readonly) NSString *folderPath;
 
-- (id)initWithTMXFile:(NSString *)filename;
+- (id)initWithLevelFolderPath:(NSString *)folderPath filename:(NSString*)filename;
 + (STMap *)mapWithTMXFile:(NSString *)filename;
 - (STLayer *)layerByName:(NSString *)name;
 - (STTile*)getTileClosestToTileInDirection:(STTile*)tile direction:(UISwipeGestureRecognizerDirection)direction;

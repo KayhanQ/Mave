@@ -51,8 +51,13 @@
     SPSprite* container = [[SPSprite alloc] init];
     [self addChild:container];
     
+    NSString* folderPath = @"Assets/Levels/";
+    folderPath = [folderPath stringByAppendingString:_levelName];
+    folderPath = [folderPath stringByAppendingString:@"/"];
+    NSString* filename = [_levelName lowercaseString];
+    filename = [filename stringByAppendingString:@".tmx"];
     
-    _map = [[STMap alloc] initWithTMXFile:_levelName];
+    _map = [[STMap alloc] initWithLevelFolderPath:folderPath filename:filename];
     _groundLayer = [_map layerByName:@"Ground"];
     _obstacleLayer = [_map layerByName:@"Obstacles"];
     _characterLayer = (NPCLayer*)[_map layerByName:@"Characters"];

@@ -21,6 +21,9 @@
 @end
 
 @implementation STLayer
+{
+    NSString* _folderPath;
+}
 
 @synthesize name = _name;
 @synthesize width = _width;
@@ -31,7 +34,7 @@
 @synthesize pixelHeight = _pixelHeight;
 @synthesize zoom;
 
-- (id)initWithName:(NSString *)name LayerElement:(TBXMLElement*)layerElement tileset:(STTileset *)tileset {
+- (id)initWithLayerElement:(TBXMLElement *)layerElement tileset:(STTileset *)tileset folderPath:(NSString *)folderPath {
     if (self = [super init]) {
         _name = [TBXML valueOfAttributeNamed:@"name" forElement:layerElement];
         _width = [[TBXML valueOfAttributeNamed:@"width" forElement:layerElement] intValue];
@@ -41,6 +44,7 @@
         _pixelWidth = _width * _tileWidth;
         _pixelHeight = _height * _tileHeight;
         _tileSet = tileset;
+        _folderPath = folderPath;
         
         NSString *opacity = [TBXML valueOfAttributeNamed:@"opacity" forElement:layerElement];
         
@@ -76,18 +80,21 @@
     
     STTile* tile;
     
+
     switch (gid) {
         case STNPC:
         {
             NSString* npcFilename = [TBXML valueOfAttributeNamed:@"npcFile" forElement:tileElement];
-            NPC* npc = [[NPC alloc] initWithType:STNPC texture:texture coordinate:coordinate filename:npcFilename];
+            NSString* filePath = [_folderPath stringByAppendingString:npcFilename];
+            NPC* npc = [[NPC alloc] initWithType:STNPC texture:texture coordinate:coordinate filename:filePath];
             tile = npc;
             break;
         }
         case STPLAYER:
         {
-            NSString* playerFilename = [TBXML valueOfAttributeNamed:@"npcFile" forElement:tileElement];
-            Player* npc = [[Player alloc] initWithType:STPLAYER texture:texture coordinate:coordinate filename:playerFilename];
+            NSString* npcFilename = [TBXML valueOfAttributeNamed:@"npcFile" forElement:tileElement];
+            NSString* filePath = [_folderPath stringByAppendingString:npcFilename];
+            Player* npc = [[Player alloc] initWithType:STPLAYER texture:texture coordinate:coordinate filename:filePath];
             tile = npc;
             break;
         }

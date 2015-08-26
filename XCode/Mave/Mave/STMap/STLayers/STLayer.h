@@ -55,7 +55,7 @@
 @property (nonatomic) float zoom;
 @property (nonatomic) SPImage* image;
 
-- (id)initWithName:(NSString *)name LayerElement:(TBXMLElement*)layerElement tileset:(STTileset *)tileset;
+- (id)initWithLayerElement:(TBXMLElement*)layerElement tileset:(STTileset *)tileset folderPath:(NSString*)folderPath;
 
 - (STTile *)tileAtIndex:(int)index;
 - (int)convertCoordinateToGID:(STCoordinate*)coordinate;

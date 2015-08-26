@@ -44,18 +44,23 @@
 @synthesize tileset = _tileset;
 @synthesize layers = _layers;
 @synthesize zoom = _zoom;
+@synthesize folderPath = _folderPath;
 
-- (id)initWithTMXFile:(NSString *)filename {
+- (id)initWithLevelFolderPath:(NSString *)folderPath filename:(NSString *)filename {
 	if (self = [super init]) {
+        _folderPath = folderPath;
 		_filename = filename;
-		
-		[self loadXMLFile:filename];
+        
+        NSString* filePath = [_folderPath stringByAppendingString:_filename];
+		[self loadXMLFile:filePath];
 	}
 	return self;
 }
 
 + (STMap *)mapWithTMXFile:(NSString *)filename {
-	return [[STMap alloc]initWithTMXFile:filename];
+	
+    return nil;
+    //return [[STMap alloc]initWithTMXFile:filename];
 }
 
 - (void)loadXMLFile:(NSString *)filename {
@@ -123,10 +128,10 @@
 
     STLayer *layer;
     if ([name isEqualToString:@"Characters"]) {
-        layer = [[NPCLayer alloc] initWithName:name LayerElement:layerElement tileset:_tileset];
+        layer = [[NPCLayer alloc] initWithLayerElement:layerElement tileset:_tileset folderPath:_folderPath];
     }
     else {
-        layer = [[STLayer alloc] initWithName:name LayerElement:layerElement tileset:_tileset];
+        layer = [[STLayer alloc] initWithLayerElement:layerElement tileset:_tileset folderPath:_folderPath];
     }
     
 	[_layers setObject:layer forKey:[name lowercaseString]];
