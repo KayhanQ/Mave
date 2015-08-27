@@ -18,8 +18,8 @@
 }
 
 @property(nonatomic, readonly) NSString* conditionName;
-@property(nonatomic, readonly) NSString* truthValue;
+@property(nonatomic, readonly) NSString* value;
 
-- (id)initWithConditionName:(NSString*)conditionName truthValue:(NSString*)truthValue;
+- (id)initWithConditionName:(NSString*)conditionName value:(NSString*)value;
 
 @end

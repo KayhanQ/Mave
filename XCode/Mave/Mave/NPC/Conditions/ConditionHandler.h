@@ -17,6 +17,6 @@
 
 - (id)initWithNPCLayer:(NPCLayer*)npcLayer;
 - (BOOL)checkConditions:(NSArray*)conditions;
-- (void)setConditionWithName:(NSString*)name toTruthValue:(NSString*)truthValue;
+- (void)setConditionWithName:(NSString*)name toValue:(NSString*)value;
 
 @end

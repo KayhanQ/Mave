@@ -12,14 +12,14 @@
 @implementation SetCustomConditionEvent
 
 @synthesize conditionName = _conditionName;
-@synthesize truthValue = _truthValue;
+@synthesize value = _value;
 
-- (id)initWithConditionName:(NSString *)conditionName truthValue:(NSString *)truthValue
+- (id)initWithConditionName:(NSString *)conditionName value:(NSString *)value
 {
     if ((self = [super initWithType:EVENT_TYPE_SET_CUSTOM_CONDITION]))
     {
         _conditionName = conditionName;
-        _truthValue = truthValue;
+        _value = value;
     }
     return self;
 }

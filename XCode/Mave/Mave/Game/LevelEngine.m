@@ -230,7 +230,7 @@
 }
 
 - (void)setCustomConditionEvent:(SetCustomConditionEvent*)event {
-    [_conditionHandler setConditionWithName:event.conditionName toTruthValue:event.truthValue];
+    [_conditionHandler setConditionWithName:event.conditionName toValue:event.value];
 }
 
 - (void)addSwipeRecognizers {

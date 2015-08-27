@@ -28,5 +28,6 @@
 - (void)addItem:(Item*)item;
 - (void)removeItemWithName:(NSString*)itemName;
 - (NSArray*)getAllConditions;
+- (NSMutableDictionary*)getCustomConditions;
 
 @end

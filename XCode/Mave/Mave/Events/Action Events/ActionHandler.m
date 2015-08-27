@@ -59,9 +59,9 @@
         case 2:
         {
             NSString* conditionName = [values objectAtIndex:0];
-            NSString* truthValue = [values objectAtIndex:1];
+            NSString* value = [values objectAtIndex:1];
             
-            actionEvent = [[SetCustomConditionEvent alloc] initWithConditionName:conditionName truthValue:truthValue];
+            actionEvent = [[SetCustomConditionEvent alloc] initWithConditionName:conditionName value:value];
             break;
         }
         default:

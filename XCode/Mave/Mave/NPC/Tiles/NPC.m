@@ -17,6 +17,7 @@
 @implementation NPC
 {
     NSMutableArray* _items;
+    NSMutableDictionary* _customConditions;
 }
 
 @synthesize filename = _filename;
@@ -31,6 +32,7 @@
         
         _filename = filename;
         _speeches = [[NSMutableArray alloc] init];
+        _customConditions = [[NSMutableDictionary alloc] init];
         
         [self loadXMLFile:_filename];
         [self addEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
@@ -57,12 +59,20 @@
 - (void)setNPCProperties:(TBXMLElement *)npcElement {
     _npcID = [TBXML valueOfAttributeNamed:@"npcID" forElement:npcElement];
     _displayName = [TBXML valueOfAttributeNamed:@"displayName" forElement:npcElement];
+    
     NSArray* itemsArray = [[TBXML valueOfAttributeNamed:@"items" forElement:npcElement] componentsSeparatedByString:@","];
     _items = [[NSMutableArray alloc] init];
     for (NSString* itemName in itemsArray) {
         Item* item = [[Item alloc] initWithName:itemName];
         [_items addObject:item];;
     }
+    
+    NSArray* conditionsArray = [[TBXML valueOfAttributeNamed:@"customConditions" forElement:npcElement] componentsSeparatedByString:@"|"];
+    for (NSString* conditionString in conditionsArray) {
+        NSArray* values = [conditionString componentsSeparatedByString:@","];
+        [_customConditions setObject:[values objectAtIndex:1] forKey:[values objectAtIndex:0]];
+    }
+
 }
 
 - (NSArray*)loadNPCSpeechTreeWithNode:(TBXMLElement*)npcSpeechElement {
@@ -103,6 +113,10 @@
     [NSException raise:error format:[NSString stringWithFormat:@"Error while reading \"%@\", %@.", _filename, message], NSStringFromSelector(_cmd)];
 }
 
+
+- (NSMutableDictionary*)getCustomConditions {
+    return _customConditions;
+}
 
 - (NSArray*)getAllConditions {
     NSMutableArray* array = [[NSMutableArray alloc] init];

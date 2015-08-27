@@ -34,21 +34,12 @@
     return self;
 }
 
-- (NSMutableDictionary*)getCustomConditions{
+- (NSMutableDictionary*)getCustomConditions {
     NSMutableDictionary* dictionary = [[NSMutableDictionary alloc] init];
     for (NPC* npc in [_npcLayer getAllNPCs]) {
-        NSArray* allConditions = [npc getAllConditions];
-        for (Condition* condition in allConditions) {
-            if (condition.conditionType == CTCUSTOM) {
-                [dictionary setObject:[NSString stringWithFormat:@"false"] forKey:condition.values[0]];
-            }
-        }
+        [dictionary addEntriesFromDictionary:[npc getCustomConditions]];
     }
     return dictionary;
-}
-
-- (BOOL)customConditionForNameTrue:(NSString*)name {
-    return [[_customConditions objectForKey:name] isEqualToString:@"true"];
 }
 
 - (BOOL)checkConditions:(NSArray*)conditions {
@@ -88,12 +79,12 @@
     return true;
 }
 
-- (void)setConditionWithName:(NSString*)name toTruthValue:(NSString*)truthValue {
+- (void)setConditionWithName:(NSString *)name toValue:(NSString *)value {
     id object = [_customConditions objectForKey:name];
     if (!object) {
         [NSException raise:@"nil Error" format:[NSString stringWithFormat:@"Trying to set a condition that doesn't exist with name %@ Check xml File.", name], NSStringFromSelector(_cmd)];
     }
-    [_customConditions setObject:truthValue forKey:name];
+    [_customConditions setObject:value forKey:name];
 }
 
 - (BOOL)tileHasCoordinates:(STTile*)tile coordinate:(STCoordinate*)coordinate {
