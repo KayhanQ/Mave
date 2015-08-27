@@ -471,12 +471,12 @@
 		F16FD6E51B82713700860749 /* STLayers */ = {
 			isa = PBXGroup;
 			children = (
+				F16FD6EA1B82713700860749 /* STLayer.h */,
+				F16FD6EB1B82713700860749 /* STLayer.m */,
 				F16FD6E61B82713700860749 /* NPCLayer.h */,
 				F16FD6E71B82713700860749 /* NPCLayer.m */,
 				F16FD6E81B82713700860749 /* STLayer+Viewport.h */,
 				F16FD6E91B82713700860749 /* STLayer+Viewport.m */,
-				F16FD6EA1B82713700860749 /* STLayer.h */,
-				F16FD6EB1B82713700860749 /* STLayer.m */,
 			);
 			path = STLayers;
 			sourceTree = "<group>";

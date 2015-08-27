@@ -19,7 +19,7 @@
 {
     if (self = [super init]) {
 
-        for (int i = 1; i<10; i++) {
+        for (int i = 0; i<10; i++) {
             NSString* levelName = [[NSString alloc] initWithFormat:@"Level_%d", i];
             
             LevelButton* button = [[LevelButton alloc] initWithLevelName:levelName];

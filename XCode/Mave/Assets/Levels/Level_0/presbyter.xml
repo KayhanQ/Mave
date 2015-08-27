@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="presbyter" displayName="Presbyter">
+ <npcSpeech displayName="Presbyter" text="You're awake! How are you feeling?" maxPlayCount="1">
+ 	<response text="Who are you?">
+ 		<npcSpeech displayName="Presbyter" text="You don't remember! Wonderfuu... I mean what a shame. You must have blanked it all out... yes good... I mean a shame really but what can one do... Here, I have some food prepared for you. Don't be shy, eat up!">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="I'm better.">
+ 		<npcSpeech displayName="Presbyter" text="Glad to hear it child. You seem to be very lucid... I suppose it is too early but I have to ask you to honour our agreement. Please do not speak of what happened. It is much to ask but I am sure you understand the sensitive nature of the situation...">
+ 			<response text="You can trust me.">
+ 				<npcSpeech displayName="Presbyter" text="Wonderful! I always knew I could!">
+ 				</npcSpeech>
+ 			</response>
+ 			<response text="I will have to think about it.">
+ 				<npcSpeech displayName="Presbyter" text="Hmmm... I hope that you make the right choice.">
+ 				</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+<npcSpeech displayName="Presbyter" text="Are you off already?">
+ 	<response text="Yes.">
+ 		<npcSpeech displayName="Presbyter" text="Alright. I am sure we will see each other soon." actions="moveNPC:presbyter,right">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="I'll stay a bit.">
+ 		<npcSpeech displayName="Presbyter" text="Very well.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+<npcSpeech displayName="Presbyter" text="Remember who your friends are. Agreed?" conditions="inPosition:presbyter,11,6">
+ 	<response text="I will.">
+ 		<npcSpeech displayName="Presbyter" text="Alright. I am sure we will see each other soon." actions="moveNPC:presbyter,right">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Get out of my way.">
+ 		<npcSpeech displayName="Presbyter" text="I can't allow you to go like this.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+<npcSpeech displayName="Presbyter" text="Interesting times ahead..." conditions="inPosition:presbyter,12,6">
+</npc>

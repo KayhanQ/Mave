@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="player" displayName="Player">
+ <npcSpeech displayName="Player" text="What was it... I can't remember but I know it's there... at the back of my head. Maybe it'll come back to me.">
+</npcSpeech>
+</npc>

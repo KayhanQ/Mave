@@ -180,7 +180,6 @@
     }
 
     NSMutableArray* lineArray = [self mergeArrays:arrayToMerge];
-    NSLog(@"test");
     for (STTile* t in lineArray) NSLog(@"%d",t.type);
     
     //We are going forwards in the arrays to find the next Tile
