@@ -15,11 +15,7 @@
 {
 }
 
-@property(nonatomic)Player* player;
-@property(nonatomic)NPCLayer* npcLayer;
-
-+ (id)sharedConditionHandler;
-- (id)init;
+- (id)initWithNPCLayer:(NPCLayer*)npcLayer;
 - (BOOL)checkConditions:(NSArray*)conditions;
 
 

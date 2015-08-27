@@ -18,34 +18,34 @@
 
 @implementation ConditionHandler
 {
-    NSArray* _conditions;
+    NPCLayer* _npcLayer;
+    Player* _player;
+    NSArray* _conditionTypes;
+    NSArray* _customConditions;
 }
 
-@synthesize player = _player;
-@synthesize npcLayer = _npcLayer;
-
-#pragma mark Singleton Methods
-
-+ (id)sharedConditionHandler {
-    static ConditionHandler *sharedConditionHandler = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedConditionHandler = [[self alloc] init];
-    });
-    return sharedConditionHandler;
-}
-
-- (id)init {
+- (id)initWithNPCLayer:(NPCLayer *)npcLayer {
     if (self = [super init]) {
-        [self loadConditions];
+        _npcLayer = npcLayer;
+        _player = [npcLayer getPlayer];
+        
+        _customConditions = [self getCustomConditions];
     }
     return self;
 }
 
+- (NSArray*)getCustomConditions {
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    for (NPC* npc in [_npcLayer getAllNPCs]) {
+        [array addObject:[npc getCustomConditions]];
+    }
+    return array;
+}
+
 - (void)loadConditions {
-    _conditions = @[@"hasItem",
+    _conditionTypes = @[@"hasItem",
                     @"levelProgress",
-                    @"noItemsGreater",
+                    @"custom",
                     @"tileTriggered",
                     @"inPosition"];
 }
@@ -55,7 +55,7 @@
         if (!condition) return true;
         
         NSString* conditionString = condition.condition;
-        int index = (int)[_conditions indexOfObject:conditionString];
+        int index = (int)[_conditionTypes indexOfObject:conditionString];
         
         switch (index) {
             case 0:
@@ -63,6 +63,11 @@
                 NPC* npc = [_npcLayer getNPCWithID:[condition.values objectAtIndex:0]];
                 Item* item = [[Item alloc] initWithName:[condition.values objectAtIndex:1]];
                 if (![npc hasItemWithName:item.itemName]) return false;
+                break;
+            }
+            case 2:
+            {
+                
                 break;
             }
             case 4:

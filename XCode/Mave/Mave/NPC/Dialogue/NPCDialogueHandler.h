@@ -7,6 +7,7 @@
 //
 
 @class NPC;
+@class ConditionHandler;
 
 @interface NPCDialogueHandler : SPSprite
 {
@@ -15,7 +16,7 @@
 
 @property(nonatomic, readonly) NPC* npc;
 
-- (id)initWithNPC:(NPC*)npc;
+- (id)initWithNPC:(NPC*)npc conditionHandler:(ConditionHandler*)conditionHandler;
 - (void)startDialogue;
 
 @end

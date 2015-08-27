@@ -27,5 +27,6 @@
 - (void)giveItem:(Item*)item toNPC:(NPC*)npc;
 - (void)addItem:(Item*)item;
 - (void)removeItemWithName:(NSString*)itemName;
+- (NSArray*)getCustomConditions;
 
 @end

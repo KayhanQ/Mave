@@ -103,6 +103,40 @@
     [NSException raise:error format:[NSString stringWithFormat:@"Error while reading \"%@\", %@.", _filename, message], NSStringFromSelector(_cmd)];
 }
 
+- (NSArray*)getCustomConditions {
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    for (NPCSpeech* speech in [self getAllSpeeches]) {
+        
+    }
+    return array;
+}
+
+- (NSArray*)getAllSpeeches {
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    for (NPCSpeech* speech in _speeches) {
+        if (!speech) continue;
+        [array addObject:speech];
+        [array addObject:[speech getChildSpeeches]];
+    }
+    NSArray* result = [self flattenArray:array];
+    
+    return result;
+}
+
+- (NSArray *)flattenArray:(NSArray*)array
+{
+    NSMutableArray *flattedArray = [[NSMutableArray alloc] init];
+    
+    for (id object in array) {
+        if ([[object class] isSubclassOfClass:[NSArray class]]) {
+            [flattedArray addObjectsFromArray:[self flattenArray:object]];
+        } else {
+            [flattedArray addObject:object];
+        }
+    }
+    
+    return flattedArray;
+}
 
 - (void)onTouch:(SPTouchEvent*)event
 {

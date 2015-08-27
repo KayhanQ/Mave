@@ -27,10 +27,10 @@
 
 @synthesize npc = _npc;
 
-- (id)initWithNPC:(NPC *)npc {
+- (id)initWithNPC:(NPC*)npc conditionHandler:(ConditionHandler*)conditionHandler {
     if (self = [super init]) {
         _npc = npc;
-        _conditionHandler = [ConditionHandler sharedConditionHandler];
+        _conditionHandler = conditionHandler;
         
         _speechContainer = [[SPSprite alloc] init];
         [self addChild:_speechContainer];

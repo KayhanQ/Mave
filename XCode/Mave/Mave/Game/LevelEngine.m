@@ -73,9 +73,7 @@
     _swipeGestureRecognizers = [[NSMutableArray alloc] init];
     
     _player = [_characterLayer getPlayer];
-    _conditionHandler = [ConditionHandler sharedConditionHandler];
-    _conditionHandler.player = _player;
-    _conditionHandler.npcLayer = _characterLayer;
+    _conditionHandler = [[ConditionHandler alloc] initWithNPCLayer:_characterLayer];
     
     [self addSwipeRecognizers];
     [self addEventListener:@selector(npcTouched:) atObject:self forType:EVENT_TYPE_NPC_TOUCHED];
@@ -206,7 +204,7 @@
 }
 
 - (void)startDialogue:(NPC*)npc {
-    NPCDialogueHandler* dialogueHandler = [[NPCDialogueHandler alloc] initWithNPC:npc];
+    NPCDialogueHandler* dialogueHandler = [[NPCDialogueHandler alloc] initWithNPC:npc conditionHandler:_conditionHandler];
     [_dialogueSprite addChild:dialogueHandler];
     [dialogueHandler startDialogue];
     
