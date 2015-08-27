@@ -146,6 +146,14 @@
 	[NSException raise:error format:[NSString stringWithFormat:@"Error while reading \"%@\", %@.", _filename, message], NSStringFromSelector(_cmd)];
 }
 
+- (NSMutableArray*)getOrderedLayers {
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    [array addObject:[self layerByName:@"ground"]];;
+    [array addObject:[self layerByName:@"obstacles"]];;
+    [array addObject:[self layerByName:@"characters"]];;
+
+    return array;
+}
 
 - (NSMutableArray*)mergeArrays:(NSMutableArray*)arrays {
     NSMutableArray* result = [arrays objectAtIndex:0];
@@ -166,10 +174,7 @@
     NSMutableArray* arrayToMerge = [[NSMutableArray alloc] init];
     NSMutableArray* curLineArray = [[NSMutableArray alloc] init];
 
-    NSEnumerator *enumerator = [_layers objectEnumerator];
-    for (STLayer* layer in enumerator) {
-        //we don't want the ground layer in our obstacle detection
-        //if ([layer.name isEqualToString:@"Characters"]) continue;
+    for (STLayer* layer in [self getOrderedLayers]) {
         if (direction == UISwipeGestureRecognizerDirectionUp || direction == UISwipeGestureRecognizerDirectionDown) {
             curLineArray = [layer getTilesInColumnOfTile:tile];
         }
@@ -180,12 +185,13 @@
     }
 
     NSMutableArray* lineArray = [self mergeArrays:arrayToMerge];
+    NSLog(@"new Line");
     for (STTile* t in lineArray) NSLog(@"%d",t.type);
     
     //We are going forwards in the arrays to find the next Tile
     if (direction == UISwipeGestureRecognizerDirectionDown || direction == UISwipeGestureRecognizerDirectionRight) {
         for (STTile* curTile in lineArray) {
-            if (curTile.type == STEMPTY) continue;
+            if (curTile.collisionType == NONE) continue;
             if (direction == UISwipeGestureRecognizerDirectionDown) {
                 if (curTile.coordinate.y > tile.coordinate.y) {
                     closestTile = curTile;
@@ -204,7 +210,7 @@
     //We are going backwards in the arrays to find the next Tile
     if (direction == UISwipeGestureRecognizerDirectionUp || direction == UISwipeGestureRecognizerDirectionLeft) {
         for (STTile* curTile in [lineArray reverseObjectEnumerator]) {
-            if (curTile.type == STEMPTY) continue;
+            if (curTile.collisionType == NONE) continue;
             if (direction == UISwipeGestureRecognizerDirectionUp) {
                 if (curTile.coordinate.y < tile.coordinate.y) {
                     closestTile = curTile;
