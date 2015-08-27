@@ -18,7 +18,7 @@
  		</npcSpeech>
  	</response>
 </npcSpeech>
-<npcSpeech displayName="Presbyter" text="Are you off already?">
+<npcSpeech displayName="Presbyter" text="Are you off already?" conditions="custom:presbyterMoved1,false">
  	<response text="Yes.">
  		<npcSpeech displayName="Presbyter" text="Alright. I am sure we will see each other soon." actions="moveNPC:presbyter,right">
  		</npcSpeech>

@@ -21,7 +21,7 @@
     NPCLayer* _npcLayer;
     Player* _player;
     NSArray* _conditionTypes;
-    NSArray* _customConditions;
+    NSMutableDictionary* _customConditions;
 }
 
 - (id)initWithNPCLayer:(NPCLayer *)npcLayer {
@@ -34,43 +34,44 @@
     return self;
 }
 
-- (NSArray*)getCustomConditions {
-    NSMutableArray* array = [[NSMutableArray alloc] init];
+- (NSMutableDictionary*)getCustomConditions{
+    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc] init];
     for (NPC* npc in [_npcLayer getAllNPCs]) {
-        [array addObject:[npc getCustomConditions]];
+        NSArray* allConditions = [npc getAllConditions];
+        for (Condition* condition in allConditions) {
+            if (condition.conditionType == CTCUSTOM) {
+                [dictionary setObject:[NSString stringWithFormat:@"false"] forKey:condition.values[0]];
+            }
+        }
     }
-    return array;
+    return dictionary;
 }
 
-- (void)loadConditions {
-    _conditionTypes = @[@"hasItem",
-                    @"levelProgress",
-                    @"custom",
-                    @"tileTriggered",
-                    @"inPosition"];
+- (BOOL)customConditionForNameTrue:(NSString*)name {
+    return [[_customConditions objectForKey:name] isEqualToString:@"true"];
 }
 
 - (BOOL)checkConditions:(NSArray*)conditions {
     for (Condition* condition in conditions) {
         if (!condition) return true;
         
-        NSString* conditionString = condition.condition;
-        int index = (int)[_conditionTypes indexOfObject:conditionString];
-        
-        switch (index) {
-            case 0:
+        switch (condition.conditionType) {
+            case CTHASITEM:
             {
                 NPC* npc = [_npcLayer getNPCWithID:[condition.values objectAtIndex:0]];
                 Item* item = [[Item alloc] initWithName:[condition.values objectAtIndex:1]];
                 if (![npc hasItemWithName:item.itemName]) return false;
                 break;
             }
-            case 2:
+            case CTCUSTOM:
             {
-                
+                NSString* name = [condition.values objectAtIndex:0];
+                NSString* value = [condition.values objectAtIndex:1];
+
+                if (![[_customConditions objectForKey:name] isEqualToString:value]) return false;
                 break;
             }
-            case 4:
+            case CTINPOSITION:
             {
                 int x = [condition.values[1] intValue];
                 int y = [condition.values[2] intValue];

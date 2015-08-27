@@ -11,13 +11,15 @@
 
 @implementation Condition
 
-@synthesize condition = _condition;
+@synthesize conditionType = _conditionType;
 @synthesize values = _values;
 
 - (id)initWithString:(NSString *)string {
     if (self = [super init]) {
         NSArray* splitStrings = [string componentsSeparatedByString:@":"];
-        _condition = [splitStrings objectAtIndex:0];
+        
+        NSString* conditionString = [splitStrings objectAtIndex:0];
+        _conditionType = [self getConditionTypeForString:conditionString];
         
         NSArray* values = [[splitStrings objectAtIndex:1] componentsSeparatedByString:@","];
         NSMutableArray* mutableValues = [[NSMutableArray alloc] init];
@@ -29,5 +31,53 @@
     }
     return self;
 }
+
+- (enum ConditionType)getConditionTypeForString:(NSString*)conditionString {
+    NSArray* conditionTypes = @[@"none",
+                                @"hasItem",
+                                @"levelProgress",
+                                @"custom",
+                                @"inPosition"];
+    
+    enum ConditionType conditionType;
+    
+    int index = (int)[conditionTypes indexOfObject:conditionString];
+    
+    switch (index) {
+        case 1:
+        {
+            conditionType = CTHASITEM;
+            break;
+        }
+        case 2:
+        {
+            conditionType = CTLEVELPROGRESS;
+            break;
+        }
+        case 3:
+        {
+            conditionType = CTCUSTOM;
+            break;
+        }
+        case 4:
+        {
+            conditionType = CTINPOSITION;
+            break;
+        }
+        default:
+        {
+            conditionType = CTNONE;
+            break;
+        }
+    }
+
+    return conditionType;
+}
+
+
+
+
+
+
 
 @end

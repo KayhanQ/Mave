@@ -103,10 +103,13 @@
     [NSException raise:error format:[NSString stringWithFormat:@"Error while reading \"%@\", %@.", _filename, message], NSStringFromSelector(_cmd)];
 }
 
-- (NSArray*)getCustomConditions {
+- (NSArray*)getAllConditions {
     NSMutableArray* array = [[NSMutableArray alloc] init];
     for (NPCSpeech* speech in [self getAllSpeeches]) {
-        
+        for (Condition* condition in speech.conditions) {
+            if (!condition) continue;
+            [array addObject:condition];
+        }
     }
     return array;
 }

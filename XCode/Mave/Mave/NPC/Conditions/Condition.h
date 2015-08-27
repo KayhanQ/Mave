@@ -8,10 +8,11 @@
 
 @interface Condition : NSObject
 {
+    enum ConditionType {CTNONE = 0, CTHASITEM, CTLEVELPROGRESS, CTCUSTOM, CTINPOSITION};
 
 }
 
-@property(nonatomic, readonly) NSString* condition;
+@property(nonatomic, readonly) enum ConditionType conditionType;
 @property(nonatomic, readonly) NSArray* values;
 
 
