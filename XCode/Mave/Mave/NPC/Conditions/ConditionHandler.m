@@ -88,6 +88,14 @@
     return true;
 }
 
+- (void)setConditionWithName:(NSString*)name toTruthValue:(NSString*)truthValue {
+    id object = [_customConditions objectForKey:name];
+    if (!object) {
+        [NSException raise:@"nil Error" format:[NSString stringWithFormat:@"Trying to set a condition that doesn't exist with name %@ Check xml File.", name], NSStringFromSelector(_cmd)];
+    }
+    [_customConditions setObject:truthValue forKey:name];
+}
+
 - (BOOL)tileHasCoordinates:(STTile*)tile coordinate:(STCoordinate*)coordinate {
     if (tile.coordinate.x == coordinate.x && tile.coordinate.y == coordinate.y) return true;
     return false;

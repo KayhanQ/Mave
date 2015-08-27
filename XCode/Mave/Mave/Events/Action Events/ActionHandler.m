@@ -11,6 +11,7 @@
 #import "MoveNPCEvent.h"
 #import "GiveItemEvent.h"
 #import "Item.h"
+#import "SetCustomConditionEvent.h"
 
 @implementation ActionHandler
 {
@@ -19,7 +20,8 @@
 
 + (ActionEvent*)makeActionEvent:(NSString*)string {
     NSArray* actions = @[@"moveNPC",
-                    @"giveItem"
+                    @"giveItem",
+                         @"setCustomCondition"
                          ];
     
     ActionEvent* actionEvent;
@@ -52,6 +54,14 @@
 
             Item* item = [[Item alloc] initWithName:itemName];
             actionEvent = [[GiveItemEvent alloc] initWithItem:item fromNPC:fromNPCID toNPC:toNPCID];
+            break;
+        }
+        case 2:
+        {
+            NSString* conditionName = [values objectAtIndex:0];
+            NSString* truthValue = [values objectAtIndex:1];
+            
+            actionEvent = [[SetCustomConditionEvent alloc] initWithConditionName:conditionName truthValue:truthValue];
             break;
         }
         default:

@@ -16,6 +16,7 @@
 #import "ConditionHandler.h"
 #import "MoveNPCEvent.h"
 #import "GiveItemEvent.h"
+#import "SetCustomConditionEvent.h"
 
 @interface LevelEngine ()
 - (void)swipeLeft:(UISwipeGestureRecognizer *)gestureRecognizer;
@@ -80,6 +81,7 @@
     [self addEventListener:@selector(npcDialogueFinished:) atObject:self forType:EVENT_NPC_DIALOGUE_FINISHED];
     [self addEventListener:@selector(moveNPCWithIDEvent:) atObject:self forType:EVENT_TYPE_MOVE_NPC];
     [self addEventListener:@selector(giveItemEvent:) atObject:self forType:EVENT_TYPE_GIVE_ITEM];
+    [self addEventListener:@selector(setCustomConditionEvent:) atObject:self forType:EVENT_TYPE_SET_CUSTOM_CONDITION];
 
 }
 
@@ -225,6 +227,10 @@
     Item* item = event.item;
     
     [fromNPC giveItem:item toNPC:toNPC];
+}
+
+- (void)setCustomConditionEvent:(SetCustomConditionEvent*)event {
+    [_conditionHandler setConditionWithName:event.conditionName toTruthValue:event.truthValue];
 }
 
 - (void)addSwipeRecognizers {

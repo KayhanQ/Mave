@@ -20,7 +20,7 @@
 </npcSpeech>
 <npcSpeech displayName="Presbyter" text="Are you off already?" conditions="custom:presbyterMoved1,false">
  	<response text="Yes.">
- 		<npcSpeech displayName="Presbyter" text="Alright. I am sure we will see each other soon." actions="moveNPC:presbyter,right">
+ 		<npcSpeech displayName="Presbyter" text="Alright. I am sure we will see each other soon." actions="moveNPC:presbyter,right|setCustomCondition:presbyterMoved1,true">
  		</npcSpeech>
  	</response>
  	<response text="I'll stay a bit.">
@@ -28,7 +28,7 @@
  		</npcSpeech>
  	</response>
 </npcSpeech>
-<npcSpeech displayName="Presbyter" text="Remember who your friends are. Agreed?" conditions="inPosition:presbyter,11,6">
+<npcSpeech displayName="Presbyter" text="Remember who your friends are. Agreed?" conditions="custom:presbyterMoved1,true">
  	<response text="I will.">
  		<npcSpeech displayName="Presbyter" text="Alright. I am sure we will see each other soon." actions="moveNPC:presbyter,right">
  		</npcSpeech>
