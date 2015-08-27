@@ -16,5 +16,6 @@
 
 - (Player*)getPlayer;
 - (NPC*)getNPCWithID:(NSString*)npcID;
+- (NSArray*)getAllNPCs;
 
 @end

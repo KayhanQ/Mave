@@ -35,5 +35,15 @@
     return matchedNPC;
 }
 
+- (NSArray*)getAllNPCs {
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    for (STTile* tile in _tiles) {
+        if (tile.type == STNPC || tile.type == STPLAYER) {
+            NPC* npc = (NPC*)tile;
+            [array addObject:npc];
+        }
+    }
+    return array;
+}
 
 @end

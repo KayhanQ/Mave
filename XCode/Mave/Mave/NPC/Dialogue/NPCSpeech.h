@@ -26,5 +26,6 @@
 
 - (id)initWithTBXMLElement:(TBXMLElement*)npcSpeechElement responses:(NSArray*)responses;
 - (id)initWithText:(NSString*)textToSpeak displayName:(NSString*)displayName responses:(NSArray*)responses condition:(Condition*)condition;
+- (NSArray*)getChildSpeeches;
 
 @end

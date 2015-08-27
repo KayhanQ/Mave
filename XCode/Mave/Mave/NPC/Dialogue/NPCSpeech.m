@@ -11,6 +11,7 @@
 #import "Condition.h"
 #import "ActionEvent.h"
 #import "ActionHandler.h"
+#import "NPCResponse.h"
 
 @implementation NPCSpeech
 
@@ -46,6 +47,20 @@
         
     }
     return self;
+}
+
+- (NSArray*)getChildSpeeches {
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    for (NPCResponse* response in _responses) {
+        if (!response) continue;
+        for (NPCSpeech* speech in response.npcSpeeches) {
+            if (!speech) continue;
+            [array addObject:speech];
+            [array addObject:[speech getChildSpeeches]];
+        }
+    }
+    
+    return array;
 }
 
 - (NSArray*)getValuesForString:(TBXMLElement*)npcSpeechElement forAttribute:(NSString*)attribute {
