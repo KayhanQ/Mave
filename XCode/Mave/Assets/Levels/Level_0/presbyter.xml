@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <npc npcID="presbyter" displayName="Presbyter" customConditions="presbyterMoved1,false">
+ <npc npcID="presbyter" displayName="Presbyter" customConditions="presbyterPosition,1">
  <npcSpeech displayName="Presbyter" text="You're awake! How are you feeling?" maxPlayCount="1">
  	<response text="Who are you?">
  		<npcSpeech displayName="Presbyter" text="You don't remember! Wonderfuu... I mean what a shame. You must have blanked it all out... yes good... I mean a shame really but what can one do... Here, I have some food prepared for you. Don't be shy, eat up!">
@@ -18,9 +18,9 @@
  		</npcSpeech>
  	</response>
 </npcSpeech>
-<npcSpeech displayName="Presbyter" text="Are you off already?" conditions="custom:presbyterMoved1,false">
+<npcSpeech displayName="Presbyter" text="Are you off already?" conditions="custom:presbyterPosition,1">
  	<response text="Yes.">
- 		<npcSpeech displayName="Presbyter" text="Alright. I am sure we will see each other soon." actions="moveNPC:presbyter,right|setCustomCondition:presbyterMoved1,true">
+ 		<npcSpeech displayName="Presbyter" text="Alright. I am sure we will see each other soon." actions="moveNPC:presbyter,right|setCustomCondition:presbyterPosition,2">
  		</npcSpeech>
  	</response>
  	<response text="I'll stay a bit.">
@@ -28,9 +28,9 @@
  		</npcSpeech>
  	</response>
 </npcSpeech>
-<npcSpeech displayName="Presbyter" text="Remember who your friends are. Agreed?" conditions="custom:presbyterMoved1,true">
+<npcSpeech displayName="Presbyter" text="Remember who your friends are. Agreed?" conditions="custom:presbyterPosition,2">
  	<response text="I will.">
- 		<npcSpeech displayName="Presbyter" text="Alright. I am sure we will see each other soon." actions="moveNPC:presbyter,right">
+ 		<npcSpeech displayName="Presbyter" text="Alright. I am sure we will see each other soon." actions="moveNPC:presbyter,right|setCustomCondition:presbyterPosition,3">
  		</npcSpeech>
  	</response>
  	<response text="Get out of my way.">
@@ -38,5 +38,5 @@
  		</npcSpeech>
  	</response>
 </npcSpeech>
-<npcSpeech displayName="Presbyter" text="Interesting times ahead..." conditions="inPosition:presbyter,12,6">
+<npcSpeech displayName="Presbyter" text="Interesting times ahead..." conditions="custom:presbyterPosition,3">
 </npc>
