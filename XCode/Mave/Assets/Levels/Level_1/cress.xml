@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <npc npcID="cress" displayName="Cress" customConditions="cressPos,0|exploredMap,false">
+ <npc npcID="cress" displayName="Cress" customConditions="cressPos,0">
  <npcSpeech displayName="Cress" text="Hallo there! It's not usual we get people coming from your direction. Where are you headed?" conditions="custom:cressPos,0">
  	<response displayName="wit" text="All the way!">
  		<npcSpeech displayName="Cress" text="Heh-heh. Right then, well this is probably the right direction." actions="moveNPC:cress,left|setCustomCondition:cressPos,++">

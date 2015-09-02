@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="enuk" displayName="Enuk">
+ <npcSpeech displayName="Enuk" text="Ahoi. These are deserted lands. It is pleasing to see a sight such as you." maxPlayCount="2">
+ 	<response displayName="wit" text="Where are you from?">
+ 		<npcSpeech displayName="Enuk" text="The highlands, seventy clicks from Mestreyk.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response displayName="wit" text="What do you do?">
+ 		<npcSpeech displayName="Enuk" text="I was a lawyer. I worked many years for the farmers union... but that has passed. Now I travel and read fortunes for a living.">
+ 			<response displayName="wit" text="Can you read mine?">
+ 				<npcSpeech displayName="Enuk" text="Nay. Not now.">
+ 				</npcSpeech>
+ 			</response>
+ 			<response displayName="wit" text="I don't believe in fortunes.">
+ 				<npcSpeech displayName="Enuk" text="Curious. Perhaps you have not arrived at your current position yet.">
+ 				</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Enuk" text="These rocks are tricky. It is not always easy to find your way through them">
+</npcSpeech>
+
+</npc>

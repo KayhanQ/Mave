@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <npc npcID="charles" displayName="Charles" customConditions="metCharles,false">
- <npcSpeech displayName="Charles" text="Good show chap." maxPlayCount="1" actions="setCustomCondition:metCharles,true">
+<npc npcID="charles" displayName="Charles" customConditions="metCharles,false">
+<npcSpeech displayName="Charles" text="Do I know you?" maxPlayCount="1" actions="setCustomCondition:metCharles,true">
+ 	<response text="We've met before.">
+ 		<npcSpeech displayName="Charles" text="... I don't beleive we have. I would remember I'd think.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="No.">
+ 		<npcSpeech displayName="Charles" text="Yes, that's right how could we ever have. Ha-ho.">
+ 		</npcSpeech>
+ 	</response>
 </npcSpeech>
+
+ <npcSpeech displayName="Charles" text="Well I'm awefully busy and I don't suppose your... kind would have anything important to discuss with me.">
+ 	<response text="My kind?">
+ 		<npcSpeech displayName="Charles" text="Indeed...">
+ 		</npcSpeech>s
+ 	</response>
+ 	<response text="One day I will.">
+ 		<npcSpeech displayName="Charles" text="Perhaps that is inevitable but rest assured that day is not soon. Good bye">
+ 		</npcSpeech>
+ 	</response>
+ </npcSpeech>
+
 </npc>

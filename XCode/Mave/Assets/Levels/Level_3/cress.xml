@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="cress" displayName="Cress" customConditions="cressPos,0|slidingTalk,false">
+<npcSpeech displayName="Cress" text="Ah Hello! It's good to see you again!" maxPlayCount="1">
+</npcSpeech>
+
+<npcSpeech displayName="Cress" text="How are you finding things?" conditions="custom:cressPos,0">
+ 	<response displayName="wit" text="Okay.">
+ 		<npcSpeech displayName="Cress" text="Here's another tip. Don't touch those spikey things. They are super dangerous.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response displayName="wit" text="Terrible.">
+ 		<npcSpeech displayName="Cress" text="Let me show you how it's done then! Should I show you how to move left or down?">
+ 			<response displayName="wit" text="Down.">
+ 				<npcSpeech displayName="Cress" text="Ah, you're in the way. I'll go left." actions="moveNPC:cress,left|setCustomCondition:cressPos,1">
+ 				</npcSpeech>
+ 			</response>
+ 			<response displayName="wit" text="Left.">
+ 				<npcSpeech displayName="Cress" text="Allright!" actions="moveNPC:cress,left|setCustomCondition:cressPos,1">
+ 				</npcSpeech>
+  			</response>
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Cress" text="Forget I said any of that... I didn't mean it..." conditions="custom:slidingTalk,true">
+</npcSpeech>
+
+<npcSpeech displayName="Cress" text="Any other questions?" conditions="custom:cressPos,1">
+ 	<response displayName="wit" text="No.">
+ 		<npcSpeech displayName="Cress" text="You're doing a fine job. Keep it up.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response displayName="wit" text="Do you have any?">
+ 		<npcSpeech displayName="Cress" text="... No ones ever asked me that before... I suppose there's one... but I don't know if it makes sense.">
+ 			<response displayName="wit" text="Tell me.">
+ 				<npcSpeech displayName="Cress" text="It's something that has been bothering me for a few days. I do not know why, it's so illogical anyway... I was wondering why we slide. Why do we keep moving till we hit a rock or rough? Why should a step be meaured that way... in a direction. Shouldn't we be able to choose to take a step that is smaller. And if so how small can our steps be!" actions="setCustomCondition:slidingTalk,true">
+ 				</npcSpeech>
+ 			</response>
+ 			<response displayName="wit" text="Nevermind then.">
+ 				<npcSpeech displayName="Cress" text="Mmmm...">
+ 				</npcSpeech>
+  			</response>
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+
+
+</npc>
