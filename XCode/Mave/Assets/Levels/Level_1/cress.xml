@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="cress" displayName="Cress" customConditions="cressPos,0|exploredMap,false">
+ <npcSpeech displayName="Cress" text="Hallo there! It's not usual we get people coming from your direction. Where are you headed?" conditions="custom:cressPos,0">
+ 	<response displayName="wit" text="All the way!">
+ 		<npcSpeech displayName="Cress" text="Heh-heh. Right then, well this is probably the right direction." actions="moveNPC:cress,left|setCustomCondition:cressPos,++">
+ 		</npcSpeech>
+ 	</response>
+ 	<response displayName="wit" text="Not sure.">
+ 		<npcSpeech displayName="Cress" text="Maybe this way then?" actions="moveNPC:cress,left|setCustomCondition:cressPos,++">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+ <npcSpeech displayName="Cress" text="Do you know how to get around?" conditions="custom:cressPos,1">
+ 	<response displayName="wit" text="Mostly.">
+ 		<npcSpeech displayName="Cress" text="Well if you need any help just ask!">
+ 		</npcSpeech>
+ 	</response>
+ 	<response displayName="wit" text="Not really!">
+ 		<npcSpeech displayName="Cress" text="Ah! Maybe I can help then! All you have to do is slide in which-so-ever direction you choose and you will keep moving till you stop. So let's say if I slide down here I will stop at the rock. See?" actions="moveNPC:cress,down|setCustomCondition:cressPos,++">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+ <npcSpeech displayName="Cress" text="Do you need another tip?" conditions="custom:cressPos,2">
+ 	<response displayName="wit" text="No thanks!">
+ 		<npcSpeech displayName="Cress" text="I'll be here for you regardless. It's an honour...">
+ 		</npcSpeech>
+ 	</response>
+ 	<response displayName="wit" text="Yes please!">
+ 		<npcSpeech displayName="Cress" text="Ok. Great! So I had mentioned how rocks stop you. There's another thing that could happen. If you slide onto a rough piece of ground, you'll stop on top of it. That may seem like a small difference but it can make a huge difference in where you want to go. You'll see the difference. Look!" conditions="custom:metSmurg,true|custom:metCharles,true" actions="moveNPC:cress,left|setCustomCondition:cressPos,++">
+ 		</npcSpeech>
+ 		<npcSpeech displayName="Cress" text="Maybe you should try out what I told you a bit first. Explore, practice a little.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+ <npcSpeech displayName="Cress" text="That is all I have for you at the moment... I'm sure we'll see each other soon though." conditions="custom:cressPos,3" maxPlayCount="1">
+ 	<response displayName="wit" text="You've been super helpful.">
+ 		<npcSpeech displayName="Cress" text="That means a lot to me. Thank you. I always beleived I would be here...">
+ 		</npcSpeech>
+ 	</response>
+ 	<response displayName="wit" text="See you soon" >
+ 		<npcSpeech displayName="Cress" text="Adieu.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Cress" text="I think you should keep moving now.">
+</npcSpeech>
+
+</npc>

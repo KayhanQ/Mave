@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="smurg" displayName="Smurg" customConditions="metSmurg,false">
+ <npcSpeech displayName="Smurg" text="MREEEAAAAWWWWWWWWWWWWWW." maxPlayCount="1" actions="setCustomCondition:metSmurg,true">
+ 	<response text="Are you okay!">
+ 		<npcSpeech displayName="Smurg" text="HRUUUUUTUTEWW.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Stop that now!">
+ 		<npcSpeech displayName="Smurg" text="CRAEWERERRERERERERER. NOT FRIEND.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Smurg" text="GrRUWUWU." maxPlayCount="1">
+ 	<response text="What is wrong?">
+ 		<npcSpeech displayName="Smurg" text="PEEEEEPGGt.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="GET OUT OF HERE.">
+ 		<npcSpeech displayName="Smurg" text="Fiddle a Piper. Piper said fiddle.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Smurg" text="Hssspp.. pp .. . pp p p.. p ...">
+</npcSpeech>
+
+</npc>

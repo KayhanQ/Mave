@@ -17,6 +17,7 @@
  			</response>
  	</response>
 </npcSpeech>
+
 <npcSpeech displayName="Jane" text="What are you waiting for?" maxPlayCount="1">
  	<response text="I really don't know what is happening.">
  		<npcSpeech displayName="Jane" text="No games. Go.">
