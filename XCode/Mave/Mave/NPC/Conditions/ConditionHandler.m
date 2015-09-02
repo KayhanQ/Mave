@@ -80,6 +80,13 @@
 }
 
 - (void)setConditionWithName:(NSString *)name toValue:(NSString *)value {
+    if ([value isEqualToString:@"++"]) {
+        NSString* curVal = [_customConditions objectForKey:name];
+        int curIntVal = [curVal intValue];
+        curIntVal++;
+        value = [NSString stringWithFormat:@"%d",curIntVal];
+    }
+    
     id object = [_customConditions objectForKey:name];
     if (!object) {
         [NSException raise:@"nil Error" format:[NSString stringWithFormat:@"Trying to set a condition that doesn't exist with name %@ Check xml File.", name], NSStringFromSelector(_cmd)];
