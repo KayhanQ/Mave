@@ -11,14 +11,12 @@
 
 @interface NPCResponse : NSObject
 {
-
 }
 
 @property(nonatomic, readonly) NSString* textToRespondWith;
 @property(nonatomic, readonly) NSArray* npcSpeeches;
 
 - (id)initWithTBXMLElement:(TBXMLElement*)responseElement npcSpeeches:(NSArray*)npcSpeeches;
-
-- (id)initWithTextToRespondWith:(NSString*)textToRespondWith npcSpeeches:(NSArray*)npcSpeeches;
+- (id)initAsNil;
 
 @end

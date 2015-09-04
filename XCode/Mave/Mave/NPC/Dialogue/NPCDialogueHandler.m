@@ -11,6 +11,7 @@
 #import "NPCSpeechBox.h"
 #import "NPCResponse.h"
 #import "NPCResponseBox.h"
+#import "NPCUIResponse.h"
 #import "NPC.h"
 #import "NPCSpeech.h"
 #import "GameEvents.h"
@@ -81,11 +82,40 @@
     [self getSpeechBox].touchable = false;
     int y = 200;
     for (NPCResponse* response in responses) {
-        NPCResponseBox* responceBox = [[NPCResponseBox alloc] initWithResponse:response];
-        [_speechContainer addChild:responceBox];
-        responceBox.y = y;
-        y += 40;
+        if ([[response class] isSubclassOfClass:[NPCUIResponse class]]) {
+            [self presentUIResponse:(NPCUIResponse*)response];
+        }
+        else {
+            NPCResponseBox* responceBox = [[NPCResponseBox alloc] initWithResponse:response];
+            [_speechContainer addChild:responceBox];
+            responceBox.y = y;
+            y += 40;
+        }
     }
+}
+
+- (void)presentUIResponse:(NPCUIResponse*)response {
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Answer"
+                                          message:@""
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+     }];
+    
+    UIAlertAction *submitAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"Submit", @"Submit action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   UITextField *answerField = alertController.textFields.firstObject;
+                                   response.currentAnswer = answerField.text;
+                                   [self userInputedForResponse:response];
+                               }];
+    [alertController addAction:submitAction];
+    
+    [Sparrow.currentController presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)responseClicked:(NPCResponseClickedEvent*)event {
@@ -94,9 +124,16 @@
     [self presentSpeechBoxForNPCSpeeches:response.npcSpeeches];
 }
 
+- (void)userInputedForResponse:(NPCUIResponse*)response {
+    [self clearDialogue];
+    NPCSpeechBox* speechBox;
+    if ([response.currentAnswer containsString:response.correctAnswer]) speechBox = [[NPCSpeechBox alloc] initWithNPCSpeech:response.npcSpeeches[0]];
+    else speechBox = [[NPCSpeechBox alloc] initWithNPCSpeech:response.npcSpeeches[1]];
+    [_speechContainer addChild:speechBox];
+}
+
 - (void)clearDialogue {
     [_speechContainer removeAllChildren];
-    
 }
 
 - (void)endDialogue {

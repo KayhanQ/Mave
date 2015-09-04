@@ -22,10 +22,10 @@
     return self;
 }
 
-- (id)initWithTextToRespondWith:(NSString *)textToRespondWith npcSpeeches:(NSArray *)npcSpeeches {
+- (id)initAsNil {
     if (self = [super init]) {
-        _textToRespondWith = textToRespondWith;
-        _npcSpeeches = npcSpeeches;
+        _textToRespondWith = nil;
+        _npcSpeeches = nil;
     }
     return self;
 }

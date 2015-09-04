@@ -11,6 +11,7 @@
 #import "GameEvents.h"
 #import "NPCSpeech.h"
 #import "NPCResponse.h"
+#import "NPCUIResponse.h"
 #import "Condition.h"
 #import "Item.h"
 
@@ -81,9 +82,10 @@
     while (npcSpeechElement) {
         NSMutableArray* responses = [[NSMutableArray alloc] init];
 
+        //base case, make nil response
         TBXMLElement *responseElement = [TBXML childElementNamed:@"response" parentElement:npcSpeechElement];
         if (!responseElement) {
-            NPCResponse* response = [[NPCResponse alloc] initWithTextToRespondWith:nil npcSpeeches:nil];
+            NPCResponse* response = [[NPCResponse alloc] initAsNil];
             [responses addObject:response];
         }
         
@@ -93,9 +95,12 @@
             NSArray* childNPCSpeeches = nil;
             if (childNPCSpeechElement) childNPCSpeeches = [self loadNPCSpeechTreeWithNode:childNPCSpeechElement];
             
-            NPCResponse* response = [[NPCResponse alloc] initWithTBXMLElement:responseElement npcSpeeches:childNPCSpeeches];
-            [responses addObject:response];
+            NPCResponse* response;
+            NSString* userInput = [TBXML valueOfAttributeNamed:@"userInput" forElement:responseElement];
+            if (userInput) response = [[NPCUIResponse alloc] initWithTBXMLElement:responseElement npcSpeeches:childNPCSpeeches];
+            else response = [[NPCResponse alloc] initWithTBXMLElement:responseElement npcSpeeches:childNPCSpeeches];
             
+            [responses addObject:response];
             responseElement = [TBXML nextSiblingNamed:@"response" searchFromElement:responseElement];
         }
         
