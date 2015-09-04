@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <npc npcID="jane" displayName="Jane">
- <npcSpeech displayName="Jane" text="Listen, I don't know what you're up to but the sooner you leave the happier I'll be. See that circle on the right? It will transport you onward." maxPlayCount="1">
+ <npcSpeech displayName="Jane" text="Listen, I don't know what you're up to here but the sooner you leave the happier I'll be. See that circle on the right? It will transport you onward." maxPlayCount="1">
  	<response text="I'm on your side here.">
  		<npcSpeech displayName="Jane" text="There are no sides... not anymore.">
  		</npcSpeech>
  	</response>
  	<response text="Who is Presbyter?">
- 		<npcSpeech displayName="Jane" text="Are you joking?">
- 			<response text="No.">
- 				<npcSpeech displayName="Jane" text="Wow... you really don't know. I can't help you now. Sorry. Keep going. Now! Hurry!!!" actions="moveNPC:jane,up">
- 				</npcSpeech>
- 			</response>
+ 		<npcSpeech displayName="Jane" text="If I tell you will you leave?">
  			<response text="Yes.">
- 				<npcSpeech displayName="Jane" text="What is happening...">
+ 				<npcSpeech displayName="Jane" text="He is in charge of the facility here. he pioneered the Imphuman transformation technique. Now please leave." actions="moveNPC:jane,up">
  				</npcSpeech>
  			</response>
+ 			<response text="No.">
+ 				<npcSpeech displayName="Jane" text="If you don't you will regret it scum.">
+ 				</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
  	</response>
 </npcSpeech>
 
@@ -23,8 +24,8 @@
  		<npcSpeech displayName="Jane" text="No games. Go.">
  		</npcSpeech>
  	</response>
- 	<response text="Why don't you trust him?">
- 		<npcSpeech displayName="Jane" text="You've overstayed your welcome. Now go.">
+ 	<response text="I need help.">
+ 		<npcSpeech displayName="Jane" text="No one can help you.">
  		</npcSpeech>
  	</response>
 </npcSpeech>

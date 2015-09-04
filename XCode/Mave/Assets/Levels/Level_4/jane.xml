@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="jane" displayName="Jane" customConditions="spokenToJane,0|janesTrust,0">
+
+ <npcSpeech displayName="Jane" text="I knew I'd find you here!!! Something was stolen from Presbyters facility and we suspect you may have it. Where is it?" maxPlayCount="1">
+ 	<response text="I haven't the foggiest.">
+ 		<npcSpeech displayName="Jane" text="I'll give you some time to refresh your memory then. I work on security for the Imphuman Transformation Protocol so don't cross me.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Who are you again?">
+ 		<npcSpeech displayName="Jane" text="Unbeleivable. We met outside Presbyters Facility. I caught you snooping around. I work on security for the Imphuman Transformation Protocol. Now come back when you're ready to talk.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Jane" text="You'll have to go through me sooner or later." conditions="custom:metSmurg,false">
+</npcSpeech>
+
+<npcSpeech displayName="Jane" text="So? Are you ready to tell me what you know?" conditions="custom:metSmurg,true|custom:janesTrust,0">
+ 	<response text="First tell me who Smurg is.">
+ 		<npcSpeech displayName="Jane" text="Smurg? That pitiful Imp? What's he to you?">
+ 			<response text="He's a friend.">
+ 				<npcSpeech displayName="Jane" text="Firstly I don't beleive that for a second. Apriori I knew that he has no friends and that you would not associate with him and now you have further bolstered that beleif by asking me to tell you who your good friend is! You lie!">
+ 				</npcSpeech>
+ 			</response>
+ 			<response text="I need to find him.">
+ 				<npcSpeech displayName="Jane" text="Why?">
+ 					<response text="He lost this.">
+ 						<npcSpeech displayName="Jane" text="Lost what, there's nothing there." conditions="hasItem:smurg,smurgsHeadband">
+ 						</npcSpeech>
+ 						<npcSpeech displayName="Jane" text="Hmmm... that does look like his headband. I think I saw him go into a cave north of here." conditions="hasItem:player,smurgsHeadband" actions="setCustomCondition:janesTrust,1">
+ 						</npcSpeech>
+ 					</response>
+ 					<response text="To kill him.">
+ 						<npcSpeech displayName="Jane" text="Good luck then.">
+ 						</npcSpeech>
+ 					</response>
+ 				</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="I don't know anything.">
+ 		<npcSpeech displayName="Jane" text="Very well.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Jane" text="So you know the imp..." conditions="custom:janesTrust,1">
+ 	<response text="Yes.">
+ 		<npcSpeech displayName="Jane" text="Presbyter once told me that he wasn't always like that. He was quite pleasant once...">
+ 			<response text="What happened.">
+ 				<npcSpeech displayName="Jane" text="He went through the procedure at Gemtec. In the best Facitlity, Presbyters... but... it was one of those rare mishaps. He wasn't ready mentally to go go through with it. He didn't truly want it and now he has turned into this vile dispicable creature. As long as he isn't causing any trouble we've been okay with letting him be... but some day I think we will have to take action.">
+ 				</npcSpeech>
+		 	</response>
+		</npcSpeech>
+	</response>
+ 	<response text="I despise him.">
+ 		<npcSpeech displayName="Jane" text="He has been acting up the last few months. He pillaged a small village called Frontenac.">
+ 			<response text="Are most imps like that?">
+		 		<npcSpeech displayName="Jane" text="Obviously not! They are good and bad imps just like there are good and bad people. He however, is rotten.">
+				</npcSpeech>
+			</response>
+		 	<response text="He's a thief?">
+		 		<npcSpeech displayName="Jane" text="Yes, a very untrustworthy fellow." actions="setCustomCondition:janesTrust,2">
+		 		</npcSpeech>
+		 	</response>
+		</npcSpeech>
+ 	</response>
+ </npcSpeech>
+
+<npcSpeech displayName="Jane" text="Now did you steal from the facility. Tell me." conditions="custom:janesTrust,2">
+ 	<response text="Yes, I did.">
+ 		<npcSpeech displayName="Jane" text="Where is it?">
+ 			<response text="I lost it.">
+ 				<npcSpeech displayName="Jane" text="What! Do you know how important that chip is? We are virtually shut down. We can't run any more Imphuman transformations and our clients are furious! Don't toy with me.">
+ 				</npcSpeech>
+		 	</response>
+		 	<response text="I put it back.">
+ 				<npcSpeech displayName="Jane" text="Oh please. The chip costs millions. You wouldn't do that.">
+ 				</npcSpeech>
+		 	</response>
+		</npcSpeech>
+	</response>
+ 	<response text="I didn't take it">
+ 		<npcSpeech displayName="Jane" text="Then who did!">
+ 			<response text="I saw Smurg at the facility.">
+		 		<npcSpeech displayName="Jane" text="Smurg! Maybe he wanted revenge... I'm going to go find him. Don't move." actions="setCustomCondition:janesTrust,3|moveNPC:jane,right|moveNPC:jane,right|moveNPC:jane,up|moveNPC:jane,up|moveNPC:jane,left|moveNPC:jane,up|moveNPC:jane,left">
+				</npcSpeech>
+			</response>
+		 	<response text="You">
+		 		<npcSpeech displayName="Jane" text="How dare you accuse me I've been working with Gemtec for 7 years!">
+		 		</npcSpeech>
+		 	</response>
+		</npcSpeech>
+ 	</response>
+ </npcSpeech>
+
+<npcSpeech displayName="Jane" text="Don't bother me I'm interrogating." conditions="custom:janesTrust,3">
+</npcSpeech>
+
+</npc>

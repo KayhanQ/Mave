@@ -22,6 +22,7 @@
 		F126FCA41B8DDB4C005A62CD /* level_3_darby.xml in Resources */ = {isa = PBXBuildFile; fileRef = F126FC951B8DDB4C005A62CD /* level_3_darby.xml */; };
 		F126FCA51B8DDB4C005A62CD /* level_3_ming.xml in Resources */ = {isa = PBXBuildFile; fileRef = F126FC961B8DDB4C005A62CD /* level_3_ming.xml */; };
 		F126FCA61B8DDB4C005A62CD /* level_3_player.xml in Resources */ = {isa = PBXBuildFile; fileRef = F126FC971B8DDB4C005A62CD /* level_3_player.xml */; };
+		F13B46401B98D8A5009BE37B /* NPCUIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F13B463F1B98D8A5009BE37B /* NPCUIResponse.m */; };
 		F143024E1B837F5F00AC4A62 /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = F143024B1B837F5F00AC4A62 /* Condition.m */; };
 		F143024F1B837F6000AC4A62 /* ConditionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F143024D1B837F5F00AC4A62 /* ConditionHandler.m */; };
 		F14302531B838EF100AC4A62 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = F14302521B838EF100AC4A62 /* Item.m */; };
@@ -101,6 +102,8 @@
 		F126FC951B8DDB4C005A62CD /* level_3_darby.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_3_darby.xml; sourceTree = "<group>"; };
 		F126FC961B8DDB4C005A62CD /* level_3_ming.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_3_ming.xml; sourceTree = "<group>"; };
 		F126FC971B8DDB4C005A62CD /* level_3_player.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_3_player.xml; sourceTree = "<group>"; };
+		F13B463F1B98D8A5009BE37B /* NPCUIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCUIResponse.m; sourceTree = "<group>"; };
+		F13B46411B98D8B1009BE37B /* NPCUIResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPCUIResponse.h; sourceTree = "<group>"; };
 		F143024A1B837F5F00AC4A62 /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
 		F143024B1B837F5F00AC4A62 /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
 		F143024C1B837F5F00AC4A62 /* ConditionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionHandler.h; sourceTree = "<group>"; };
@@ -422,6 +425,8 @@
 				F16FD6AE1B82713700860749 /* NPCDialogueHandler.m */,
 				F16FD6AF1B82713700860749 /* NPCResponse.h */,
 				F16FD6B01B82713700860749 /* NPCResponse.m */,
+				F13B46411B98D8B1009BE37B /* NPCUIResponse.h */,
+				F13B463F1B98D8A5009BE37B /* NPCUIResponse.m */,
 				F16FD6B11B82713700860749 /* NPCSpeech.h */,
 				F16FD6B21B82713700860749 /* NPCSpeech.m */,
 			);
@@ -757,6 +762,7 @@
 				F16FD69D1B82712300860749 /* AppDelegate.m in Sources */,
 				F16FD7311B82722B00860749 /* BasicEvent.m in Sources */,
 				F143024E1B837F5F00AC4A62 /* Condition.m in Sources */,
+				F13B46401B98D8A5009BE37B /* NPCUIResponse.m in Sources */,
 				F16FD6FC1B82713700860749 /* NPC.m in Sources */,
 				F14302531B838EF100AC4A62 /* Item.m in Sources */,
 				F16FD72F1B82722B00860749 /* NPCSpeechFinishedEvent.m in Sources */,

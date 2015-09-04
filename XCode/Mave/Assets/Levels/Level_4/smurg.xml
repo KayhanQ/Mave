@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="smurg" displayName="Smurg" items="smurgsHeadband" customConditions="smurgPos,0|metSmurg,false">
+
+ <npcSpeech displayName="Smurg" text="GROWOWOOWOW PLOP." maxPlayCount="1" actions="setCustomCondition:metSmurg,true">
+ 	<response text="Who are you?">
+ 		<npcSpeech displayName="Smurg" text="SMURGGGG.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Who am I?">
+ 		<npcSpeech displayName="Smurg" text="SMUUUUUURG.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Smurg" text="REEEDEL." conditions="custom:smurgPos,0">
+ 	<response text="Do you have a riddle?">
+ 		<npcSpeech displayName="Smurg" text="YYYYEE. YOUR TRAPPPEPD" actions="setCustomCondition:smurgPos,1|moveNPC:smurg,up">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Needle?">
+ 		<npcSpeech displayName="Smurg" text="NOAWWWW.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Smurg" text="riddle and I give you trophy." conditions="custom:smurgPos,1">
+ 	<response text="What is it?">
+ 		<npcSpeech displayName="Smurg" text="What's black blue and red all over.">
+ 			<response text="" userInput="true" correctAnswer="newspaper">
+		 		<npcSpeech displayName="Smurg" text="RIEEGHT! HEERE TAEK THISE." actions="giveItem:smurg,player,smurgsHeadband|moveNPC:smurg,down|moveNPC:smurg,left|setCustomCondition:smurgPos,2">
+		 		</npcSpeech>
+		 		<npcSpeech displayName="Smurg" text="EEHHHEEE NOAAEW.">
+		 		</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Move!">
+ 		<npcSpeech displayName="Smurg" text="NOAWWWW.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+
+<npcSpeech displayName="Smurg" text="Hssspp.. pp .. . pp p p.. p ..." conditions="custom:smurgPos,2">
+</npcSpeech>
+
+</npc>
