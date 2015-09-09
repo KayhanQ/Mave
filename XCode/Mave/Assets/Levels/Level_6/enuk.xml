@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="enuk" displayName="Enuk">
+
+ <npcSpeech displayName="Enuk" text="Oi, oi." maxPlayCount="1">
+ 	<response text="These are tough paths.">
+ 		<npcSpeech displayName="Enuk" text="Aye, and only to be tougher...">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="How are you?">
+ 		<npcSpeech displayName="Enuk" text="Arrrh... it goes...">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Enuk" text="Ehhr, so have you found whatever you have been searching for?" maxPlayCount="1">
+ 	<response text="I'm not searching for anything.">
+ 		<npcSpeech displayName="Enuk" text="Alright then.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="How do you know?">
+ 		<npcSpeech displayName="Enuk" text="It is nothing to do with me. News travels faster than foot around here.">
+ 			<response text="Have you seen it?">
+ 				<npcSpeech displayName="Enuk" text="Only glimpses. My abilities are not at their strength at the moment. But I do know that it will be found. By whom... that is unclear.">
+ 				</npcSpeech>
+		 	</response>
+		 	<response text="And what if I have found it?">
+		 		<npcSpeech displayName="Enuk" text="Then you will have to find something else to search for.">
+		 		</npcSpeech>
+		 	</response>
+		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Enuk" text="Arrh." maxPlayCount="2">
+ 	<response text="What do you know about Gemtech?">
+ 		<npcSpeech displayName="Enuk" text="No more than you. That they are scared by the recent events... No one is happy. Not imps nor humans. It is simply the natural state of disorder. Gemtech has tried to tip the scale and now it is fighting back.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="How can I stop Gemtech?">
+ 		<npcSpeech displayName="Enuk" text="Is that really what you want to do?">
+ 			<response text="Yes.">
+		 		<npcSpeech displayName="Enuk" text="I find that naieve. Gemtech is a philosophy. Remember that.">
+		 		</npcSpeech>
+ 			</response>
+		 	<response text="No...">
+		 		<npcSpeech displayName="Enuk" text="Perhaps you should understand more before jumping to any actions. The current world is much more multifaceted than you see. Observe, then deliberate.">
+		 		</npcSpeech>
+		 	</response>
+		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Enuk" text="I perceive... I need more time...">
+</npcSpeech>
+
+</npc>

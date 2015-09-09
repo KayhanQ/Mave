@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="cress" displayName="Cress">
+
+ <npcSpeech displayName="Cress" text="Hello again!" maxPlayCount="1">
+ 	<response text="Hello!">
+ 		<npcSpeech displayName="Cress" text="It's a great day to be sliding around.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="You again...">
+ 		<npcSpeech displayName="Cress" text="Yes, of course, who did you expect?">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Cress" text="Ah something important to tell you. See those holes in the ground? Very dangerous. Don't fall inside!" maxPlayCount="1">
+ 	<response text="Got it.">
+ 		<npcSpeech displayName="Cress" text="Good! Right ho!">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="What holes?">
+ 		<npcSpeech displayName="Cress" text="The holes! Can't you see them?">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Cress" text="Yes?" maxPlayCount="2">
+ 	<response text="Why are you helping me?">
+ 		<npcSpeech displayName="Cress" text="Why!? Eh... ehm... I'm not! Well I am but it's just because we keep bumping into each other so fortunately...">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Stop helping me.">
+ 		<npcSpeech displayName="Cress" text="I don't think he'd be very happy about about that...">
+ 			<response text="Who?">
+		 		<npcSpeech displayName="Cress" text="Who... What. WHERE. WHEN HOW! I keep six honest serving-men, (They taught me all I knew); Their names are What and Why and When and How and Where and Who.">
+		 		</npcSpeech>
+ 			</response>
+		 	<response text="He'd be fine.">
+		 		<npcSpeech displayName="Cress" text="Oh I shouldn't have said that. Remember what I said about those holes!">
+		 		</npcSpeech>
+		 	</response>
+		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+
+<npcSpeech displayName="Cress" text="Keep your eye on the rocks in front of you and travel steadily.">
+</npcSpeech>
+
+</npc>

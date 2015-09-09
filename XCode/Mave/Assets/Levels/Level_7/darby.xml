@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="darby" displayName="Darby" customConditions="thinksPlayerInspector,false|waitingForNumber,false|movedAGeneric,false">
+
+ <npcSpeech displayName="Darby" text="What are you doing on the construction site?" maxPlayCount="1">
+ 	<response text="I'm observing.">
+ 		<npcSpeech displayName="Darby" text="Oh! You're an inspector! Well I assure you everything is going well. Gemtech will have its facilities in no time! Let me know if you need anything!" actions="setCustomCondition:thinksPlayerInspector,true">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Just passing through.">
+ 		<npcSpeech displayName="Darby" text="We have a lot of work to do so don't mess anything up">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Darby" text="We don't need people loitering around so please leave. I cannot help you." conditions="custom:thinksPlayerInspector,false">
+</npcSpeech>
+
+<npcSpeech displayName="Darby" text="Is there anything you need?" conditions="custom:thinksPlayerInspector,true|custom:waitingForNumber,false">
+ 	<response text="I need your builders to move.">
+ 		<npcSpeech displayName="Darby" text="Of course! But I can't go all the way there and I don't have their phone numbers..." actions="setCustomCondition:waitingForNumber,true">
+ 			<response text="Let me tell them.">
+ 				<npcSpeech displayName="Darby" text="Oh they won't listen to you...">
+ 				</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="I need to go inside your facilities.">
+ 		<npcSpeech displayName="Darby" text="By all means. And if you need anything just ask.">
+		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Darby" text="If you get me one of their numbers I can get them to move." conditions="custom:waitingForNumber,true|custom:movedAGeneric,false">
+ 	<response text="I have it.">
+ 		<npcSpeech displayName="Darby" text="Great, who's number?">
+ 			<response text="Generic1.">
+		 		<npcSpeech displayName="Darby" text="Ok what is it?">		
+ 					<response text="" userInput="true" correctAnswer="1">
+		 				<npcSpeech displayName="Darby" text="Oi! We have an inspector here so I need you to move out of facility 1.2.2! Got it? Ok good. You're all set." actions="moveNPC:generic1,down|moveNPC:generic1,right|setCustomCondition:movedAGeneric,true">
+		 				</npcSpeech>
+		 				<npcSpeech displayName="Darby" text="That doesn't seem to be right...">
+		 				</npcSpeech>
+ 					</response>
+		 		</npcSpeech>
+ 			</response>
+		 	<response text="Generic2.">
+				<npcSpeech displayName="Darby" text="Ok what is it?">		
+ 					<response text="" userInput="true" correctAnswer="2">
+		 				<npcSpeech displayName="Darby" text="Oi! We have an inspector here so I need you to move out of facility 1.2.2! Got it? Ok good. You're all set." actions="moveNPC:generic2,right|moveNPC:generic2,down|setCustomCondition:movedAGeneric,true">
+		 				</npcSpeech>
+		 				<npcSpeech displayName="Darby" text="That doesn't seem to be right...">
+		 				</npcSpeech>
+ 					</response>
+		 		</npcSpeech>
+		 	</response>
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="I'll get it.">
+ 		<npcSpeech displayName="Darby" text="Alright.">
+		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Darby" text="You should be all set now! I should get back to the accounts.">
+</npcSpeech>
+
+</npc>

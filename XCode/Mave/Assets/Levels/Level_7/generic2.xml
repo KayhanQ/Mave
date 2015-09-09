@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="generic2" displayName="Generic2">
+
+ <npcSpeech displayName="Generic2" text="Hi, I'm Generic2. I'm a builder" maxPlayCount="1">
+ 	<response text="What are you building.">
+ 		<npcSpeech displayName="Generic2" text="Correct. I am building a building.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Who do you work for?">
+ 		<npcSpeech displayName="Generic2" text="The boss over there.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Generic2" text="Yes?" conditions="custom:waitingForNumber,false">
+ 	<response text="Can you move?">
+ 		<npcSpeech displayName="Generic2" text="Yes, I can.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Move please.">
+ 		<npcSpeech displayName="Generic2" text="Can't do anything till the boss says so.">
+		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Generic2" text="Did you talk to the boss?" conditions="custom:waitingForNumber,true">
+ 	<response text="No.">
+ 		<npcSpeech displayName="Generic2" text="Can't do anything till the boss says so.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Yeah.">
+ 		<npcSpeech displayName="Generic2" text="What did he say?">
+ 			<response text="He wants your number.">
+		 		<npcSpeech displayName="Generic2" text="Oh. It's 5385290704.">
+		 		</npcSpeech>
+ 			</response>
+		 	<response text="You should move.">
+		 		<npcSpeech displayName="Generic2" text="Have to hear it from the boss.">
+		 		</npcSpeech>
+		 	</response>
+		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Generic2" text="">
+</npcSpeech>
+
+</npc>

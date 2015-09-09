@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <npc npcID="darby" displayName="Darby" type="man">
- <npcSpeech displayName="Darby" text="I'm quite scared of those spikes.">
- 	<response displayName="wit" text="Why?">
- 		<npcSpeech displayName="Darby" text="Well they'll kill you!"/>
+
+ <npcSpeech displayName="Darby" text="Oh... hello." maxPlayCount="3">
+ 	<response displayName="wit" text="Who are you?">
+ 		<npcSpeech displayName="Darby" text="I'm a contractor. If you ever need anything done give me a call."/>
  	</response>
- 	<response displayName="wit" text="Me too.">
- 		<npcSpeech displayName="Darby" text="Are you afraid of heights?">
- 			<response displayName="wit" text="Yes!">
- 				<npcSpeech displayName="Darby" text="I'm terrified of them. I could never sleep on a tree. Should I tell you a secret?">
- 			 		<response displayName="wit" text="Please.">
- 						<npcSpeech displayName="Darby" text="Maybe a little later..."/>
+ 	<response displayName="wit" text="What do you regret?">
+ 		<npcSpeech displayName="Darby" text="The work is picking up these days... I wish I could leave it all but that's just not practical. Do I regret it? Not yet?">
+ 			<response displayName="wit" text="Whats the work like?">
+ 				<npcSpeech displayName="Darby" text="It's like any other building job. If you're trying to get more information about Gemtech's technology I can't help you.">
+ 			 		<response displayName="wit" text="Gem-who?">
+ 						<npcSpeech displayName="Darby" text="Oh come on you must have heard of them."/>
  					</response>
- 					<response displayName="wit" text="No.">
- 						<npcSpeech displayName="Darby" text="Ok... but just know that there's a creature here that isn't friendly. Don't trust him. I've said too much..." actions="moveNPC:darby,left"/>
+ 					<response displayName="wit" text="Please tell me what you know.">
+ 						<npcSpeech displayName="Darby" text="Like I said. I don't know anything." actions="moveNPC:darby,left"/>
  					</response>
  				</npcSpeech>
  			</response>
- 		<response displayName="wit" text="A little bit.">
- 			<npcSpeech displayName="Darby" text="I think we should stick together. This place gives me the creeps." conditions="inPosition:player,7,1" actions="moveNPC:darby,right"/>
- 			<npcSpeech displayName="Darby" text="Isn't it strange... fear?"/>
- 		</response>
+ 			<response displayName="wit" text="Is that all?">
+ 				<npcSpeech displayName="Darby" text="No... I wish I had stayed like you."/>
+ 			</response>
  		</npcSpeech>
  	</response>
 </npcSpeech>
+
+<npcSpeech displayName="Darby" text="Really, there's nothing more I can tell you."/>
+
 </npc>
