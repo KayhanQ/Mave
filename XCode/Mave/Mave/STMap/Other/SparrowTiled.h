@@ -12,6 +12,7 @@
 #define SPARROWTILED_VERSION @"0.0.3"
 
 #import "STMap.h"
+#import "STMap+Viewport.h"
 #import "STTileset.h"
 #import "STLayer.h"
 #import "STCoordinate.h"

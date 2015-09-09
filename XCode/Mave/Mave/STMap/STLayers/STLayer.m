@@ -32,7 +32,7 @@
 @synthesize tileHeight = _tileHeight;
 @synthesize pixelWidth = _pixelWidth;
 @synthesize pixelHeight = _pixelHeight;
-@synthesize zoom;
+@synthesize zoom = _zoom;
 
 - (id)initWithLayerElement:(TBXMLElement *)layerElement tileset:(STTileset *)tileset folderPath:(NSString *)folderPath {
     if (self = [super init]) {
@@ -44,7 +44,7 @@
         _pixelWidth = _width * _tileWidth;
         _pixelHeight = _height * _tileHeight;
         _tileSet = tileset;
-        _folderPath = folderPath;
+        _folderPath = folderPath;        
         
         NSString *opacity = [TBXML valueOfAttributeNamed:@"opacity" forElement:layerElement];
         

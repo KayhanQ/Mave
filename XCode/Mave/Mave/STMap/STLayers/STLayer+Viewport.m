@@ -18,6 +18,7 @@
 }
 
 - (void)centerViewToX:(float)x y:(float)y inBounds:(BOOL)inBounds {
+    float p = self.zoom;
 	x *= self.zoom;
 	y *= self.zoom;
 	float screenCenterX = self.viewWidth/2;
@@ -26,8 +27,8 @@
 	if (inBounds) {
 		x = MAX(x, screenCenterX);
 		y = MAX(y, screenCenterY);
-		x = MIN(x, (pixelWidth*self.zoom) - screenCenterX);
-		y = MIN(y, (pixelHeight*self.zoom) - screenCenterY);
+		x = MIN(x, (self.pixelWidth*self.zoom) - screenCenterX);
+		y = MIN(y, (self.pixelHeight*self.zoom) - screenCenterY);
 	}
 	
 	self.x = -x + screenCenterX;
@@ -52,8 +53,8 @@
 	if (inBounds) {
 		x = MIN(x, 0);
 		y = MIN(y, 0);
-		x = MAX(x, -(pixelWidth*self.zoom) + self.viewWidth);
-		y = MAX(y, -(pixelHeight*self.zoom) + self.viewHeight);
+		x = MAX(x, -(self.pixelWidth*self.zoom) + self.viewWidth);
+		y = MAX(y, -(self.pixelHeight*self.zoom) + self.viewHeight);
 	}
 	
 	self.x = x;
@@ -73,23 +74,25 @@
 }
 
 - (void)scrollViewToX:(float)x y:(float)y inBounds:(BOOL)inBounds time:(float)time transition:(NSString *)transition {
-//	x *= self.zoom;
-//	y *= self.zoom;
-//	float screenCenterX = self.viewWidth/2;
-//	float screenCenterY = self.viewHeight/2;
-//	
-//	if (inBounds) {
-//		x = MAX(x, screenCenterX);
-//		y = MAX(y, screenCenterY);
-//		x = MIN(x, (pixelWidth*self.zoom) - screenCenterX);
-//		y = MIN(y, (pixelHeight*self.zoom) - screenCenterY);
-//	}
-//	
-//	[self.stage.juggler removeTweensWithTarget:self];
-//	SPTween *tween = [SPTween tweenWithTarget:self time:time transition:transition];
-//	[tween animateProperty:@"x" targetValue:-x+screenCenterX];
-//	[tween animateProperty:@"y" targetValue:-y+screenCenterY];
-//	[self.stage.juggler addObject:tween];
+	x *= self.zoom;
+	y *= self.zoom;
+	float screenCenterX = self.viewWidth/2;
+	float screenCenterY = self.viewHeight/2;
+	
+	if (inBounds) {
+		x = MAX(x, screenCenterX);
+		y = MAX(y, screenCenterY);
+		x = MIN(x, (pixelWidth*self.zoom) - screenCenterX);
+		y = MIN(y, (pixelHeight*self.zoom) - screenCenterY);
+	}
+	
+    SPJuggler* juggler = Sparrow.juggler;
+    
+	[juggler removeObjectsWithTarget:self];
+	SPTween *tween = [SPTween tweenWithTarget:self time:time transition:transition];
+	[tween animateProperty:@"x" targetValue:-x+screenCenterX];
+	[tween animateProperty:@"y" targetValue:-y+screenCenterY];
+	[juggler addObject:tween];
 }
 
 - (void)scrollViewByX:(float)x y:(float)y {
@@ -138,7 +141,8 @@
 	float centerX = (-self.x + screenCenterX)/self.zoom;
 	float centerY = (-self.y + screenCenterY)/self.zoom;
 	
-	self.image.scaleX = self.image.scaleY = rate;
+    self.scaleX = rate;
+    self.scaleY = rate;
 	[self centerViewToX:centerX y:centerY inBounds:inBounds];
 }
 
@@ -148,7 +152,7 @@
 }
 
 - (void)zoomViewByRate:(float)rate inBounds:(BOOL)inBounds {
-	rate += self.image.scaleX;
+	rate += self.scaleX;
 	[self zoomViewToRate:rate inBounds:inBounds];
 }
 
@@ -157,7 +161,7 @@
 }
 
 - (float)zoom {
-	return self.image.scaleX;
+	return self.scaleX;
 }
 
 - (void)zoomTweenViewToRate:(float)rate {
@@ -173,19 +177,19 @@
 }
 
 - (void)zoomTweenViewToRate:(float)rate inBounds:(BOOL)inBounds time:(float)time transition:(NSString *)transition {
-//	if (self.zoom == rate) return;
-//	float screenCenterX = self.viewWidth/2;
-//	float screenCenterY = self.viewHeight/2;
-//	float centerX = (-self.x + screenCenterX);
-//	float centerY = (-self.y + screenCenterY);
-//	
-//	[self.stage.juggler removeTweensWithTarget:self.image];
-//	SPTween *tween = [SPTween tweenWithTarget:self.image time:time transition:transition];
-//	[tween animateProperty:@"scaleX" targetValue:rate];
-//	[tween animateProperty:@"scaleY" targetValue:rate];
-//	
-//	[self scrollViewToX:centerX y:centerY inBounds:inBounds time:time transition:transition];
-//	[self.stage.juggler addObject:tween];
+	if (self.zoom == rate) return;
+	float screenCenterX = self.viewWidth/2;
+	float screenCenterY = self.viewHeight/2;
+	float centerX = (-self.x + screenCenterX);
+	float centerY = (-self.y + screenCenterY);
+	
+	[Sparrow.juggler removeObjectsWithTarget:self];
+	SPTween *tween = [SPTween tweenWithTarget:self time:time transition:transition];
+	[tween animateProperty:@"scaleX" targetValue:rate];
+	[tween animateProperty:@"scaleY" targetValue:rate];
+	
+	[self scrollViewToX:centerX y:centerY inBounds:inBounds time:time transition:transition];
+	[Sparrow.juggler addObject:tween];
 }
 
 - (void)zoomTweenViewByRate:(float)rate {
@@ -201,7 +205,7 @@
 }
 
 - (void)zoomTweenViewByRate:(float)rate inBounds:(BOOL)inBounds time:(float)time transition:(NSString *)transition {
-	rate += self.image.scaleX;
+	rate += self.scaleX;
 	[self zoomTweenViewToRate:rate inBounds:inBounds time:time transition:transition];
 }
 @end

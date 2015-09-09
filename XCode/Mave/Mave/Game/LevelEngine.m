@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "LevelEngine.h"
 #import "SparrowTiled.h"
-#import <UIKit/UIKit.h>
 #import "Player.h"
 #import "GameEvents.h"
 #import "NPCDialogueHandler.h"
@@ -128,8 +128,17 @@
 
     
     if (tile == _player) {
+        
+        [_map centerViewToTile:tile inBounds:YES];
+        
         switch (obstacle.type) {
             case STSPIKES:
+            {
+                LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
+                [self dispatchEvent:event];
+                break;
+            }
+            case STHOLE:
             {
                 LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
                 [self dispatchEvent:event];

@@ -19,8 +19,6 @@
     if (self = [super initWithUpState:[SPTexture textureWithContentsOfFile:@"button_square.png"]]) {
         self.text = levelName;
         self.scaleWhenDown = 0.95;
-        [self addEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
-        
     }
     return self;
 }

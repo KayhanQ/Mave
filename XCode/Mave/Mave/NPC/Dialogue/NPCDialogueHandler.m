@@ -127,6 +127,7 @@
 - (void)userInputedForResponse:(NPCUIResponse*)response {
     [self clearDialogue];
     NPCSpeechBox* speechBox;
+    //index 0 is for the correct response and 1 and the wrong one
     if ([response.currentAnswer containsString:response.correctAnswer]) speechBox = [[NPCSpeechBox alloc] initWithNPCSpeech:response.npcSpeeches[0]];
     else speechBox = [[NPCSpeechBox alloc] initWithNPCSpeech:response.npcSpeeches[1]];
     [_speechContainer addChild:speechBox];

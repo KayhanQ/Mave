@@ -23,6 +23,7 @@
 		F126FCA51B8DDB4C005A62CD /* level_3_ming.xml in Resources */ = {isa = PBXBuildFile; fileRef = F126FC961B8DDB4C005A62CD /* level_3_ming.xml */; };
 		F126FCA61B8DDB4C005A62CD /* level_3_player.xml in Resources */ = {isa = PBXBuildFile; fileRef = F126FC971B8DDB4C005A62CD /* level_3_player.xml */; };
 		F13B46401B98D8A5009BE37B /* NPCUIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F13B463F1B98D8A5009BE37B /* NPCUIResponse.m */; };
+		F13B464F1B99D1D7009BE37B /* LevelLostEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F13B464E1B99D1D7009BE37B /* LevelLostEvent.m */; };
 		F143024E1B837F5F00AC4A62 /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = F143024B1B837F5F00AC4A62 /* Condition.m */; };
 		F143024F1B837F6000AC4A62 /* ConditionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F143024D1B837F5F00AC4A62 /* ConditionHandler.m */; };
 		F14302531B838EF100AC4A62 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = F14302521B838EF100AC4A62 /* Item.m */; };
@@ -104,6 +105,8 @@
 		F126FC971B8DDB4C005A62CD /* level_3_player.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_3_player.xml; sourceTree = "<group>"; };
 		F13B463F1B98D8A5009BE37B /* NPCUIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCUIResponse.m; sourceTree = "<group>"; };
 		F13B46411B98D8B1009BE37B /* NPCUIResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPCUIResponse.h; sourceTree = "<group>"; };
+		F13B464D1B99D1CD009BE37B /* LevelLostEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelLostEvent.h; sourceTree = "<group>"; };
+		F13B464E1B99D1D7009BE37B /* LevelLostEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLostEvent.m; sourceTree = "<group>"; };
 		F143024A1B837F5F00AC4A62 /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
 		F143024B1B837F5F00AC4A62 /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
 		F143024C1B837F5F00AC4A62 /* ConditionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionHandler.h; sourceTree = "<group>"; };
@@ -527,6 +530,8 @@
 			children = (
 				F16FD71C1B82722A00860749 /* LevelCompletedEvent.h */,
 				F16FD71D1B82722A00860749 /* LevelCompletedEvent.m */,
+				F13B464D1B99D1CD009BE37B /* LevelLostEvent.h */,
+				F13B464E1B99D1D7009BE37B /* LevelLostEvent.m */,
 				F16FD71E1B82722A00860749 /* LoadLevelEvent.h */,
 				F16FD71F1B82722A00860749 /* LoadLevelEvent.m */,
 			);
@@ -789,6 +794,7 @@
 				F16FD7111B82713700860749 /* STCoordinate.m in Sources */,
 				F16FD6A11B82712300860749 /* main.m in Sources */,
 				F16FD7191B82713700860749 /* STTile.m in Sources */,
+				F13B464F1B99D1D7009BE37B /* LevelLostEvent.m in Sources */,
 				F16FD6F71B82713700860749 /* LevelsMenu.m in Sources */,
 				F1530B9C1B87957C001872EF /* ActionEvent.m in Sources */,
 				F1530BA01B879698001872EF /* ActionHandler.m in Sources */,

@@ -18,8 +18,8 @@
 }
 
 - (void)centerViewToX:(float)x y:(float)y inBounds:(BOOL)inBounds {
-	for (id key in layers) {
-		[[layers objectForKey:key] centerViewToX:x y:y inBounds:inBounds];
+	for (id key in self.layers) {
+		[[self.layers objectForKey:key] centerViewToX:x y:y inBounds:inBounds];
 	}
 }
 
@@ -28,8 +28,8 @@
 }
 
 - (void)centerViewToTile:(STTile *)tile inBounds:(BOOL)inBounds {
-	for (id key in layers) {
-		[[layers objectForKey:key] centerViewToTile:tile inBounds:inBounds];
+	for (id key in self.layers) {
+		[[self.layers objectForKey:key] centerViewToTile:tile inBounds:inBounds];
 	}
 }
 
@@ -38,8 +38,8 @@
 }
 
 - (void)panViewByX:(float)x y:(float)y inBounds:(BOOL)inBounds {
-	for (id key in layers) {
-		[[layers objectForKey:key] panViewByX:x y:y inBounds:inBounds];
+	for (id key in self.layers) {
+		[[self.layers objectForKey:key] panViewByX:x y:y inBounds:inBounds];
 	}
 }
 
@@ -56,8 +56,8 @@
 }
 
 - (void)scrollViewToX:(float)x y:(float)y inBounds:(BOOL)inBounds time:(float)time transition:(NSString *)transition {
-	for (id key in layers) {
-		[[layers objectForKey:key] scrollViewToX:x y:y inBounds:inBounds time:time transition:transition];
+	for (id key in self.layers) {
+		[[self.layers objectForKey:key] scrollViewToX:x y:y inBounds:inBounds time:time transition:transition];
 	}
 }
 
@@ -74,8 +74,8 @@
 }
 
 - (void)scrollViewByX:(float)x y:(float)y inBounds:(BOOL)inBounds time:(float)time transition:(NSString *)transition {
-	for (id key in layers) {
-		[[layers objectForKey:key] scrollViewByX:x y:y inBounds:inBounds time:time transition:transition];
+	for (id key in self.layers) {
+		[[self.layers objectForKey:key] scrollViewByX:x y:y inBounds:inBounds time:time transition:transition];
 	}
 }
 
@@ -92,8 +92,8 @@
 }
 
 - (void)scrollViewToTile:(STTile *)tile inBounds:(BOOL)inBounds time:(float)time transition:(NSString *)transition {
-	for (id key in layers) {
-		[[layers objectForKey:key] scrollViewToTile:tile inBounds:inBounds time:time transition:transition];
+	for (id key in self.layers) {
+		[[self.layers objectForKey:key] scrollViewToTile:tile inBounds:inBounds time:time transition:transition];
 	}
 }
 
@@ -102,8 +102,8 @@
 }
 
 - (void)zoomViewToRate:(float)rate inBounds:(BOOL)inBounds {
-	for (id key in layers) {
-		[[layers objectForKey:key] zoomViewToRate:rate inBounds:inBounds];
+	for (id key in self.layers) {
+		[[self.layers objectForKey:key] zoomViewToRate:rate inBounds:inBounds];
 	}
 }
 
@@ -112,8 +112,8 @@
 }
 
 - (void)zoomViewByRate:(float)rate inBounds:(BOOL)inBounds {
-	for (id key in layers) {
-		[[layers objectForKey:key] zoomViewByRate:rate inBounds:inBounds];
+	for (id key in self.layers) {
+		[[self.layers objectForKey:key] zoomViewByRate:rate inBounds:inBounds];
 	}
 }
 
@@ -122,13 +122,13 @@
 }
 
 - (float)zoom {
-//	id key = [[layers allKeys] objectAtIndex:0];
-//	if (key) {
-//		STLayer *layer = (STLayer *)[layers objectForKey:key];
-//		return layer.image.scaleX;
-//	} else {
-//		return 0;
-//	}
+	id key = [[self.layers allKeys] objectAtIndex:0];
+	if (key) {
+		STLayer *layer = (STLayer *)[self.layers objectForKey:key];
+		return layer.scaleX;
+	} else {
+		return 0;
+	}
     return 0;
 }
 
@@ -145,8 +145,8 @@
 }
 
 - (void)zoomTweenViewToRate:(float)rate inBounds:(BOOL)inBounds time:(float)time transition:(NSString *)transition {
-	for (id key in layers) {
-		[[layers objectForKey:key] zoomTweenViewToRate:rate inBounds:inBounds time:time transition:transition];
+	for (id key in self.layers) {
+		[[self.layers objectForKey:key] zoomTweenViewToRate:rate inBounds:inBounds time:time transition:transition];
 	}
 }
 
@@ -163,8 +163,8 @@
 }
 
 - (void)zoomTweenViewByRate:(float)rate inBounds:(BOOL)inBounds time:(float)time transition:(NSString *)transition {
-	for (id key in layers) {
-		[[layers objectForKey:key] zoomTweenViewByRate:rate inBounds:inBounds time:time transition:transition];
+	for (id key in self.layers) {
+		[[self.layers objectForKey:key] zoomTweenViewByRate:rate inBounds:inBounds time:time transition:transition];
 	}
 }
 @end

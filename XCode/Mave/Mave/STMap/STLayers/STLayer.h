@@ -52,8 +52,7 @@
 @property (nonatomic, readonly) float trueRotation;
 @property (nonatomic, readonly) float viewWidth;
 @property (nonatomic, readonly) float viewHeight;
-@property (nonatomic) float zoom;
-@property (nonatomic) SPImage* image;
+@property (nonatomic, readonly) float zoom;
 
 - (id)initWithLayerElement:(TBXMLElement*)layerElement tileset:(STTileset *)tileset folderPath:(NSString*)folderPath;
 

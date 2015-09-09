@@ -44,11 +44,14 @@
 - (void)formatBoxStrings {
     NSArray* words = [_npcSpeech.textToSpeak componentsSeparatedByString:@" "];
     NSString* boxString = [[NSString alloc] init];
-    int boxLength = 100;
-    int numCharacters = 0;
+    int displayNameLength = (int)_npcSpeech.displayName.length;
+    int numCharacters = displayNameLength;
+    int boxLength = 110;
+    int boxIndex = 0;
     
     for (NSString* word in words) {
         numCharacters += (int)word.length;
+        
         NSString* spacedWord = [NSString stringWithFormat:@" %@", word];
         
         if (numCharacters <= boxLength) {
@@ -60,6 +63,7 @@
             boxString = [[NSString alloc] init];
             boxString = [boxString stringByAppendingString:word];
             numCharacters = 0;
+            boxIndex++;
         }
     }
     //add the left over box
