@@ -641,6 +641,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="18" npcFile="darby.xml"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -755,7 +756,6 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="18" npcFile="snake.xml"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -792,7 +792,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="18" npcFile="bob.xml"/>
+   <tile gid="18" npcFile="charles.xml"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>

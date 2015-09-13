@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="charles" displayName="Charles" customConditions="visitedCharles,false">
+
+ <npcSpeech displayName="Charles" text="Oh... I'm busy. What do you want now Imp?" conditions="hasItem:darby,charlesCrest">
+ 	<response text="I'm not an Imp!">
+ 		<npcSpeech displayName="Charles" text="I'm terribly sorry but you are indeed. Perhaps you mean you are going to transform soon. Well I can tell you a secret: You'll always be an Imp. Nothing can change that.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="You could be an Imp.">
+ 		<npcSpeech displayName="Charles" text="If you had the slightest inkling about who i am you wouldn't say that.">
+ 			<response text="Who are you?">
+ 				<npcSpeech displayName="Charles" text="Sir Charles of the seventh Leigion. And you should treat me with such respect. If you are going to Gemtech then you wouldn't like to be on my wrong side. I sit on the board of Gemtech and am one of its main investors.">
+ 					<response text="Isn't that a conflict of interests?">
+				 		<npcSpeech displayName="Charles" text="No, of course not. They aren't compteting interests, they're alligned insterests. It's very common, not that I'd expect you to understand that.">
+				 		</npcSpeech>
+				 	</response>
+				 	<response text="So you know Presbyter?">
+				 		<npcSpeech displayName="Charles" text="Presbyter... I'm surprised you know his name. He's not as public these days... he's left management and is focussing on the core technology. He's the one who pioneered the protocol along with his... partner.">
+				 			<response text="Who was that?">
+				 				<npcSpeech displayName="Charles" text="What right do you have asking me all these questions?! I'm busy looking for something I lost something so go away Imp of the Distractor." actions="setCustomCondition:visitedCharles,true">
+				 				</npcSpeech>
+				 			</response>
+						</npcSpeech>
+				 	</response>
+ 				</npcSpeech>
+ 			</response>
+		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+ <npcSpeech displayName="Charles" text="What is it?" conditions="custom:visitedCharles,true|hasItem:player,charlesCrest">
+ 	<response text="I found it.">
+ 		<npcSpeech displayName="Charles" text="Found what there's nothing there?" conditions="hasItem:darby,charlesCrest">
+ 		</npcSpeech>
+ 		<npcSpeech displayName="Charles" text="Where did you find that! That's my family crest! Thank you sir! Give it here! Well I suppose I should thank you... I apologise if I was a bit uncouth before. I suppose we Imps and humans can cooperate after all. If we meet again remind me of this. Good bye." conditions="hasItem:player,charlesCrest" actions="giveItem:player,charles,charlesCrest|moveNPC:charles,right">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Tell me more about GemTech.">
+ 		<npcSpeech displayName="Charles" text="I'm looking for something important. Go away lesser Goblin.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+
+
+<npcSpeech displayName="Charles" text="Thank you."/>
+</npcSpeech>
+
+
+</npc>

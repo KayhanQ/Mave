@@ -150,6 +150,8 @@
     NSMutableArray* array = [[NSMutableArray alloc] init];
     [array addObject:[self layerByName:@"ground"]];;
     [array addObject:[self layerByName:@"obstacles"]];;
+    STLayer* movableObstaclesLayer = [self layerByName:@"MovableObstacles"];
+    if (movableObstaclesLayer) [array addObject:movableObstaclesLayer];;
     [array addObject:[self layerByName:@"characters"]];;
 
     return array;

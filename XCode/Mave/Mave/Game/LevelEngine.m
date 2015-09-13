@@ -61,10 +61,12 @@
     _map = [[STMap alloc] initWithLevelFolderPath:folderPath filename:filename];
     _groundLayer = [_map layerByName:@"Ground"];
     _obstacleLayer = [_map layerByName:@"Obstacles"];
+    STLayer* movableObstaclesLayer = [_map layerByName:@"MovableObstacles"];
     _characterLayer = (NPCLayer*)[_map layerByName:@"Characters"];
     
     [container addChild:_groundLayer];
     [container addChild:_obstacleLayer];
+    if (movableObstaclesLayer) [container addChild:movableObstaclesLayer];
     [container addChild:_characterLayer];
 
     _dialogueSprite = [[SPSprite alloc] init];
@@ -129,7 +131,7 @@
     
     if (tile == _player) {
         
-        [_map centerViewToTile:tile inBounds:YES];
+        //[_map centerViewToTile:tile inBounds:YES];
         
         switch (obstacle.type) {
             case STSPIKES:

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="cress" displayName="Cress" customConditions="cressInfo,0">
+
+ <npcSpeech displayName="Cress" text="Wow! It's good to see you. I thought something had happened!" conditions="custom:cressInfo,0">
+ 	<response text="Why?">
+ 		<npcSpeech displayName="Cress" text="Uhmmm... Well I'm not supposed to say... but... well they are looking for you! Gemtech's security team. They think you stole something from them.">
+ 			<response text="What was stolen?">
+		 		<npcSpeech displayName="Cress" text="I really can't help you with that. But I beleive you that you didn't do it. It really is impossible that it could have been you... You weren't even awake when it happened..." actions="setCustomCondition:cressInfo,++">
+		 		</npcSpeech>
+ 			</response>
+		 	<response text="I did take it.">
+		 		<npcSpeech displayName="Cress" text="What? Why would you say that... It's not even possible. I saw you lying there at the same time they said it happened... That doesn't make any sense." actions="setCustomCondition:cressInfo,++">
+		 		</npcSpeech>
+		 	</response>
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Leave me alone!">
+ 		<npcSpeech displayName="Cress" text="I CANNOT. I AM HERE FOR YOU WHETEHR YOU LIKE IT OR NOT! oh... sorry about that outburst.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Cress" text="You should hurry or they may catch up to you. If you don't know about that rock over there on the right, it's a push rock. So when you slide into it you will stop and it will keep moving in the direction you were going. Make sure you think about which way you want to push it. Now go!" conditions="custom:cressInfo,1" actions="setCustomCondition:cressInfo,++">
+</npcSpeech>
+
+<npcSpeech displayName="Cress" text="What? Go!" conditions="custom:cressInfo,2">
+ 	<response text="How do you know so much about me?">
+ 		<npcSpeech displayName="Cress" text="ohh... my. Maybe one day we can talk about it but not now. You need to go.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Tell me what was stolen!">
+ 		<npcSpeech displayName="Cress" text="If it could help you I would. I honestly don't know. All I have heard is that the facility is shut down till they find it. It's important and they'll do anything to get it back. Now slide!!">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+</npc>

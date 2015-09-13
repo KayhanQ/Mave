@@ -5,10 +5,10 @@
  	<response displayName="wit" text="Who are you?">
  		<npcSpeech displayName="Darby" text="I'm a contractor. If you ever need anything done give me a call."/>
  	</response>
- 	<response displayName="wit" text="What do you regret?">
- 		<npcSpeech displayName="Darby" text="The work is picking up these days... I wish I could leave it all but that's just not practical. Do I regret it? Not yet?">
+ 	<response displayName="wit" text="You look sad.">
+ 		<npcSpeech displayName="Darby" text="Hmmm... just busy. The work is picking up these days... I wish I could leave it all but that's just not practical. Do I regret it? Not yet?">
  			<response displayName="wit" text="Whats the work like?">
- 				<npcSpeech displayName="Darby" text="It's like any other building job. If you're trying to get more information about Gemtech's technology I can't help you.">
+ 				<npcSpeech displayName="Darby" text="It's like any other building job... If you're trying to get more information about Gemtech's technology I can't help you.">
  			 		<response displayName="wit" text="Gem-who?">
  						<npcSpeech displayName="Darby" text="Oh come on you must have heard of them."/>
  					</response>
@@ -24,6 +24,6 @@
  	</response>
 </npcSpeech>
 
-<npcSpeech displayName="Darby" text="Really, there's nothing more I can tell you."/>
+<npcSpeech displayName="Darby" text="Really, there's nothing more I can tell you. Our company is called IHCC. The Imp Human Construction Company. If you need anything just call me."/>
 
 </npc>

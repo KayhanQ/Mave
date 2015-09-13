@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="darby" displayName="Darby" items="charlesCrest">
+
+ <npcSpeech displayName="Darby" text="Hello there. You're that inspector. How was our site looking?" conditions="custom:visitedCharles,false">
+ 	<response text="Everything was in top shape.">
+ 		<npcSpeech displayName="Darby" text="That is good to hear. We're working very hard at IHCC."/>
+ 	</response>
+ 	<response text="There were a few problems.">
+ 		<npcSpeech displayName="Darby" text="I'll get on it immediately!! Let me just make some calls." actions="moveNPC:darby,right"/>
+ 	</response>
+</npcSpeech>
+
+ <npcSpeech displayName="Darby" text="Hello!" conditions="custom:visitedCharles,true">
+ 	<response text="Are you slacking off?">
+ 		<npcSpeech displayName="Darby" text="I'm off!!!" conditions="hasItem:player,charlesCrest"/>
+
+ 		<npcSpeech displayName="Darby" text="No not at all! I'm just going back to work... Oh I had also meant to tell you... I found this crest at the construction site the other day. I think it's meant to be hung on a wall. Any way... I think you'd do a better job of finding the person it belongs to so here you go. Also, if you could put in a good word to managemtn for me I'd appreciate that. I heard Presbyter yelling at someone a few weeks ago. It was a really heated argument. Something about a IHTP and it not being the right thing. I think GemTech may have tough times ahead and I don't want to be laid off. "  actions="giveItem:darby,player,charlesCrest" maxPlayCount="1"/>
+ 	</response>
+ 	<response text="Do you know Charles?">
+ 		<npcSpeech displayName="Darby" text="I think he calls himself Sir Charles. He's some sort of advisor or something."/>
+ 	</response>
+</npcSpeech>
+
+
+</npc>
