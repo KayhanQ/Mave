@@ -23,7 +23,6 @@
 		F126FCA51B8DDB4C005A62CD /* level_3_ming.xml in Resources */ = {isa = PBXBuildFile; fileRef = F126FC961B8DDB4C005A62CD /* level_3_ming.xml */; };
 		F126FCA61B8DDB4C005A62CD /* level_3_player.xml in Resources */ = {isa = PBXBuildFile; fileRef = F126FC971B8DDB4C005A62CD /* level_3_player.xml */; };
 		F13B46401B98D8A5009BE37B /* NPCUIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F13B463F1B98D8A5009BE37B /* NPCUIResponse.m */; };
-		F13B464F1B99D1D7009BE37B /* LevelLostEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F13B464E1B99D1D7009BE37B /* LevelLostEvent.m */; };
 		F143024E1B837F5F00AC4A62 /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = F143024B1B837F5F00AC4A62 /* Condition.m */; };
 		F143024F1B837F6000AC4A62 /* ConditionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F143024D1B837F5F00AC4A62 /* ConditionHandler.m */; };
 		F14302531B838EF100AC4A62 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = F14302521B838EF100AC4A62 /* Item.m */; };
@@ -58,7 +57,6 @@
 		F16FD7161B82713700860749 /* STMap+Viewport.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6EE1B82713700860749 /* STMap+Viewport.m */; };
 		F16FD7171B82713700860749 /* STMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6F01B82713700860749 /* STMap.m */; };
 		F16FD7191B82713700860749 /* STTile.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD6F51B82713700860749 /* STTile.m */; };
-		F16FD72C1B82722B00860749 /* LevelCompletedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD71D1B82722A00860749 /* LevelCompletedEvent.m */; };
 		F16FD72D1B82722B00860749 /* LoadLevelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD71F1B82722A00860749 /* LoadLevelEvent.m */; };
 		F16FD72E1B82722B00860749 /* NPCResponseClickedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD7231B82722A00860749 /* NPCResponseClickedEvent.m */; };
 		F16FD72F1B82722B00860749 /* NPCSpeechFinishedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F16FD7251B82722A00860749 /* NPCSpeechFinishedEvent.m */; };
@@ -75,6 +73,9 @@
 		F1943DF01B8E49E20088922F /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = F1943DEF1B8E49E20088922F /* Assets */; };
 		F1943DF31B8F50390088922F /* SetCustomConditionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F1943DF21B8F50390088922F /* SetCustomConditionEvent.m */; };
 		F196D6E01B7D332000AE89B4 /* Sparrow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17101741B7D263A00349039 /* Sparrow.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		F1ECE2091BA5E2D700081A14 /* LevelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE2081BA5E2D700081A14 /* LevelEvent.m */; };
+		F1ECE20E1BA5E9A400081A14 /* HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE20D1BA5E9A400081A14 /* HUD.m */; };
+		F1ECE2101BA5EC1100081A14 /* ResetButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE20F1BA5EC1100081A14 /* ResetButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,8 +106,6 @@
 		F126FC971B8DDB4C005A62CD /* level_3_player.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_3_player.xml; sourceTree = "<group>"; };
 		F13B463F1B98D8A5009BE37B /* NPCUIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCUIResponse.m; sourceTree = "<group>"; };
 		F13B46411B98D8B1009BE37B /* NPCUIResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPCUIResponse.h; sourceTree = "<group>"; };
-		F13B464D1B99D1CD009BE37B /* LevelLostEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelLostEvent.h; sourceTree = "<group>"; };
-		F13B464E1B99D1D7009BE37B /* LevelLostEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLostEvent.m; sourceTree = "<group>"; };
 		F143024A1B837F5F00AC4A62 /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
 		F143024B1B837F5F00AC4A62 /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
 		F143024C1B837F5F00AC4A62 /* ConditionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionHandler.h; sourceTree = "<group>"; };
@@ -172,8 +171,6 @@
 		F16FD6F01B82713700860749 /* STMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMap.m; sourceTree = "<group>"; };
 		F16FD6F41B82713700860749 /* STTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTile.h; sourceTree = "<group>"; };
 		F16FD6F51B82713700860749 /* STTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTile.m; sourceTree = "<group>"; };
-		F16FD71C1B82722A00860749 /* LevelCompletedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCompletedEvent.h; sourceTree = "<group>"; };
-		F16FD71D1B82722A00860749 /* LevelCompletedEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompletedEvent.m; sourceTree = "<group>"; };
 		F16FD71E1B82722A00860749 /* LoadLevelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadLevelEvent.h; sourceTree = "<group>"; };
 		F16FD71F1B82722A00860749 /* LoadLevelEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadLevelEvent.m; sourceTree = "<group>"; };
 		F16FD7221B82722A00860749 /* NPCResponseClickedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPCResponseClickedEvent.h; sourceTree = "<group>"; };
@@ -202,6 +199,12 @@
 		F1943DEF1B8E49E20088922F /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		F1943DF11B8F502F0088922F /* SetCustomConditionEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetCustomConditionEvent.h; sourceTree = "<group>"; };
 		F1943DF21B8F50390088922F /* SetCustomConditionEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCustomConditionEvent.m; sourceTree = "<group>"; };
+		F1ECE2081BA5E2D700081A14 /* LevelEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelEvent.m; sourceTree = "<group>"; };
+		F1ECE20A1BA5E2E400081A14 /* LevelEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelEvent.h; sourceTree = "<group>"; };
+		F1ECE20C1BA5E99B00081A14 /* HUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUD.h; sourceTree = "<group>"; };
+		F1ECE20D1BA5E9A400081A14 /* HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUD.m; sourceTree = "<group>"; };
+		F1ECE20F1BA5EC1100081A14 /* ResetButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetButton.m; sourceTree = "<group>"; };
+		F1ECE2111BA5EC2300081A14 /* ResetButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResetButton.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +363,7 @@
 				F16FD67F1B82711000860749 /* Game.m */,
 				F16FD6801B82711000860749 /* LevelEngine.h */,
 				F16FD6811B82711000860749 /* LevelEngine.m */,
+				F1ECE20B1BA5E98D00081A14 /* UI */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -528,10 +532,8 @@
 		F16FD71B1B82722A00860749 /* Level Events */ = {
 			isa = PBXGroup;
 			children = (
-				F16FD71C1B82722A00860749 /* LevelCompletedEvent.h */,
-				F16FD71D1B82722A00860749 /* LevelCompletedEvent.m */,
-				F13B464D1B99D1CD009BE37B /* LevelLostEvent.h */,
-				F13B464E1B99D1D7009BE37B /* LevelLostEvent.m */,
+				F1ECE20A1BA5E2E400081A14 /* LevelEvent.h */,
+				F1ECE2081BA5E2D700081A14 /* LevelEvent.m */,
 				F16FD71E1B82722A00860749 /* LoadLevelEvent.h */,
 				F16FD71F1B82722A00860749 /* LoadLevelEvent.m */,
 			);
@@ -645,6 +647,17 @@
 				F17101661B7D25E300349039 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1ECE20B1BA5E98D00081A14 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F1ECE20C1BA5E99B00081A14 /* HUD.h */,
+				F1ECE20D1BA5E9A400081A14 /* HUD.m */,
+				F1ECE2111BA5EC2300081A14 /* ResetButton.h */,
+				F1ECE20F1BA5EC1100081A14 /* ResetButton.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -770,6 +783,7 @@
 				F13B46401B98D8A5009BE37B /* NPCUIResponse.m in Sources */,
 				F16FD6FC1B82713700860749 /* NPC.m in Sources */,
 				F14302531B838EF100AC4A62 /* Item.m in Sources */,
+				F1ECE2101BA5EC1100081A14 /* ResetButton.m in Sources */,
 				F16FD72F1B82722B00860749 /* NPCSpeechFinishedEvent.m in Sources */,
 				F16FD6FE1B82713700860749 /* NPCResponseBox.m in Sources */,
 				F16FD6F91B82713700860749 /* NPCDialogueHandler.m in Sources */,
@@ -788,19 +802,19 @@
 				F1530B9D1B87957C001872EF /* MoveNPCEvent.m in Sources */,
 				F16FD68E1B82711000860749 /* Game.m in Sources */,
 				F16FD68F1B82711000860749 /* LevelEngine.m in Sources */,
+				F1ECE20E1BA5E9A400081A14 /* HUD.m in Sources */,
 				F16FD6FF1B82713700860749 /* NPCSpeechBox.m in Sources */,
 				F16FD7151B82713700860749 /* STLayer.m in Sources */,
 				F16FD6FA1B82713700860749 /* NPCResponse.m in Sources */,
 				F16FD7111B82713700860749 /* STCoordinate.m in Sources */,
 				F16FD6A11B82712300860749 /* main.m in Sources */,
 				F16FD7191B82713700860749 /* STTile.m in Sources */,
-				F13B464F1B99D1D7009BE37B /* LevelLostEvent.m in Sources */,
+				F1ECE2091BA5E2D700081A14 /* LevelEvent.m in Sources */,
 				F16FD6F71B82713700860749 /* LevelsMenu.m in Sources */,
 				F1530B9C1B87957C001872EF /* ActionEvent.m in Sources */,
 				F1530BA01B879698001872EF /* ActionHandler.m in Sources */,
 				F16FD7171B82713700860749 /* STMap.m in Sources */,
 				F16FD6FD1B82713700860749 /* Player.m in Sources */,
-				F16FD72C1B82722B00860749 /* LevelCompletedEvent.m in Sources */,
 				F16FD6FB1B82713700860749 /* NPCSpeech.m in Sources */,
 				F16FD7141B82713700860749 /* STLayer+Viewport.m in Sources */,
 			);

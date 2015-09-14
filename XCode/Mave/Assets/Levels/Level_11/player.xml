@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc npcID="player" displayName="Player">
+<npcSpeech displayName="Player" text="That's a weird arrangement of rocks.">
+</npcSpeech>
+</npc>

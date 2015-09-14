@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="cress" displayName="Cress" customConditions="cressInfo,0">
+
+ <npcSpeech displayName="Cress" text="Hey! I just saw Jane!! You have to hurry or they'll catch you!!! I was so surprised they hadn't already found you... you must be really quick at solving these mazes!" conditions="custom:cressInfo,0">
+ 	<response text="I'm giving myself up.">
+ 		<npcSpeech displayName="Cress" text="What! No! You can't do that! I promised Presbyter I'd help you get away for as long as possible!">
+ 			<response text="Presbyter?">
+		 		<npcSpeech displayName="Cress" text="What! Oh no... He told me not to tell you... Yes Presbyter sent me and I've been helping you all along." actions="setCustomCondition:cressInfo,++">
+		 		</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="You're lying!">
+ 		<npcSpeech displayName="Cress" text="I'm not! Don't be a fool! I promised Presbyter I'd help you escape and I will keep that promise!">
+ 			<response text="Presbyter sent you?">
+		 		<npcSpeech displayName="Cress" text="Oh no... He told me not to tell you... Yes, he sent me to help you... Damn..." actions="setCustomCondition:cressInfo,++">
+		 		</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Cress" text="I'm sure you have some questions... I'll answer one but then you have to go!" conditions="custom:cressInfo,1" actions="setCustomCondition:cressInfo,++">
+	<response text="Why are you helping Presbyter?">
+ 		<npcSpeech displayName="Cress" text="He did a lot for me that man. I know it's hard to tell but I was an Imp before. I went to Gemtech with the help of Presbyter. You see I didn't have enough money for the transformation but he kindly helped me get it. My life's changed so much since then. I'm sure you can understand! I have a better job and better health benefits. Imps are only one syllable tall!">
+ 			<response text="I would never transform.">
+		 		<npcSpeech displayName="Cress" text="That is fair... I have never regretted it.">
+		 		</npcSpeech>
+ 			</response>
+ 			<response text="I want to transform">
+		 		<npcSpeech displayName="Cress" text="You should">
+		 		</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Why is Presbyter helping me?">
+ 		<npcSpeech displayName="Cress" text="He only told me it was very important that I protect you. He said you mattered a lot to him and all Imps...">
+ 			<response text="I barely know him.">
+		 		<npcSpeech displayName="Cress" text="Presbyter is a very wise man... he basically created the technology that GemTech stands on. If he says you are important then you must be.">
+		 		</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Cress" text="One question was our agreement. Please take what I said seriously even if you do not understand the full extent of matters yet." conditions="custom:cressInfo,2">
+</npcSpeech>
+
+</npc>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="jane" displayName="Jane" customConditions="guilty,false|janeMoved,0">
+
+ <npcSpeech displayName="Jane" text="AHA! I've got a bone to pick with you! That Imp Smurg trapped me in a cave for 3 hours. I cross checked him first and he knew nothing about what was stolen. In fact it was like he knew nothing at all. He wouldn't let me out till I solved some riddle of his. Any way, I finally caught up to you and now you have some answering to do! Are you going to cooperate?" maxPlayCount="1">
+ 	<response text="Yes!">
+ 		<npcSpeech displayName="Jane" text="Good. Where should I start... let me check my notes....">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="No!">
+ 		<npcSpeech displayName="Jane" text="Well this time you're really trapped so I can wait.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Jane" text="Right ho. Now where were you on the morning of Level 0?" conditions="custom:guilty,false|custom:janeMoved,0">
+ 	<response text="Level where?">
+ 		<npcSpeech displayName="Jane" text="Level 0. The place you started.">
+ 			<response text="In Presbyters Lab.">
+ 				<npcSpeech displayName="Jane" text="Aha! I knew you were in the lab! That means you are our culprit! Back up? Yes I've found him. Come to Level 11 immediately.... You are done my friend..." actions="setCustomCondition:guilty,true">
+ 				</npcSpeech>
+ 			</response>
+ 			<response text="I had a meeting with Presbyter.">
+ 				<npcSpeech displayName="Jane" text="Why were you meeting him?">
+ 					<response text="He was showing me around.">
+ 						<npcSpeech displayName="Jane" text="Did you go in the lab?">
+ 							<response text="Yes.">
+			 					<npcSpeech displayName="Jane" text="Thank you for confessing so readily. Backup... Come to Level 11 immediately.... You are done my friend..." actions="setCustomCondition:guilty,true">
+			 					</npcSpeech>
+			 				</response>
+			 				<response text="No.">
+			 					<npcSpeech displayName="Jane" text="I've never seen a more obvious lie! If you had a meeting with him you must have gone in! Backup... Come to Level 11 immediately.... You are done my friend..." actions="setCustomCondition:guilty,true">
+			 					</npcSpeech>
+			 				</response>
+ 						</npcSpeech>
+ 					</response>
+ 					<response text="To go throught the ImpHuman transformation.">
+ 						<npcSpeech displayName="Jane" text="Why are you still an Imp then?">
+							<response text="The transformation failed.">
+	 							<npcSpeech displayName="Jane" text="In 11 years there have only been six failed transformations. You must be lying. Backup... Come to Level 11 immediately.... You are done my friend..." actions="setCustomCondition:guilty,true">
+	 							</npcSpeech>
+	 						</response>
+ 							<response text="Ummm....">
+ 								<npcSpeech displayName="Jane" text="Probably because you were there as a theif! I'm calling backup!!! You're done! Besides you're still an Imp so you couldn't have been there for the transformation! We are going to interrogate you till you tell us why you stole IMP501 and where you put it!" actions="setCustomCondition:guilty,true">
+ 								</npcSpeech>
+ 							</response>
+ 						</npcSpeech>
+ 					</response>
+ 				</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="I was in some strange facility...">
+ 		<npcSpeech displayName="Jane" text="Did you have a strange floating feeling in the left hemisphere of your brain?">
+ 			<response text="Yes!">
+ 				<npcSpeech displayName="Jane" text="This is serious then. The transformation must have failed. That would explain your confusion and memory loss. I need to take you back to the lab to Presbyter immediately! Let me just call for transport!" actions="setCustomCondition:guilty,true">
+ 				</npcSpeech>
+ 			</response>
+ 			<response text="No.">
+ 				<npcSpeech displayName="Jane" text="Okay good. I was worried for a second. Then tell me this: Was Presbyter experimenting on you?">
+ 					<response text="Yes, he captured me.">
+ 						<npcSpeech displayName="Jane" text="Oh no... He's at it again. GemTech can't afford another scandal... That fellow Smurg that you met was one of Presbyters experimental subjects. Look how he turned out! We spent millions hushing the whole thing up. What will it take to keep you quiet?">
+ 							<response text="Money.">
+			 					<npcSpeech displayName="Jane" text="That can be arranged. I'll call for some transport and we will go back to GemTech and work this out." actions="setCustomCondition:guilty,true">
+			 					</npcSpeech>
+			 				</response>
+			 				<response text="Nothing can stop me.">
+			 					<npcSpeech displayName="Jane" text="I'm afraid we can't have that... I'll take you back to GemTech and try and talk some sense into you... We have unlimited resources, I'm sure you'll see our point of view." actions="setCustomCondition:guilty,true">
+			 					</npcSpeech>
+			 				</response>
+ 						</npcSpeech>
+ 					</response>
+ 					<response text="No, he wanted my advice.">
+ 						<npcSpeech displayName="Jane" text="Advice about what?">
+							<response text="The thing that was stolen.">
+	 							<npcSpeech displayName="Jane" text="If that's true then you should know what was stolen. So come on what was it?">
+	 								<response text="" userInput="true" correctAnswer="IMP501">
+						 				<npcSpeech displayName="Jane" text="What! That's classified! How did you know that?... This means... Oh no. I've been follwing the wrong lead all along... You still need to be debreifed though. But that can wait, I need to keep looking for the theif!" actions="moveNPC:jane,up|moveNPC:jane,left|setCustomCondition:janeMoved,++">
+						 				</npcSpeech>
+						 				<npcSpeech displayName="Jane" text="I really thought you might be telling the truth for a second. Obviously you are continuing to lie. I'm calling backup and taking you to Gemtech. We have better ways of persuading there." actions="setCustomCondition:guilty,true">
+						 				</npcSpeech>
+	 								</response>
+	 							</npcSpeech>
+	 						</response>
+ 							<response text="How to reverse the ImpHuman Protocol.">
+ 								<npcSpeech displayName="Jane" text="What is wrong with you? You keep lying and for what! You must have something to hide. I'm calling backup and taking you to Gemtech. We have better ways of persuading there." actions="setCustomCondition:guilty,true">
+ 								</npcSpeech>
+ 							</response>
+ 						</npcSpeech>
+ 					</response>
+ 				</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+
+<npcSpeech displayName="Jane" text="Backup is on its way. We'll be at Gemtech soon." conditions="custom:guilty,true">
+</npcSpeech>
+
+<npcSpeech displayName="Jane" text="I'm sorry for causing you so much trouble. As you know IMP501 is paramount to us so you can understand my position. If there's anything I can do for you let me know." conditions="custom:janeMoved,1">
+ 	<response text="I want you to move.">
+		<npcSpeech displayName="Jane" text="Sorry, I can't do that now. This is the only place I am getting a signal for my phone.">
+		</npcSpeech>
+	</response>
+	<response text="I want information.">
+		<npcSpeech displayName="Jane" text="Alright, if I can disclose it.">
+			<response text="How much damage has this caused.">
+ 				<npcSpeech displayName="Jane" text="Virtually all our facilities are closed at the moment. The story we are presenting is that we have major renovations and improvements in order. Obviously it's more dire than that... if we don't get IMP501 back GemTech will cease to exist along with any more ImpHuman transformations.">
+ 				</npcSpeech>
+ 			</response>
+ 			<response text="What is IMP501.">
+ 				<npcSpeech displayName="Jane" text="I probably only know as much as you do... All I can disclose is that without it GemTechs facilities are all down. When I first heard about it I thought it was a physical Imp but it's not. It's information. IMP501 is a cipher that makes the transformations possible... Sorry, I'm getting a call. Hello? Yes, this is Jane. We need to refocus our efforts. The lead was false. Yes... yes. Alright see you there." actions="moveNPC:jane,left|moveNPC:jane,up|moveNPC:jane,left|setCustomCondition:janeMoved,++">
+ 				</npcSpeech>
+		 	</response>
+		</npcSpeech>
+	</response>
+ </npcSpeech>
+
+<npcSpeech displayName="Jane" text="Our business is over for now." conditions="custom:janeMoved,2">
+ </npcSpeech>
+
+</npc>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="cress" displayName="Cress">
+
+ <npcSpeech displayName="Cress" text="I've failed, I've failed... what will Presbyter say... Oh! You're here! Jane is up ahead. I tried making her go away but she was sure you would come here. Good luck... Also remember, don't lie to her. She can sniff a lie from a mile away." maxPlayCount="1">
+ 	<response text="Where are you going?">
+ 		<npcSpeech displayName="Cress" text="To tell Presbyter that I failed." actions="moveNPC:cress,up|moveNPC:cress,left">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Can't Presbyter help me?">
+ 		<npcSpeech displayName="Cress" text="GemTech Security is a branch of its own... I don't think he could do anything to stop them... Good luck." actions="moveNPC:cress,up|moveNPC:cress,left">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Cress" text="What happened?!" maxPlayCount="1">
+	<response text="She Let me go.">
+ 		<npcSpeech displayName="Cress" text="Did my advice help? It did didn't it! Yes! This is great news.">
+ 			<response text="Are you going to go back?">
+		 		<npcSpeech displayName="Cress" text="I think I'll stay around a bit longer, till I know you are safe.">
+		 		</npcSpeech>
+ 			</response>
+ 			<response text="Your advice was terrible.">
+		 		<npcSpeech displayName="Cress" text="I'm sorry... I'm only trying my best.">
+		 		</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Cress" text="Presbyter was right... You are special.">
+</npcSpeech>
+
+</npc>
