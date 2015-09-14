@@ -34,6 +34,8 @@
         
         [self addEventListener:@selector(loadLevel:) atObject:self forType:EVENT_TYPE_LOAD_LEVEL];
         [self addEventListener:@selector(levelCompleted:) atObject:self forType:EVENT_TYPE_LEVEL_COMPLETED];
+        [self addEventListener:@selector(levelLost:) atObject:self forType:EVENT_TYPE_LEVEL_LOST];
+        [self addEventListener:@selector(levelRestart:) atObject:self forType:EVENT_TYPE_LEVEL_RESTART];
 
     }
     return self;
@@ -45,7 +47,17 @@
     [_levelSprite addChild:newLevel];
 }
 
-- (void)levelCompleted:(LevelCompletedEvent*)event
+- (void)levelLost:(LevelEvent*)event
+{
+    [_levelSprite removeAllChildren];
+}
+
+- (void)levelRestart:(LevelEvent*)event
+{
+    [_levelSprite removeAllChildren];
+}
+
+- (void)levelCompleted:(LevelEvent*)event
 {
     [_levelSprite removeAllChildren];
 }

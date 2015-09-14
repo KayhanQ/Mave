@@ -11,13 +11,11 @@
 
 @implementation LoadLevelEvent
 
-@synthesize levelName = _levelName;
-
-- (id)initWithType:(NSString *)type levelName:(NSString *)levelName
+- (id)initWithLevelName:(NSString*)levelName
 {
-    if ((self = [super initWithType:type bubbles:YES]))
+    if ((self = [super initWithType:EVENT_TYPE_LOAD_LEVEL levelName:levelName]))
     {
-        _levelName = levelName;
+        
     }
     return self;
 }

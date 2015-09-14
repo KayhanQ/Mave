@@ -17,6 +17,8 @@
 #import "MoveNPCEvent.h"
 #import "GiveItemEvent.h"
 #import "SetCustomConditionEvent.h"
+#import "HUD.h"
+
 
 @interface LevelEngine ()
 - (void)swipeLeft:(UISwipeGestureRecognizer *)gestureRecognizer;
@@ -69,14 +71,19 @@
     if (movableObstaclesLayer) [container addChild:movableObstaclesLayer];
     [container addChild:_characterLayer];
 
+    HUD* hud = [[HUD alloc] init];
+    [container addChild:hud];
+    
     _dialogueSprite = [[SPSprite alloc] init];
     [container addChild:_dialogueSprite];
     
-    container.scale = 0.7;
+    container.scale = 0.8;
     _swipeGestureRecognizers = [[NSMutableArray alloc] init];
     
     _player = [_characterLayer getPlayer];
     _conditionHandler = [[ConditionHandler alloc] initWithNPCLayer:_characterLayer];
+    
+    
     
     [self addSwipeRecognizers];
     [self addEventListener:@selector(npcTouched:) atObject:self forType:EVENT_TYPE_NPC_TOUCHED];
@@ -136,19 +143,19 @@
         switch (obstacle.type) {
             case STSPIKES:
             {
-                LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
+                LevelEvent *event = [[LevelEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
                 [self dispatchEvent:event];
                 break;
             }
             case STHOLE:
             {
-                LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
+                LevelEvent *event = [[LevelEvent alloc] initWithType:EVENT_TYPE_LEVEL_LOST];
                 [self dispatchEvent:event];
                 break;
             }
             case STFINISH:
             {
-                LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
+                LevelEvent *event = [[LevelEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
                 [self dispatchEvent:event];
                 break;
             }
