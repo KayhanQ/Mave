@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="generic1" displayName="Generic1" customConditions="genericWeak,false|genericMoveCount,0|weakenedCount,0">
+
+ <npcSpeech displayName="Generic1" text="Hi, I'm Generic1. I'm a builder" conditions="custom:weakenedCount,0">
+ 	<response text="I know that.">
+ 		<npcSpeech displayName="Generic1" text="What do I know?">
+ 			<response text="You know I know you know that.">
+		 		<npcSpeech displayName="Generic1" text="12211212212211211221211212211211212212211212212112... I don't feel so good..." actions="setCustomCondition:genericWeak,true|setCustomCondition:genericMoveCount,0|setCustomCondition:weakenedCount,++">
+		 		</npcSpeech>
+		 	</response>
+		 	<response text="Evidently nothing.">
+		 		<npcSpeech displayName="Generic1" text="That's mean...">
+		 		</npcSpeech>
+		 	</response>
+		</npcSpeech>
+ 	</response>
+ 	<response text="Why are you so Generic?">
+ 		<npcSpeech displayName="Generic1" text="It's who I am...">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+ <npcSpeech displayName="Generic1" text="Hi, I'm Generic1. I'm a builder" conditions="custom:weakenedCount,1">
+ 	<response text="Can you say anything else?">
+ 		<npcSpeech displayName="Generic1" text="No... Oh wait... YES!">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Where's your friend?">
+ 		<npcSpeech displayName="Generic1" text="Generic2?">
+ 			<response text="No you.">
+		 		<npcSpeech displayName="Generic1" text="12211212212211211221211212211211212212211212212112... Can you be your own friend...?" actions="setCustomCondition:genericWeak,true|setCustomCondition:genericMoveCount,0|setCustomCondition:weakenedCount,++">
+		 		</npcSpeech>
+		 	</response>
+		 	<response text="Do you have any others?">
+		 		<npcSpeech displayName="Generic1" text="I thought we were friends...">
+		 		</npcSpeech>
+		 	</response>
+		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+ <npcSpeech displayName="Generic1" text="Hi, I'm Generic1. I'm a builder" conditions="custom:weakenedCount,2">
+ 	<response text="What's the square root of -1?">
+ 		<npcSpeech displayName="Generic1" text="I think it's i.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="What's the difference between a duck?">
+ 		<npcSpeech displayName="Generic1" text="Nothing?">
+ 			<response text="Or is it...?">
+		 		<npcSpeech displayName="Generic1" text="12211212212211211221211212211211212212211212212112... is it....? I'm so confused..." actions="setCustomCondition:genericWeak,true|setCustomCondition:genericMoveCount,0|setCustomCondition:weakenedCount,++">
+		 		</npcSpeech>
+		 	</response>
+		 	<response text="Correct.">
+		 		<npcSpeech displayName="Generic1" text="That makes sense.">
+		 		</npcSpeech>
+		 	</response>
+		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Generic1" text="I feel.... ohh... bleh.">
+</npcSpeech>
+
+</npc>

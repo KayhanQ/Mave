@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="enuk" displayName="Enuk">
+
+ <npcSpeech displayName="Enuk" text="I'm happy to see you again friend. Lately I have felt my powers coming back. The future is becoming clearer." maxPlayCount="1">
+ 	<response text="I don't beleive in your powers.">
+ 		<npcSpeech displayName="Enuk" text="But I can prove them to you. I just need a weakened mind to manipulate...">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="What is the future like?">
+ 		<npcSpeech displayName="Enuk" text="Arrhh... my powers are not quite there yet.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Enuk" text="I've lost it. I think his mind has recovered to its full strength." conditions="custom:genericMoveCount,6" actions="setCustomCondition:genericWeak,false">
+</npcSpeech>
+
+<npcSpeech displayName="Enuk" text="I just need to find a weakened mind..." conditions="custom:genericWeak,false">
+</npcSpeech>
+
+<npcSpeech displayName="Enuk" text="I sense a weakened mind. It's that Generic over there. Look, I'll make him move with my mind." conditions="custom:genericWeak,true" actions="moveNPC:generic1,right|setCustomCondition:genericMoveCount,++" maxPlayCount="1">
+</npcSpeech>
+
+<npcSpeech displayName="Enuk" text="I could do it again too if you want more proof." conditions="custom:genericWeak,true" maxPlayCount="1">
+</npcSpeech>
+
+<npcSpeech displayName="Enuk" text="Which way should I move it?" conditions="custom:genericWeak,true">
+ 	<response text="Up">
+ 		<npcSpeech displayName="Enuk" text="GRRRRRRRRRRR. Done." actions="moveNPC:generic1,up|setCustomCondition:genericMoveCount,++">
+ 		</npcSpeech>
+ 	</response>
+ 	 	<response text="Right">
+ 		<npcSpeech displayName="Enuk" text="EEEEEEEEM. Done." actions="moveNPC:generic1,right|setCustomCondition:genericMoveCount,++">
+ 		</npcSpeech>
+ 	</response>
+ 	 	<response text="Down">
+ 		<npcSpeech displayName="Enuk" text="LEEEARRRRRN. Done." actions="moveNPC:generic1,down|setCustomCondition:genericMoveCount,++">
+ 		</npcSpeech>
+ 	</response>
+ 	 	<response text="Left">
+ 		<npcSpeech displayName="Enuk" text="Sesame... Done." actions="moveNPC:generic1,left|setCustomCondition:genericMoveCount,++">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Enuk" text="Hmmm....">
+</npcSpeech>
+
+</npc>

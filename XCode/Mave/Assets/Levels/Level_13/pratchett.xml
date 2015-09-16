@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="pratchett" displayName="Pratchett">
+
+ <npcSpeech displayName="Pratchett" text="Roar. I am Pratchett." maxPlayCount="1">
+ 	<response text="Who?">
+ 		<npcSpeech displayName="Pratchett" text="Have you not heard of me? Pratchett the DRAGOOOOOOON? What...? Nothing. Hmmm... regardless. I've been called here by a friend from far away. There's a change coming and help is needed. Hmmm... I do not yet know where you stand... if you are on the right side I will let you through... now how can I test you. Aha... ROOOAAR!!!! PUSH!!!! PPHHEWWWWW!!!!!" actions="moveNPC:pratchett,down|moveNPC:player,down">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Pratchett" text="It seems you are worthy in mind and spirit. You may pass." maxPlayCount="1">
+ 	<response text="Who called you?">
+ 		<npcSpeech displayName="Pratchett" text="I was summoned by an old friend. He said he saw a need for me." actions="moveNPC:pratchett,right">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Are you really a dragon?">
+ 		<npcSpeech displayName="Pratchett" text="ROOOOOOOOOOOOAAAAAAR. Yes." actions="moveNPC:pratchett,right">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+
+
+<npcSpeech displayName="Pratchett" text="We will meet again.">
+</npcSpeech>
+
+</npc>

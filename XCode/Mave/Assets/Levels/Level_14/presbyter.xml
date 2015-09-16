@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="presbyter" displayName="Presbyter" customConditions="presbyterPosition,0">
+
+ <npcSpeech displayName="Presbyter" text="Oh my gosh... I didn't expect to see you again... I was sure Gemtech security had caught you..." conditions="custom:presbyterPosition,0">
+ 	<response text="You're going to regret what you did.">
+ 		<npcSpeech displayName="Presbyter" text="I didn't do anything... we don't even know each other!" actions="moveNPC:presbyter,down|setCustomCondition:presbyterPosition,++">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="What did you do to me?!">
+ 		<npcSpeech displayName="Presbyter" text="Nothing! No! Nothing. What do you mean?!" actions="moveNPC:presbyter,down|setCustomCondition:presbyterPosition,++">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+
+<npcSpeech displayName="Presbyter" text="Ok... I understand you want answers... First tell me this: Do you remember Grums?" conditions="custom:presbyterPosition,1">
+ 	<response text="No.">
+ 		<npcSpeech displayName="Presbyter" text="That means it worked... you don't remember our conversation..." actions="moveNPC:presbyter,right|setCustomCondition:presbyterPosition,++">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="I know a Smurg.">
+ 		<npcSpeech displayName="Presbyter" text="I don't know who that is. But if you don't remember Grums that means you don't remember our conversation..."  actions="moveNPC:presbyter,right|setCustomCondition:presbyterPosition,++">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Presbyter" text="Ok. Obviously you are determined to find out more... I can't avoid you forever so I will just tell you the truth. If I do will you stop following me?" conditions="custom:presbyterPosition,2">
+ 	<response text="Yes.">
+ 		<npcSpeech displayName="Presbyter" text="Alright. The last thing you remember is waking up in my lab, correct? That is because you came to me wanting to go throught the ImpHuman transformation. Everything was functioning but then we lost power. The back up generators failed to come online. There really was nothing I could do... Your memory lost must be a side-effect of that... there may also be some other artefacts, but I wouldn't worry about them... no... don't think about it. That's all I can tell you. I am truly sorry." actions="moveNPC:presbyter,up|setCustomCondition:presbyterPosition,++">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Presbyter" text="What? I told you everything." conditions="custom:presbyterPosition,3">
+	<response text="What you're saying doesn't add up!">
+ 		<npcSpeech displayName="Presbyter" text="You must be still feeling symptoms from the procedure... You were confused after it as well actually. Yes, I tried to stop you from leaving but you just couldn't be stopped. I'm so sorry again... yes... there's nothing I can do, it's on you now... just keep doing what you're doing..." actions="moveNPC:presbyter,right|setCustomCondition:presbyterPosition,++">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Why didn't you tell me this earlier?">
+ 		<npcSpeech displayName="Presbyter" text="Uh why... yes why indeed. Good question. Well it was a mistake you see! You wanted to leave and I hadn't the time to gather my thoughts. Actually, I've been looking for you to see if you were alright! Yes, and you are! Perfect!" actions="moveNPC:presbyter,right|setCustomCondition:presbyterPosition,++">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Presbyter" text="This is a bit much... Listen, you voluntarilty went into the procedure. If this is about some compensation you have no power here. I might even call Gemtech security!" conditions="custom:presbyterPosition,4">
+	<response text="Jane told me about IMP501.">
+ 		<npcSpeech displayName="Presbyter" text="WHAT! But wait, she let you go... which means... Yes, yes you are right, IMP 501 was stolen from our facility. If you hear anything about it let someone know. Thank you for your concern..." actions="moveNPC:presbyter,down|setCustomCondition:presbyterPosition,++">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="I heard your fight about the Protocol.">
+ 		<npcSpeech displayName="Presbyter" text="Wait what! The only person who was around was that idiotic contractor fellow... and I kicked him out once I saw him snooping. He must have told you about it but he heard nothing important... yes there was a problem with the protocol that we were dicussing. It wasn't a fight really just a... differing of opinions. Thank you for your concern though." actions="moveNPC:presbyter,down|setCustomCondition:presbyterPosition,++">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Presbyter" text="I'm glad we've sorted this all out actually... I didn't know how much you knew... I am truly sorry about all this... I really am. Till we meet again." conditions="custom:presbyterPosition,5" actions="moveNPC:presbyter,right|setCustomCondition:presbyterPosition,++">
+</npcSpeech>
+
+<npcSpeech displayName="Presbyter" text="I would put the past behind you and just focus on the future. You may be surprised by what you could be a part of...">
+
+</npc>
