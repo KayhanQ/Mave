@@ -19,13 +19,23 @@
 {
     if (self = [super init]) {
 
-        for (int i = 0; i<15; i++) {
+        int x = 0;
+        int y = 0;
+        
+        for (int i = 0; i<20; i++) {
             NSString* levelName = [[NSString alloc] initWithFormat:@"Level_%d", i];
             
             LevelButton* button = [[LevelButton alloc] initWithLevelName:levelName];
-            button.x = button.width*i + 20;
+            x = button.width*(i%15) +20;
+            button.x = x;
+            button.y =  y;
             button.text = levelName;
             [self addChild:button];
+            
+            if ((i+1)%15 == 0) {
+                x = 0;
+                y+=40;
+            }
         }
         
     }

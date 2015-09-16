@@ -125,10 +125,18 @@
     STLayer* layer = [_map getLayerWithTile:tile];
     [layer moveTileTo:tile coordinate:coordinate];
     
+
     switch (obstacle.type) {
         case STPUSHROCK:
         {
             [self moveTileInDirection:obstacle direction:direction];
+            break;
+        }
+        case STHOLE:
+        {
+            if (tile.type == STPUSHROCK) {
+                //remove the push rock
+            }
             break;
         }
         default:
