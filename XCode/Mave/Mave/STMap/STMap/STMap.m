@@ -169,16 +169,16 @@
     return result;
 }
 
-- (STTile*)getTileClosestToTileInDirection:(STTile*)tile direction:(UISwipeGestureRecognizerDirection)direction {
+- (STTile*)getTileClosestToTileInDirection:(STTile*)tile direction:(Direction)direction {
     STTile* closestTile = nil;
     NSMutableArray* arrayToMerge = [[NSMutableArray alloc] init];
     NSMutableArray* curLineArray = [[NSMutableArray alloc] init];
 
     for (STLayer* layer in [self getOrderedLayers]) {
-        if (direction == UISwipeGestureRecognizerDirectionUp || direction == UISwipeGestureRecognizerDirectionDown) {
+        if (direction == DirectionUp || direction == DirectionDown) {
             curLineArray = [layer getTilesInColumnOfTile:tile];
         }
-        else if (direction == UISwipeGestureRecognizerDirectionRight || direction == UISwipeGestureRecognizerDirectionLeft) {
+        else if (direction == DirectionRight || direction == DirectionLeft) {
             curLineArray = [layer getTilesInRowOfTile:tile];
         }
         [arrayToMerge addObject:curLineArray];
@@ -189,16 +189,16 @@
     for (STTile* t in lineArray) NSLog(@"%d",t.type);
     
     //We are going forwards in the arrays to find the next Tile
-    if (direction == UISwipeGestureRecognizerDirectionDown || direction == UISwipeGestureRecognizerDirectionRight) {
+    if (direction == DirectionDown || direction == DirectionRight) {
         for (STTile* curTile in lineArray) {
             if (curTile.collisionType == NONE) continue;
-            if (direction == UISwipeGestureRecognizerDirectionDown) {
+            if (direction == DirectionDown) {
                 if (curTile.coordinate.y > tile.coordinate.y) {
                     closestTile = curTile;
                     break;
                 }
             }
-            else if (direction == UISwipeGestureRecognizerDirectionRight) {
+            else if (direction == DirectionRight) {
                 if (curTile.coordinate.x > tile.coordinate.x) {
                     closestTile = curTile;
                     break;
@@ -208,16 +208,16 @@
         }
     }
     //We are going backwards in the arrays to find the next Tile
-    if (direction == UISwipeGestureRecognizerDirectionUp || direction == UISwipeGestureRecognizerDirectionLeft) {
+    if (direction == DirectionUp || direction == DirectionLeft) {
         for (STTile* curTile in [lineArray reverseObjectEnumerator]) {
             if (curTile.collisionType == NONE) continue;
-            if (direction == UISwipeGestureRecognizerDirectionUp) {
+            if (direction == DirectionUp) {
                 if (curTile.coordinate.y < tile.coordinate.y) {
                     closestTile = curTile;
                     break;
                 }
             }
-            else if (direction == UISwipeGestureRecognizerDirectionLeft) {
+            else if (direction == DirectionLeft) {
                 if (curTile.coordinate.x < tile.coordinate.x) {
                     closestTile = curTile;
                     break;

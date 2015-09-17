@@ -14,7 +14,7 @@
 @synthesize npcID = _npcID;
 @synthesize direction = _direction;
 
-- (id)initWithNPCID:(NSString *)npcID direction:(UISwipeGestureRecognizerDirection)direction
+- (id)initWithNPCID:(NSString *)npcID direction:(Direction)direction
 {
     if ((self = [super initWithType:EVENT_TYPE_MOVE_NPC]))
     {

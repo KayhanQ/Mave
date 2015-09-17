@@ -99,11 +99,12 @@
 
 }
 
-- (void)swipeInDirection:(UISwipeGestureRecognizerDirection)direction {
+- (void)swipeInDirection:(UISwipeGestureRecognizerDirection)swipeDirection {
+    Direction direction = [HelperFunctions directionFromUISwipeGestureRecognizerDirection:swipeDirection];
     [self moveTileInDirection:_player direction:direction];
 }
 
-- (void)moveTileInDirection:(STTile*)tile direction:(UISwipeGestureRecognizerDirection)direction {
+- (void)moveTileInDirection:(STTile*)tile direction:(Direction)direction {
     STTile* obstacle = [_map getTileClosestToTileInDirection:tile direction:direction];
     STCoordinate* coordinate;
     
@@ -183,27 +184,27 @@
     }
 }
 
-- (STCoordinate*)getCoordinateForCollisionInDirection:(UISwipeGestureRecognizerDirection)direction distance:(int)distance fromCoordinate:(STCoordinate*)coordinate {
+- (STCoordinate*)getCoordinateForCollisionInDirection:(Direction)direction distance:(int)distance fromCoordinate:(STCoordinate*)coordinate {
     int x = coordinate.x;
     int y = coordinate.y;
     
     switch (direction) {
-        case UISwipeGestureRecognizerDirectionUp:
+        case DirectionUp:
         {
             y += distance;
             break;
         }
-        case UISwipeGestureRecognizerDirectionRight:
+        case DirectionRight:
         {
             x -= distance;
             break;
         }
-        case UISwipeGestureRecognizerDirectionDown:
+        case DirectionDown:
         {
             y -= distance;
             break;
         }
-        case UISwipeGestureRecognizerDirectionLeft:
+        case DirectionLeft:
         {
             x += distance;
             break;

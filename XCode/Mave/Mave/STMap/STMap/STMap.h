@@ -10,6 +10,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HelperFunctions.h"
+
 @class STTileset;
 @class STLayer;
 @class STTile;
@@ -45,7 +47,7 @@
 - (id)initWithLevelFolderPath:(NSString *)folderPath filename:(NSString*)filename;
 + (STMap *)mapWithTMXFile:(NSString *)filename;
 - (STLayer *)layerByName:(NSString *)name;
-- (STTile*)getTileClosestToTileInDirection:(STTile*)tile direction:(UISwipeGestureRecognizerDirection)direction;
+- (STTile*)getTileClosestToTileInDirection:(STTile*)tile direction:(Direction)direction;
 - (STLayer*)getLayerWithTile:(STTile*)tile;
 
 @end

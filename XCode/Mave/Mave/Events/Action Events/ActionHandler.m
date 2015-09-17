@@ -13,6 +13,7 @@
 #import "Item.h"
 #import "SetCustomConditionEvent.h"
 #import "SetFinishTileFunctionalityEvent.h"
+#import "HelperFunctions.h"
 
 @implementation ActionHandler
 {
@@ -38,12 +39,8 @@
         {
             NSString*npcID = [values objectAtIndex:0];
             NSString* directionString = [values objectAtIndex:1];
-            UISwipeGestureRecognizerDirection direction;
-            
-            if ([directionString isEqualToString:@"up"]) direction = UISwipeGestureRecognizerDirectionUp;
-            else if ([directionString isEqualToString:@"right"]) direction = UISwipeGestureRecognizerDirectionRight;
-            else if ([directionString isEqualToString:@"down"]) direction = UISwipeGestureRecognizerDirectionDown;
-            else if ([directionString isEqualToString:@"left"]) direction = UISwipeGestureRecognizerDirectionLeft;
+
+            Direction direction = [HelperFunctions directionFromString:directionString];
 
             actionEvent = [[MoveNPCEvent alloc] initWithNPCID:npcID direction:direction];
             break;

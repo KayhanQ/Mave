@@ -8,6 +8,7 @@
 
 #import "ActionEvent.h"
 #import <Foundation/Foundation.h>
+#import "HelperFunctions.h"
 
 #define EVENT_TYPE_MOVE_NPC @"moveNPC"
 
@@ -17,8 +18,8 @@
 }
 
 @property(nonatomic, readonly) NSString* npcID;
-@property(nonatomic, readonly) UISwipeGestureRecognizerDirection direction;
+@property(nonatomic, readonly) Direction direction;
 
-- (id)initWithNPCID:(NSString*)npcID direction:(UISwipeGestureRecognizerDirection)direction;
+- (id)initWithNPCID:(NSString*)npcID direction:(Direction)direction;
 
 @end

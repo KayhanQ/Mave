@@ -21,4 +21,43 @@
     return nil;
 }
 
++ (Direction)directionFromString:(NSString *)string {
+    Direction direction;
+    if ([string isEqualToString:@"up"]) direction = DirectionUp;
+    else if ([string isEqualToString:@"right"]) direction = DirectionRight;
+    else if ([string isEqualToString:@"down"]) direction = DirectionDown;
+    else if ([string isEqualToString:@"left"]) direction = DirectionLeft;
+    return direction;
+}
+
++ (Direction)directionFromUISwipeGestureRecognizerDirection:(UISwipeGestureRecognizerDirection)swipeDirection {
+    Direction direction;
+    switch (swipeDirection) {
+        case UISwipeGestureRecognizerDirectionUp:
+        {
+            direction = DirectionUp;
+            break;
+        }
+        case UISwipeGestureRecognizerDirectionRight:
+        {
+            direction = DirectionRight;
+            break;
+        }
+        case UISwipeGestureRecognizerDirectionDown:
+        {
+            direction = DirectionDown;
+            break;
+        }
+        case UISwipeGestureRecognizerDirectionLeft:
+        {
+            direction = DirectionLeft;
+            break;
+        }
+        default:
+            break;
+    }
+    
+    return direction;
+}
+
 @end
