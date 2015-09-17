@@ -9,9 +9,6 @@
 //  it under the terms of the Simplified BSD License.
 //
 
-#define ST_EXC_FILE_NOT_FOUND @"FileNotFoundOrInvalid"
-#define ST_EXC_ELEMENT_NOT_FOUND @"ElementNotFound"
-
 #import "STMap.h"
 #import "TBXML.h"
 #import "NSDataAdditions.h"
