@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <npc npcID="jane" displayName="Jane">
- <npcSpeech displayName="Jane" text="Listen, I don't know what you're up to here but the sooner you leave the happier I'll be. See that circle on the right? It will transport you onward." maxPlayCount="1">
- 	<response text="I'm on your side here.">
- 		<npcSpeech displayName="Jane" text="There are no sides... not anymore.">
+ <npc npcID="jane" displayName="Jane" customCondition="janeMoved,false">
+
+ <npcSpeech displayName="Jane" text="You, yes you! Why do you look so sick and helpless? I don't know what you're up to here but the sooner you leave the happier I'll be. Strange things have been happening lately and we don't need any casualties. See that circle on the right? It will transport you onward." conditions="custom:janeMoved,false">
+ 	<response text="I think I'm hurt.">
+ 		<npcSpeech displayName="Jane" text="I'm not here to look after Imps in trouble. Take a couple of seconds if you need it adn then leave.">
  		</npcSpeech>
  	</response>
  	<response text="Who is Presbyter?">
- 		<npcSpeech displayName="Jane" text="If I tell you will you leave?">
+ 		<npcSpeech displayName="Jane" text="How do you know Presbyter...? Regardless, if I tell you will you leave?">
  			<response text="Yes.">
- 				<npcSpeech displayName="Jane" text="He is in charge of the facility here. he pioneered the Imphuman transformation technique. Now please leave." actions="moveNPC:jane,up">
+ 				<npcSpeech displayName="Jane" text="He is in charge of the facility here. he pioneered the Imphuman transformation technique. Now please leave." actions="moveNPC:jane,up|setCustomCondition:janeMoved,true">
  				</npcSpeech>
  			</response>
  			<response text="No.">
@@ -19,13 +20,13 @@
  	</response>
 </npcSpeech>
 
-<npcSpeech displayName="Jane" text="What are you waiting for?" maxPlayCount="1">
- 	<response text="I really don't know what is happening.">
- 		<npcSpeech displayName="Jane" text="No games. Go.">
+<npcSpeech displayName="Jane" text="Leave now. I'm going to check that there's no one inside the facility." conditions="custom:janeMoved,true">
+ 	<response text="Don't do that!">
+ 		<npcSpeech displayName="Jane" text="Listen Imp, do not interfere with Gemtech security.">
  		</npcSpeech>
  	</response>
- 	<response text="I need help.">
- 		<npcSpeech displayName="Jane" text="No one can help you.">
+ 	<response text="Ok, I'm going.">
+ 		<npcSpeech displayName="Jane" text="Good. Where's my flashlight...">
  		</npcSpeech>
  	</response>
 </npcSpeech>

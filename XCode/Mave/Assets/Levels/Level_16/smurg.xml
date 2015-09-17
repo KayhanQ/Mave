@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="smurg" displayName="Smurg" customConditions="smurgMoved,false">
+
+ <npcSpeech displayName="Smurg" text="URrrrrrrrrh." maxPlayCount="1">
+ 	<response text="I don't understand.">
+ 		<npcSpeech displayName="Smurg" text="FHHFHKAH.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="HRRRERRERER?">
+ 		<npcSpeech displayName="Smurg" text="NOOOOW.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Smurg" text="WHICH WAY?" conditions="custom:smurgMoved,false">
+ 	<response text="You can speak now?">
+ 		<npcSpeech displayName="Smurg" text="I M GTTING BETTER! WHICH WAY TO END?">
+ 			<response text="What happened to you?">
+ 				<npcSpeech displayName="Smurg" text="PRESSSS BITTER.">
+ 					 <response text="Presbyter?">
+		 				<npcSpeech displayName="Smurg" text="YEES, NAOW WHICH WAY TO END!">
+		 					<response text="How do you know him?">
+				 				<npcSpeech displayName="Smurg" text="AIIIIIIIII. MUST STOP.">
+				 				</npcSpeech>
+				 			</response>
+				 			<response text="What did he do to you?">
+				 				<npcSpeech displayName="Smurg" text="TLL MEE. WHICH WAY TO END!">
+				 					<response text="Left.">
+						 				<npcSpeech displayName="Smurg" text="THANK. MUST STPOP." actions="moveNPC:smurg,left|moveNPC:smurg,down|moveNPC:smurg,right|setCustomCondition:smurgMoved,true">
+						 				</npcSpeech>
+						 			</response>
+						 			<response text="Right.">
+						 				<npcSpeech displayName="Smurg" text="GOOOOO. MUST STOP." actions="moveNPC:smurg,right|setCustomCondition:smurgMoved,true">
+						 				</npcSpeech>
+				 					</response>
+				 				</npcSpeech>
+		 					</response>
+				 		</npcSpeech>
+				 	</response>
+		 			<response text="Bitter coffee Press??">
+		 				<npcSpeech displayName="Smurg" text="AAARRRRRRHHHH.">
+		 				</npcSpeech>
+ 					</response>
+ 				</npcSpeech>
+ 			</response>
+ 			<response text="I don't know?">
+ 				<npcSpeech displayName="Smurg" text="NEEEEE. USELESS IMP.">
+ 				</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="HUUUP?">
+ 		<npcSpeech displayName="Smurg" text="NEEEEE. MUST STOP. MUST STOP.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Smurg" text="MUST STOP IHM." conditions="custom:smurgMoved,true">
+</npcSpeech>
+
+</npc>

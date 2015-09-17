@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="darby" displayName="Darby" customConditions="darbyInfo,0|inAppPurchase,false">
+
+ <npcSpeech displayName="Darby" text="Well well well. If it isn't Mr. High and mighty inspector!" conditions="custom:darbyInfo,0">
+ 	<response text="Why are you angry?">
+ 		<npcSpeech displayName="Darby" text="Oh, like you have no clue! IHCC sacked me yesterday and I blame you! I asked you to put in a good word to management about me but you didn't did you?" actions="setCustomCondition:darbyInfo,++"/>
+ 	</response>
+ 	<response text="Slacking off again?">
+ 		<npcSpeech displayName="Darby" text="Oh you're just so ironic aren't you."/>
+ 	</response>
+</npcSpeech>
+
+ <npcSpeech displayName="Darby" text="Oh what? You want to get by?" conditions="custom:darbyInfo,1|custom:inAppPurchase,false">
+ 	<response text="The finishing platform isn't working.">
+ 		<npcSpeech displayName="Darby" text="Strange eh... I wonder who could help you with that... You know times are tough, a fellow does what he needs to to get by. Perhaps I could fix it for you, of course you'd have to give me something in return.">
+ 		 	<response text="Are you extorting me?">
+		 		<npcSpeech displayName="Darby" text="Extorting! Oh I would never use a word so strong. How about asking for a favour?">
+			 	</npcSpeech>
+		 	</response>
+		 	<response text="Ok fix it for me.">
+		 		<npcSpeech displayName="Darby" text="First you're going to have to pay me. How does 3 bucks sound considering I'm not getting paid this month.">
+			 		<response text="That's too much.">
+			 			<npcSpeech displayName="Darby" text="I don't know, three bucks doesn't go very far these days... It stays at three.">
+				 		</npcSpeech>
+			 		</response>
+			 		<response text="That sounds good.">
+			 			<npcSpeech displayName="Darby" text="Great let's do it. Give me a few minutes to fix it." actions="moveNPC:darby,right|moveNPC:darby,down|moveNPC:darby,right|moveNPC:darby,down|moveNPC:darby,right|setCustomCondition:inAppPurchase,true">
+			 			</npcSpeech>
+		 			</response>
+		 		</npcSpeech>
+		 	</response>
+		</npcSpeech>
+ 	</response>
+ 	<response text="I didn't mean for you to lose your job.">
+ 		<npcSpeech displayName="Darby" text="I thought you would help me you know. An Imp like you who is an inspector must care about his ellow creature. Unless this was revenge for me going through the transformation. Maybe you're a purist. If so that's sick. You're holding us all back. We have a right to change."/>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Darby" text="Badabing! Ok it's all good, it should be working again." conditions="custom:inAppPurchase,true" maxPlayCount="1">
+ 	<response text="You're a theif.">
+ 		<npcSpeech displayName="Darby" text="We all do what we need to.">
+		</npcSpeech>
+ 	</response>
+ 	<response text="Thanks.">
+ 		<npcSpeech displayName="Darby" text="Welcome. Also don't worry, I won't be doing this to you again."/>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Darby" text="See you around inspector Imp." conditions="custom:inAppPurchase,true">
+</npcSpeech>
+
+</npc>

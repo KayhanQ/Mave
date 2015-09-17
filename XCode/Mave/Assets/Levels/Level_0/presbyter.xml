@@ -2,41 +2,46 @@
  <npc npcID="presbyter" displayName="Presbyter" customConditions="presbyterPosition,1">
  <npcSpeech displayName="Presbyter" text="You're awake! How are you feeling?" maxPlayCount="1">
  	<response text="Who are you?">
- 		<npcSpeech displayName="Presbyter" text="You don't remember! Wonderfuu... I mean what a shame. You must have blanked it all out... yes good... I mean a shame really but what can one do... Here, I have some food prepared for you. Don't be shy, eat up!">
+ 		<npcSpeech displayName="Presbyter" text="You don't remember! Wonderfuu... I mean what a shame. You must have blanked it all out... yes good... I mean a shame really but what can one do... There isn't much time, we aren't supposed to be here so late. I would suggest you keep moving.">
  		</npcSpeech>
  	</response>
- 	<response text="I'm better.">
- 		<npcSpeech displayName="Presbyter" text="Glad to hear it child. You seem to be very lucid... I suppose it is too early but I have to ask you to honour our agreement. Please do not speak of what happened. It is much to ask but I am sure you understand the sensitive nature of the situation...">
- 			<response text="You can trust me.">
- 				<npcSpeech displayName="Presbyter" text="Wonderful! I always knew I could!">
+ 	<response text="Where am I?">
+ 		<npcSpeech displayName="Presbyter" text="Oh you must not remember... yes, that will work. All I can tell you is that you can trust me. I'm Presbyter. You should move on now.">
+ 			<response text="Where should I go?">
+ 				<npcSpeech displayName="Presbyter" text="It doesn't matter! Just go! Maybe take a few minutes to rest, but that's all we have!">
  				</npcSpeech>
  			</response>
- 			<response text="I will have to think about it.">
- 				<npcSpeech displayName="Presbyter" text="Hmmm... I hope that you make the right choice.">
+ 			<response text="I am confused.">
+ 				<npcSpeech displayName="Presbyter" text="That's only natural after what you went through... take a couple of minutes to rest but then you should go.">
  				</npcSpeech>
  			</response>
  		</npcSpeech>
  	</response>
 </npcSpeech>
-<npcSpeech displayName="Presbyter" text="Are you off already?" conditions="custom:presbyterPosition,1">
+
+<npcSpeech displayName="Presbyter" text="Ready?" conditions="custom:presbyterPosition,1">
  	<response text="Yes.">
- 		<npcSpeech displayName="Presbyter" text="Alright. I am sure we will see each other soon." actions="moveNPC:presbyter,right|setCustomCondition:presbyterPosition,2">
+ 		<npcSpeech displayName="Presbyter" text="Great! I wish I could tell you more but I really can't, there's no time." actions="moveNPC:presbyter,right|setCustomCondition:presbyterPosition,2">
  		</npcSpeech>
  	</response>
  	<response text="I'll stay a bit.">
- 		<npcSpeech displayName="Presbyter" text="Very well.">
+ 		<npcSpeech displayName="Presbyter" text="Look if anyone finds you in here we'll be in big trouble and all this risk will be for nothing. You need to leave.">
  		</npcSpeech>
  	</response>
 </npcSpeech>
-<npcSpeech displayName="Presbyter" text="Remember who your friends are. Agreed?" conditions="custom:presbyterPosition,2">
- 	<response text="I will.">
- 		<npcSpeech displayName="Presbyter" text="Alright. I am sure we will see each other soon." actions="moveNPC:presbyter,right|setCustomCondition:presbyterPosition,3">
+
+<npcSpeech displayName="Presbyter" text="You'll be fine. I know you are scared but you have a big role to play." conditions="custom:presbyterPosition,2">
+ 	<response text="See you.">
+ 		<npcSpeech displayName="Presbyter" text="When the time is right." actions="moveNPC:presbyter,right|setCustomCondition:presbyterPosition,3">
  		</npcSpeech>
  	</response>
- 	<response text="Get out of my way.">
- 		<npcSpeech displayName="Presbyter" text="I can't allow you to go like this.">
+ 	<response text="Why am I here?">
+ 		<npcSpeech displayName="Presbyter" text="Believe me when I say the less you know the better it will be.">
  		</npcSpeech>
  	</response>
 </npcSpeech>
-<npcSpeech displayName="Presbyter" text="Interesting times ahead..." conditions="custom:presbyterPosition,3">
+
+<npcSpeech displayName="Presbyter" text="And don't tell anyone you were here." conditions="custom:presbyterPosition,3">
+</npcSpeech>
+
 </npc>
