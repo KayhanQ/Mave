@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <npc npcID="jane" displayName="Jane" customCondition="janeMoved,false">
+ <npc npcID="jane" displayName="Jane" customConditions="janeMoved,false">
 
  <npcSpeech displayName="Jane" text="You, yes you! Why do you look so sick and helpless? I don't know what you're up to here but the sooner you leave the happier I'll be. Strange things have been happening lately and we don't need any casualties. See that circle on the right? It will transport you onward." conditions="custom:janeMoved,false">
  	<response text="I think I'm hurt.">
- 		<npcSpeech displayName="Jane" text="I'm not here to look after Imps in trouble. Take a couple of seconds if you need it adn then leave.">
+ 		<npcSpeech displayName="Jane" text="I'm not here to look after Imps in trouble. Take a couple of seconds if you need it and then leave.">
+ 			<response text="You're in my way.">
+		 		<npcSpeech displayName="Jane" text="Well find another one!">
+		 		</npcSpeech>
+		 	</response>
+		 	<response text="Ok. Sorry....">
+		 	</response>
  		</npcSpeech>
  	</response>
  	<response text="Who is Presbyter?">
  		<npcSpeech displayName="Jane" text="How do you know Presbyter...? Regardless, if I tell you will you leave?">
  			<response text="Yes.">
- 				<npcSpeech displayName="Jane" text="He is in charge of the facility here. he pioneered the Imphuman transformation technique. Now please leave." actions="moveNPC:jane,up|setCustomCondition:janeMoved,true">
+ 				<npcSpeech displayName="Jane" text="He is in charge of the facility here. he pioneered the Imphuman transformation technique. Speaking of the facility I should check it out. Now please leave." actions="moveNPC:jane,left|setCustomCondition:janeMoved,true">
  				</npcSpeech>
  			</response>
  			<response text="No.">
@@ -30,4 +36,5 @@
  		</npcSpeech>
  	</response>
 </npcSpeech>
+
 </npc>
