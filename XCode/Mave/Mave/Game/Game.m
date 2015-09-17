@@ -32,7 +32,7 @@
         _levelSprite = [[SPSprite alloc] init];
         [self addChild:_levelSprite];
         
-        [self addEventListener:@selector(loadLevel:) atObject:self forType:EVENT_TYPE_LOAD_LEVEL];
+        [self addEventListener:@selector(loadLevelEvent:) atObject:self forType:EVENT_TYPE_LOAD_LEVEL];
         [self addEventListener:@selector(levelCompleted:) atObject:self forType:EVENT_TYPE_LEVEL_COMPLETED];
         [self addEventListener:@selector(levelLost:) atObject:self forType:EVENT_TYPE_LEVEL_LOST];
         [self addEventListener:@selector(levelRestart:) atObject:self forType:EVENT_TYPE_LEVEL_RESTART];
@@ -41,9 +41,13 @@
     return self;
 }
 
-- (void)loadLevel:(LoadLevelEvent*)event
+- (void)loadLevelEvent:(LoadLevelEvent*)event
 {
-    LevelEngine* newLevel = [[LevelEngine alloc] initWithName:event.levelName];
+    [self loadLevel:event.levelName];
+}
+
+- (void)loadLevel:(NSString*)levelName {
+    LevelEngine* newLevel = [[LevelEngine alloc] initWithName:levelName];
     [_levelSprite addChild:newLevel];
 }
 
@@ -57,9 +61,10 @@
     [_levelSprite removeAllChildren];
 }
 
-- (void)levelCompleted:(LevelEvent*)event
+- (void)levelCompleted:(LevelCompletedEvent*)event
 {
     [_levelSprite removeAllChildren];
+    //[self loadLevel:event.nextLevelName];
 }
 
 
