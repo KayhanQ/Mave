@@ -17,6 +17,7 @@
 #import "NPCLayer.h"
 #import "STTile.h"
 #import "NPC.h"
+#import "FinishTile.h"
 
 @interface STMap ()
 - (void)loadXMLFile:(NSString *)filename;

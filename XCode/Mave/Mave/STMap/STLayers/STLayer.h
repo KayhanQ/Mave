@@ -15,6 +15,7 @@
 
 @class STTileset;
 @class STTile;
+@class FinishTile;
 @class SPImage;
 @class SPRenderTexture;
 @class Player;
@@ -64,6 +65,7 @@
 - (void)moveTileTo:(STTile*)tile coordinate:(STCoordinate*)coordinate;
 - (BOOL)containsTile:(STTile*)tile;
 
+- (FinishTile*)getFinishTileForNextLevel:(NSString*)nextLevel;
 
 
 @end

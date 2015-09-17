@@ -13,6 +13,9 @@
 #import "STTileset.h"
 #import "STTile.h"
 #import "Player.h"
+#import "FinishTile.h"
+#import "HelperFunctions.h"
+
 #import "TBXML.h"
 
 @interface STLayer ()
@@ -98,6 +101,14 @@
             tile = npc;
             break;
         }
+        case STFINISH:
+        {
+            NSString* nextLevel = [TBXML valueOfAttributeNamed:@"nextLevel" forElement:tileElement];
+            NSString* functional = [TBXML valueOfAttributeNamed:@"functional" forElement:tileElement];
+        
+            tile = [[FinishTile alloc] initWithTexture:texture coordinate:coordinate nextLevelName:nextLevel functional:[HelperFunctions stringToBool:functional]];
+            break;
+        }
         default:
         {
             tile = [[STTile alloc] initWithType:gid texture:texture coordinate:coordinate];
@@ -149,6 +160,18 @@
         if (curTile == tile) return true;
     }
     return false;
+}
+
+- (FinishTile*)getFinishTileForNextLevel:(NSString*)nextLevel {
+    for (STTile* tile in _tiles) {
+        if (tile.type == STFINISH) {
+            FinishTile* finishTile = (FinishTile*)tile;
+            if ([finishTile.nextLevelName isEqualToString:nextLevel]) {
+                return finishTile;
+            }
+        }
+    }
+    return nil;
 }
 
 - (float)trueRotation {
