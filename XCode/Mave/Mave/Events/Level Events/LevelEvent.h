@@ -10,7 +10,6 @@
 
 #define EVENT_TYPE_LEVEL_RESTART @"levelRestart"
 #define EVENT_TYPE_LEVEL_LOST @"levelLost"
-#define EVENT_TYPE_LEVEL_COMPLETED @"levelCompleted"
 
 @interface LevelEvent : BasicEvent
 {
