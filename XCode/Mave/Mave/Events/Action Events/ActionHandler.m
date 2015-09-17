@@ -12,6 +12,7 @@
 #import "GiveItemEvent.h"
 #import "Item.h"
 #import "SetCustomConditionEvent.h"
+#import "SetFinishTileFunctionalityEvent.h"
 
 @implementation ActionHandler
 {
@@ -21,7 +22,8 @@
 + (ActionEvent*)makeActionEvent:(NSString*)string {
     NSArray* actions = @[@"moveNPC",
                     @"giveItem",
-                         @"setCustomCondition"
+                         @"setCustomCondition",
+                         @"setFinishTileFunctionality"
                          ];
     
     ActionEvent* actionEvent;
@@ -62,6 +64,14 @@
             NSString* value = [values objectAtIndex:1];
             
             actionEvent = [[SetCustomConditionEvent alloc] initWithConditionName:conditionName value:value];
+            break;
+        }
+        case 3:
+        {
+            NSString* nextLevel = [values objectAtIndex:0];
+            NSString* value = [values objectAtIndex:1];
+            
+            actionEvent = [[SetFinishTileFunctionalityEvent alloc] initWithValue:value nextLevelForFinishTile:nextLevel];
             break;
         }
         default:

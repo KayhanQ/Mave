@@ -14,10 +14,14 @@
 #import "GameEvents.h"
 #import "NPCDialogueHandler.h"
 #import "ConditionHandler.h"
+
 #import "MoveNPCEvent.h"
 #import "GiveItemEvent.h"
 #import "SetCustomConditionEvent.h"
+#import "SetFinishTileFunctionalityEvent.h"
+
 #import "HUD.h"
+#import "FinishTile.h"
 
 
 @interface LevelEngine ()
@@ -91,6 +95,7 @@
     [self addEventListener:@selector(moveNPCWithIDEvent:) atObject:self forType:EVENT_TYPE_MOVE_NPC];
     [self addEventListener:@selector(giveItemEvent:) atObject:self forType:EVENT_TYPE_GIVE_ITEM];
     [self addEventListener:@selector(setCustomConditionEvent:) atObject:self forType:EVENT_TYPE_SET_CUSTOM_CONDITION];
+    [self addEventListener:@selector(setFinishTileFunctionality:) atObject:self forType:EVENT_TYPE_SET_FINISH_TILE_FUNCTIONALITY];
 
 }
 
@@ -163,15 +168,19 @@
             }
             case STFINISH:
             {
-                LevelEvent *event = [[LevelEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
-                [self dispatchEvent:event];
+                FinishTile* finishTile = (FinishTile*)obstacle;
+            
+                if (finishTile.functional) {
+                    LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithCurrentLevelname:_levelName nextLevelName:finishTile.nextLevelName];
+                    [self dispatchEvent:event];
+                }
+
                 break;
             }
             default:
                 break;
         }
     }
-
 }
 
 - (STCoordinate*)getCoordinateForCollisionInDirection:(UISwipeGestureRecognizerDirection)direction distance:(int)distance fromCoordinate:(STCoordinate*)coordinate {
@@ -219,6 +228,14 @@
     UISwipeGestureRecognizerDirection direction = event.direction;
     NPC* npc = [_characterLayer getNPCWithID:npcID];
     [self moveTileInDirection:npc direction:direction];
+}
+
+- (void)setFinishTileFunctionality:(SetFinishTileFunctionalityEvent*)event {
+    NSString* nextLevel = event.nextLevelForFinishTile;
+    NSString* value = event.value;
+    FinishTile* finishTile = [_obstacleLayer getFinishTileForNextLevel:nextLevel];
+    if (!finishTile) return;
+    finishTile.functional = value;
 }
 
 
