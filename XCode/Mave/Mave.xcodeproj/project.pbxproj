@@ -78,6 +78,10 @@
 		F1ECE2101BA5EC1100081A14 /* ResetButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE20F1BA5EC1100081A14 /* ResetButton.m */; };
 		F1ECE2141BA9FCAD00081A14 /* SpecialTiles.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE2131BA9FCAD00081A14 /* SpecialTiles.m */; };
 		F1ECE2161BAA0A1D00081A14 /* TraversingList.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE2151BAA0A1D00081A14 /* TraversingList.m */; };
+		F1ECE21B1BAB02E900081A14 /* FinishTile.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE21A1BAB02E900081A14 /* FinishTile.m */; };
+		F1ECE21D1BAB087500081A14 /* HelperFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE21C1BAB087500081A14 /* HelperFunctions.m */; };
+		F1ECE2211BAB0BC200081A14 /* LevelCompletedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE2201BAB0BC200081A14 /* LevelCompletedEvent.m */; };
+		F1ECE2231BAB1DAD00081A14 /* SetFinishTileFunctionalityEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE2221BAB1DAD00081A14 /* SetFinishTileFunctionalityEvent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +215,14 @@
 		F1ECE2131BA9FCAD00081A14 /* SpecialTiles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialTiles.m; sourceTree = "<group>"; };
 		F1ECE2151BAA0A1D00081A14 /* TraversingList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraversingList.m; sourceTree = "<group>"; };
 		F1ECE2171BAA0A2400081A14 /* TraversingList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TraversingList.h; sourceTree = "<group>"; };
+		F1ECE2191BAB02E100081A14 /* FinishTile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinishTile.h; sourceTree = "<group>"; };
+		F1ECE21A1BAB02E900081A14 /* FinishTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishTile.m; sourceTree = "<group>"; };
+		F1ECE21C1BAB087500081A14 /* HelperFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperFunctions.m; sourceTree = "<group>"; };
+		F1ECE21E1BAB088600081A14 /* HelperFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelperFunctions.h; sourceTree = "<group>"; };
+		F1ECE21F1BAB0BB700081A14 /* LevelCompletedEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelCompletedEvent.h; sourceTree = "<group>"; };
+		F1ECE2201BAB0BC200081A14 /* LevelCompletedEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompletedEvent.m; sourceTree = "<group>"; };
+		F1ECE2221BAB1DAD00081A14 /* SetFinishTileFunctionalityEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetFinishTileFunctionalityEvent.m; sourceTree = "<group>"; };
+		F1ECE2241BAB1E6300081A14 /* SetFinishTileFunctionalityEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetFinishTileFunctionalityEvent.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +366,8 @@
 				F1530B991B87957C001872EF /* ActionEvent.m */,
 				F1530B9A1B87957C001872EF /* MoveNPCEvent.h */,
 				F1530B9B1B87957C001872EF /* MoveNPCEvent.m */,
+				F1ECE2241BAB1E6300081A14 /* SetFinishTileFunctionalityEvent.h */,
+				F1ECE2221BAB1DAD00081A14 /* SetFinishTileFunctionalityEvent.m */,
 				F1530BA11B879A23001872EF /* GiveItemEvent.h */,
 				F1530BA21B879A23001872EF /* GiveItemEvent.m */,
 				F1943DF11B8F502F0088922F /* SetCustomConditionEvent.h */,
@@ -378,6 +392,8 @@
 			isa = PBXGroup;
 			children = (
 				F16FD6831B82711000860749 /* TBXML */,
+				F1ECE21E1BAB088600081A14 /* HelperFunctions.h */,
+				F1ECE21C1BAB087500081A14 /* HelperFunctions.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -521,6 +537,8 @@
 			children = (
 				F16FD6F41B82713700860749 /* STTile.h */,
 				F16FD6F51B82713700860749 /* STTile.m */,
+				F1ECE2191BAB02E100081A14 /* FinishTile.h */,
+				F1ECE21A1BAB02E900081A14 /* FinishTile.m */,
 			);
 			path = Tiles;
 			sourceTree = "<group>";
@@ -541,6 +559,8 @@
 			children = (
 				F1ECE20A1BA5E2E400081A14 /* LevelEvent.h */,
 				F1ECE2081BA5E2D700081A14 /* LevelEvent.m */,
+				F1ECE21F1BAB0BB700081A14 /* LevelCompletedEvent.h */,
+				F1ECE2201BAB0BC200081A14 /* LevelCompletedEvent.m */,
 				F16FD71E1B82722A00860749 /* LoadLevelEvent.h */,
 				F16FD71F1B82722A00860749 /* LoadLevelEvent.m */,
 			);
@@ -794,8 +814,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1ECE21D1BAB087500081A14 /* HelperFunctions.m in Sources */,
 				F143024F1B837F6000AC4A62 /* ConditionHandler.m in Sources */,
 				F16FD69D1B82712300860749 /* AppDelegate.m in Sources */,
+				F1ECE2211BAB0BC200081A14 /* LevelCompletedEvent.m in Sources */,
 				F16FD7311B82722B00860749 /* BasicEvent.m in Sources */,
 				F143024E1B837F5F00AC4A62 /* Condition.m in Sources */,
 				F13B46401B98D8A5009BE37B /* NPCUIResponse.m in Sources */,
@@ -804,11 +826,13 @@
 				F1ECE2101BA5EC1100081A14 /* ResetButton.m in Sources */,
 				F16FD72F1B82722B00860749 /* NPCSpeechFinishedEvent.m in Sources */,
 				F16FD6FE1B82713700860749 /* NPCResponseBox.m in Sources */,
+				F1ECE21B1BAB02E900081A14 /* FinishTile.m in Sources */,
 				F16FD6F91B82713700860749 /* NPCDialogueHandler.m in Sources */,
 				F16FD6911B82711000860749 /* TBXML.m in Sources */,
 				F16FD6901B82711000860749 /* NSDataAdditions.m in Sources */,
 				F16FD7121B82713700860749 /* STTileset.m in Sources */,
 				F1530BA31B879A23001872EF /* GiveItemEvent.m in Sources */,
+				F1ECE2231BAB1DAD00081A14 /* SetFinishTileFunctionalityEvent.m in Sources */,
 				F16FD7131B82713700860749 /* NPCLayer.m in Sources */,
 				F1ECE2161BAA0A1D00081A14 /* TraversingList.m in Sources */,
 				F16FD7301B82722B00860749 /* NPCTouchedEvent.m in Sources */,

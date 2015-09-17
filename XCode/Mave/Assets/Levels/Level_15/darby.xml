@@ -36,7 +36,7 @@
  	</response>
 </npcSpeech>
 
-<npcSpeech displayName="Darby" text="Badabing! Ok it's all good, it should be working again." conditions="custom:inAppPurchase,true" maxPlayCount="1">
+<npcSpeech displayName="Darby" text="Badabing! Ok it's all good, it should be working again." conditions="custom:inAppPurchase,true" actions="setFinishTileFunctionality:Level_16,true" maxPlayCount="1">
  	<response text="You're a theif.">
  		<npcSpeech displayName="Darby" text="We all do what we need to.">
 		</npcSpeech>

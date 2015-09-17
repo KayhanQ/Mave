@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tiles>
+	 <npcTiles>
+		<data npcFile="generic1.xml"/>
+		<data npcFile="generic2.xml"/>
+		<data npcFile="darby.xml"/>
+	 </npcTiles>
+
+	 <playerTile>
+		<data npcFile="player.xml"/>
+	 </playerTile>
+
+	 <finishTiles>
+	 	<data nextLevel="Level_8" functional="true"/>
+	 </finishTiles>
+</tiles>

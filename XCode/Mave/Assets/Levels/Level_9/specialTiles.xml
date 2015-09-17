@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tiles>
+	 <npcTiles>
+		<data npcFile="darby.xml"/>
+		<data npcFile="charles.xml"/>
+	 </npcTiles>
+
+	 <playerTile>
+		<data npcFile="player.xml"/>
+	 </playerTile>
+
+	 <finishTiles>
+	 	<data nextLevel="Level_10" functional="true"/>
+	 </finishTiles>
+</tiles>

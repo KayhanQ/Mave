@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tiles>
+	 <npcTiles>
+		<data npcFile="cress.xml"/>
+		<data npcFile="smurg.xml"/>
+		<data npcFile="charles.xml"/>		
+	 </npcTiles>
+
+	 <playerTile>
+		<data npcFile="player.xml"/>
+	 </playerTile>
+
+	 <finishTiles>
+	 	<data nextLevel="Level_2" functional="true"/>
+	 </finishTiles>
+</tiles>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tiles>
+	 <npcTiles>
+		<data npcFile="smurg.xml"/>
+		<data npcFile="jane.xml"/>
+	 </npcTiles>
+
+	 <playerTile>
+		<data npcFile="player.xml"/>
+	 </playerTile>
+
+	 <finishTiles>
+	 	<data nextLevel="Level_5" functional="true"/>
+	 </finishTiles>
+</tiles>

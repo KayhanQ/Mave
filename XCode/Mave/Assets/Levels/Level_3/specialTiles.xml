@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tiles>
+	 <npcTiles>
+		<data npcFile="cress.xml"/>
+		<data npcFile="darby.xml"/>
+	 </npcTiles>
+
+	 <playerTile>
+		<data npcFile="player.xml"/>
+	 </playerTile>
+
+	 <finishTiles>
+	 	<data nextLevel="Level_4" functional="true"/>
+	 </finishTiles>
+</tiles>
