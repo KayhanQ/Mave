@@ -70,7 +70,7 @@
 }
 
 
-- (id)initWithText:(NSString *)textToSpeak displayName:(NSString *)displayName responses:(NSArray *)responses condition:(Condition *)condition{
+- (id)initWithText:(NSString *)textToSpeak displayName:(NSString *)displayName responses:(NSArray *)responses condition:(Condition *)condition {
     if (self = [super init]) {
         _textToSpeak = textToSpeak;
         _displayName = displayName;
