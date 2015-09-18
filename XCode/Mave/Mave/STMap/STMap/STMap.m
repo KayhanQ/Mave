@@ -237,5 +237,14 @@
     return nil;
 }
 
+- (void)removeTile:(STTile*)tile {
+    NSEnumerator *enumerator = [_layers objectEnumerator];
+    STLayer* tileLayer;
+    for (STLayer* layer in enumerator) {
+        if ([layer containsTile:tile]) tileLayer = layer;
+    }
+    [tileLayer removeTile:tile];
+}
+
 
 @end

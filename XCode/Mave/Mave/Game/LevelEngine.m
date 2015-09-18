@@ -141,7 +141,7 @@
         case STHOLE:
         {
             if (tile.type == STPUSHROCK) {
-                //remove the push rock
+                [_map removeTile:tile];
             }
             break;
         }
@@ -150,38 +150,45 @@
     }
 
     
-    if (tile == _player) {
-        
-        //[_map centerViewToTile:tile inBounds:YES];
-        
-        switch (obstacle.type) {
-            case STSPIKES:
-            {
+    switch (obstacle.type) {
+        case STSPIKES:
+        {
+            if (tile == _player) {
                 LevelEvent *event = [[LevelEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
                 [self dispatchEvent:event];
-                break;
             }
-            case STHOLE:
-            {
+            break;
+        }
+        case STHOLE:
+        {
+            if (tile == _player) {
                 LevelEvent *event = [[LevelEvent alloc] initWithType:EVENT_TYPE_LEVEL_LOST];
                 [self dispatchEvent:event];
-                break;
             }
-            case STFINISH:
-            {
-                FinishTile* finishTile = (FinishTile*)obstacle;
-            
-                if (finishTile.functional) {
+            else {
+                [_map removeTile:tile];
+            }
+            break;
+        }
+        case STFINISH:
+        {
+            FinishTile* finishTile = (FinishTile*)obstacle;
+            if (finishTile.functional) {
+                if (tile == _player) {
                     LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithCurrentLevelname:_levelName nextLevelName:finishTile.nextLevelName];
                     [self dispatchEvent:event];
                 }
-
-                break;
+                else {
+                    [_map removeTile:tile];
+                }
             }
-            default:
-                break;
+            
+            break;
         }
+        default:
+            break;
     }
+
 }
 
 - (STCoordinate*)getCoordinateForCollisionInDirection:(Direction)direction distance:(int)distance fromCoordinate:(STCoordinate*)coordinate {

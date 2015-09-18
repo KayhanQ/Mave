@@ -74,7 +74,7 @@
     if (gid >= _tileSet.firstGID) {
         texture = [_tileSet textureByGID:gid];
     } else {
-        texture = [SPTexture textureWithWidth:_tileSet.tileWidth height:_tileSet.tileHeight draw:nil];
+        texture = [self getEmptyTexture];
     }
     
     int cooY = (int)(i/_width);
@@ -119,6 +119,7 @@
     [_tiles addChild:tile];
     
 }
+
 - (void)moveTileTo:(STTile*)tile coordinate:(STCoordinate*)coordinate {
     int tileIndex = [self convertCoordinateToGID:tile.coordinate];
     int destinationIndex = [self convertCoordinateToGID:coordinate];
@@ -162,6 +163,13 @@
     return false;
 }
 
+- (void)removeTile:(STTile*)tile {
+    STTile* emptyTile = [[STTile alloc] initWithType:STEMPTY texture:[self getEmptyTexture] coordinate:tile.coordinate];
+    int tileIndex = [_tiles childIndex:tile];
+    [_tiles removeChild:tile];
+    [_tiles addChild:emptyTile atIndex:tileIndex];
+}
+
 - (FinishTile*)getFinishTileForNextLevel:(NSString*)nextLevel {
     for (STTile* tile in _tiles) {
         if (tile.type == STFINISH) {
@@ -172,6 +180,11 @@
         }
     }
     return nil;
+}
+
+- (SPTexture*)getEmptyTexture {
+    SPTexture* texture = [SPTexture textureWithWidth:_tileSet.tileWidth height:_tileSet.tileHeight draw:nil];
+    return texture;
 }
 
 - (float)trueRotation {

@@ -9,7 +9,7 @@
 	 </playerTile>
 
 	 <finishTiles>
-	 	<data nextLevel="Level_18a" functional="true"/>
-	 	<data nextLevel="Level_18b" functional="true"/>
+	 	<data nextLevel="Level_18s" functional="true"/>
+	 	<data nextLevel="Level_18j" functional="true"/>
 	 </finishTiles>
 </tiles>

@@ -49,5 +49,6 @@
 - (STLayer *)layerByName:(NSString *)name;
 - (STTile*)getTileClosestToTileInDirection:(STTile*)tile direction:(Direction)direction;
 - (STLayer*)getLayerWithTile:(STTile*)tile;
+- (void)removeTile:(STTile*)tile;
 
 @end

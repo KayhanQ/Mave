@@ -67,5 +67,6 @@
 
 - (FinishTile*)getFinishTileForNextLevel:(NSString*)nextLevel;
 
+- (void)removeTile:(STTile*)tile;
 
 @end
