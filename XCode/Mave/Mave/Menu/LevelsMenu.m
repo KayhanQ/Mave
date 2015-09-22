@@ -22,9 +22,13 @@
         int x = 0;
         int y = 0;
         
-        for (int i = 0; i<20; i++) {
+        for (int i = 0; i<30; i++) {
             NSString* levelName = [[NSString alloc] initWithFormat:@"Level_%d", i];
             
+            if (i == 18) levelName = @"Level_18s";
+            else if (i == 19) levelName = @"Level_19s";
+            else if (i == 20) levelName = @"Level_20s";
+
             LevelButton* button = [[LevelButton alloc] initWithLevelName:levelName];
             x = button.width*(i%15) +20;
             button.x = x;

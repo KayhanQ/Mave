@@ -44,7 +44,7 @@
 
 <npcSpeech displayName="Presbyter" text="This is a bit much... Listen, you voluntarilty went into the procedure. If this is about some compensation you have no power here. I might even call Gemtech security!" conditions="custom:presbyterPosition,4">
 	<response text="Jane told me about IMP501.">
- 		<npcSpeech displayName="Presbyter" text="WHAT! But wait, she let you go... which means... Yes, yes you are right, IMP 501 was stolen from our facility. If you hear anything about it let someone know. Thank you for your concern..." actions="moveNPC:presbyter,down|setCustomCondition:presbyterPosition,++">
+ 		<npcSpeech displayName="Presbyter" text="WHAT! Oh no! But wait, she let you go... which means... Yes, yes you are right, IMP 501 was stolen from our facility. If you hear anything about it let someone know. Thank you for your concern..." actions="moveNPC:presbyter,down|setCustomCondition:presbyterPosition,++">
  		</npcSpeech>
  	</response>
  	<response text="I heard your fight about the Protocol.">

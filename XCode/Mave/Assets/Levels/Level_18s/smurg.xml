@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="smurg" displayName="Smurg" customConditions="smurgStaying,false">
+
+ <npcSpeech displayName="Smurg" text="YOU AGAIN." maxPlayCount="1">
+ 	<response text="What are you up to?">
+ 		<npcSpeech displayName="Smurg" text="MIND YOURE OEN BUSSINESS.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="I don't trust you.">
+ 		<npcSpeech displayName="Smurg" text="NEVER TRUST YOUR FRIENDS.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Smurg" text="DON'T TRY AND STOP ME.">
+ 	<response text="What are you doing?">
+ 		<npcSpeech displayName="Smurg" text="I MUST STOP PRESBYTER.">
+ 			<response text="From what?">
+ 				<npcSpeech displayName="Smurg" text="FROM RUINING EVERYTHING! HE IS EVIL!">
+ 				</npcSpeech>
+ 			</response>
+ 			<response text="I'll help you.">
+ 				<npcSpeech displayName="Smurg" text="OK. DON't beleive anything he says. Presbyter made me like this. He corrupted me. HE IS DANGEROUS. He would have killed me or kept me in a cage but I escaped. FOLLOW NOW." actions="moveNPC:smurg,right|moveNPC:smurg,up">
+ 				</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="I have to stop you.">
+ 		<npcSpeech displayName="Smurg" text="NEEEE. Then I eill WAIT TLL YOU LEAVE." actions="setCustomCondition:smurgStaying,true">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Smurg" text="GIT OUT OF HEAR." conditions="custom:smurgStaying,true">
+</npcSpeech>
+
+</npc>

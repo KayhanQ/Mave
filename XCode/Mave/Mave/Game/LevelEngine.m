@@ -251,7 +251,7 @@
     NPC* npc = event.npc;
     
     //set value to 1 to get real gameplay
-    if ([self getDistanceFromTiles:_player tile:npc] <= 999999999) {
+    if ([self getDistanceFromTiles:_player tile:npc] <= 999999) {
         [self startDialogue:npc];
     }
 }

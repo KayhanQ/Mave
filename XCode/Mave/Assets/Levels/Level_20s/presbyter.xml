@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="presbyter" displayName="Presbyter" customConditions="presbyterPosition,bottom|presbyterWorried,false|presbyterDisinterested,false|presbyterMovedRock,false">
+
+ <npcSpeech displayName="Presbyter" text="I would never have recognized you! Let me go you monster!" conditions="custom:smurgPosition,bottom|custom:presbyterPosition,bottom" maxPlayCount="1">
+ </npcSpeech>
+ <npcSpeech displayName="Presbyter" text="AHHHHHHHHHH!" conditions="custom:smurgPosition,bottom|custom:presbyterPosition,bottom">
+ </npcSpeech>
+
+ <npcSpeech displayName="Presbyter" text="Good to see you're still doing okay." maxPlayCount="1">
+ 	<response text="There's an Imp after you.">
+ 		<npcSpeech displayName="Presbyter" text="An Imp! What does he look like?">
+ 			<response text="He said you corrupted him.">
+		 		<npcSpeech displayName="Presbyter" text="What! Oh no... It must be Grums... But how did he recover so fast... He should have been incapacitated for weeks... I shouldn't have let him esacape... But if he's back to normal then I have to hurry. Maybe that rock will delay him!!" actions="moveNPC:presbyter,up|moveNPC:presbyter,up|moveNPC:presbyter,down|setCustomCondition:presbyterWorried,true|setCustomCondition:presbyterMovedRock,true">
+		 		</npcSpeech>
+		 	</response>
+		 	<response text="His name is Smurg.">
+		 		<npcSpeech displayName="Presbyter" text="I don't know a Smurg. I'm sure he is looking for someone else. You scared me there for a second I thought I had a reason to be worried." actions="setCustomCondition:presbyterWorried,false">
+		 		</npcSpeech>
+		 	</response>
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="I want to know what IMP501 is.">
+ 		<npcSpeech displayName="Presbyter" text="I have bigger things to worry about now... I think I'm being followed." actions="setCustomCondition:presbyterDisinterested,true">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Presbyter" text="I'm disinterested." conditions="custom:presbyterDisinterested,true">
+</npcSpeech>
+
+<npcSpeech displayName="Presbyter" text="Thank god it's not Grums..." conditions="custom:presbyterWorried,false">
+</npcSpeech>
+
+
+<npcSpeech displayName="Presbyter" text="Where should I go? I need to avoid him." conditions="custom:presbyterWorried,true|custom:presbyterMovedRock,true" maxPlayCount="1">
+	<response text="Tell me who this Grums is.">
+ 		<npcSpeech displayName="Presbyter" text="I suppose there's no reason not to. He was a research assistant of mine. He's a structural biologist. He worked on the initial ImpHuman transformation research with me in the 90's. He's been out of the field for at least ten years now, or at least that's what I thought. You see he soon after GemTech was formed but it seems he has follwed our research very closely. He approached me a few weeks ago exposing a vulnerability in the Protocol that could derail it. He said he was going to report it to the President. I had my reasons that that should never happen so I had to stop him. I strapped him to a thing and tried to wipe his mind... It must have only partially worked because he ripped himself out after a minute. And now he is out to get me.">
+		 	<response text="Why didn't you report it?">
+	 			<npcSpeech displayName="Presbyter" text="For Heavens Sake! Do you think you'll understand anything by asking all these questions! I've been working on ImpHuman transformations for thirty years! I invented it! Don't you think I may have a reason? Don't you think there's a weight put on me by being the father of this process which changes all these Imps lives? I don't want the vulnerability found out because I invented it. I sowed it into the fabric of the transformation. It's there so that the program can be destroyed if needed.Now tell me how can I avoid him!!!">
+	 			 	<response text="Go anywhere left.">
+				 		<npcSpeech displayName="Presbyter" text="Thank you." actions="moveNPC:presbyter,left|moveNPC:presbyter,down|moveNPC:presbyter,left|setCustomCondition:presbyterPosition,left">
+				 		</npcSpeech>
+				 	</response>
+	 			</npcSpeech>
+	 		</response>
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Stay put friend">
+ 		<npcSpeech displayName="Presbyter" text="Ok.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Presbyter" text="I told you too much. If anyone else finds out it could be disasterous. Please don't betray me or...">
+ 	<response text="... Or you'll wipe my memory?">
+ 		<npcSpeech displayName="Presbyter" text="No. Not you. I need you.">
+ 		</npcSpeech>
+ 	</response>
+ 	 	<response text="I won't.">
+ 		<npcSpeech displayName="Presbyter" text="You always exceed my expectations.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+</npc>

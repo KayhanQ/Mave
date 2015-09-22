@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="smurg" displayName="Smurg" customConditions="smurgPosition,topLeft">
+
+ <npcSpeech displayName="Smurg" text="He keeps escaing me!" conditions="cutom:presbyterMovedRock,false" maxPlayCount="1">
+ 	<response text="What's the vulnerability?">
+ 		<npcSpeech displayName="Smurg" text="It's big. Presbyter could kill the program for years. It would take years to rebuild everything. He doesn't have the right to make that decision, but he's taken it into his own hands." actions="setCustomCondition:smurgPosition,topRight">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="">
+ 		<npcSpeech displayName="Smurg" text="AIIIIIII." conditions="cutom:presbyterPosition,bottom" actions="moveNPC:smurg,right|moveNPC:smurg,right|moveNPC:smurg,down|moveNPC:smurg,left|moveNPC:smurg,up|moveNPC:smurg,left|setCustomCondition:smurgPosition,bottom">
+ 		</npcSpeech>
+ 		<npcSpeech displayName="Smurg" text="GLUUU." actions="moveNPC:smurg,right|moveNPC:smurg,right|moveNPC:smurg,down|moveNPC:smurg,left|moveNPC:smurg,up|moveNPC:smurg,left|setCustomCondition:smurgPosition,bottom">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+ <npcSpeech displayName="Smurg" text="I don't see him!!!?" conditions="custom:smurgPosition,topRight">
+ 	<response text="He moved down!">
+ 		<npcSpeech displayName="Smurg" text="AIIIIIII." conditions="custom:presbyterPosition,bottom" actions="moveNPC:smurg,right|moveNPC:smurg,down|moveNPC:smurg,left|moveNPC:smurg,up|moveNPC:smurg,left|setCustomCondition:smurgPosition,bottom">
+ 		</npcSpeech>
+ 		<npcSpeech displayName="Smurg" text="GLUUU." actions="moveNPC:smurg,right|moveNPC:smurg,down|moveNPC:smurg,left|moveNPC:smurg,up|setCustomCondition:smurgPosition,bottom">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Stay put, he will come.">
+ 		<npcSpeech displayName="Smurg" text="OK.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Smurg" text="Where is he....">
+</npcSpeech>
+
+</npc>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="smurg" displayName="Smurg" customConditions="smurgPosition,topLeft">
+
+<npcSpeech displayName="Smurg" text="I've caught you now! Stop squirming!!!!" conditions="custom:smurgPosition,bottom|custom:presbyterPosition,bottom" maxPlayCount="1">
+</npcSpeech>
+<npcSpeech displayName="Smurg" text="GRRRRRRR!!!" conditions="custom:smurgPosition,bottom|custom:presbyterPosition,bottom">
+</npcSpeech>
+
+<npcSpeech displayName="Smurg" text="ROck in way." conditions="custom:presbyterMovedRock,true|custom:smurgPosition,topLeft">
+</npcSpeech>
+
+ <npcSpeech displayName="Smurg" text="Did you SEEE HIMMM?" conditions="cutom:presbyterMovedRock,false" maxPlayCount="1">
+ 	<response text="Yes, he's on the right.">
+ 		<npcSpeech displayName="Smurg" text="YESSSSS." actions="moveNPC:smurg,right|setCustomCondition:smurgPosition,topRight">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="He's down there.">
+ 		<npcSpeech displayName="Smurg" text="AIIIIIII." conditions="cutom:presbyterPosition,bottom" actions="moveNPC:smurg,right|moveNPC:smurg,right|moveNPC:smurg,down|moveNPC:smurg,left|moveNPC:smurg,up|moveNPC:smurg,left|setCustomCondition:smurgPosition,bottom">
+ 		</npcSpeech>
+ 		<npcSpeech displayName="Smurg" text="GLUUU." actions="moveNPC:smurg,right|moveNPC:smurg,right|moveNPC:smurg,down|moveNPC:smurg,left|moveNPC:smurg,up|moveNPC:smurg,left|setCustomCondition:smurgPosition,bottom">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+ <npcSpeech displayName="Smurg" text="I don't see him!!!?" conditions="custom:smurgPosition,topRight">
+ 	<response text="He moved down!">
+ 		<npcSpeech displayName="Smurg" text="AIIIIIII." conditions="custom:presbyterPosition,bottom" actions="moveNPC:smurg,right|moveNPC:smurg,down|moveNPC:smurg,left|moveNPC:smurg,up|moveNPC:smurg,left|setCustomCondition:smurgPosition,bottom">
+ 		</npcSpeech>
+ 		<npcSpeech displayName="Smurg" text="GLUUU." actions="moveNPC:smurg,right|moveNPC:smurg,down|moveNPC:smurg,left|moveNPC:smurg,up|setCustomCondition:smurgPosition,bottom">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Stay put, he will come.">
+ 		<npcSpeech displayName="Smurg" text="OK.">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+<npcSpeech displayName="Smurg" text="Where is he....">
+</npcSpeech>
+
+</npc>

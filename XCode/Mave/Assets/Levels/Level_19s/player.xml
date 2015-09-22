@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc npcID="player" displayName="Player">
+
+<npcSpeech displayName="Player" text="Those two willl never stop fighting...." conditions="custom:smurgPosition,bottom|custom:presbyterPosition,bottom">
+</npcSpeech>
+
+
+<npcSpeech displayName="Player" text="Those holes look dodgey.">
+</npcSpeech>
+
+
+</npc>
