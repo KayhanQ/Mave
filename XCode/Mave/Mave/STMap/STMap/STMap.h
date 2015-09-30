@@ -16,6 +16,8 @@
 @class STLayer;
 @class STTile;
 @class NPC;
+@class STCoordinate;
+
 @interface STMap : NSObject {
 //	NSString *mFilename;
 //	NSString *mVersion;
@@ -50,5 +52,8 @@
 - (STTile*)getTileClosestToTileInDirection:(STTile*)tile direction:(Direction)direction;
 - (STLayer*)getLayerWithTile:(STTile*)tile;
 - (void)removeTile:(STTile*)tile;
+
+
+- (void)moveTile:(STTile*)tile inDirection:(Direction)direction;
 
 @end

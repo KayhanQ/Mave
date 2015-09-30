@@ -15,6 +15,7 @@
 #import "Player.h"
 #import "FinishTile.h"
 #import "HelperFunctions.h"
+#import "Animator.h"
 
 #import "TBXML.h"
 
@@ -120,20 +121,18 @@
     
 }
 
-- (void)moveTileTo:(STTile*)tile coordinate:(STCoordinate*)coordinate {
-    int tileIndex = [self convertCoordinateToGID:tile.coordinate];
-    int destinationIndex = [self convertCoordinateToGID:coordinate];
-    STTile* destTile = (STTile*) [_tiles childAtIndex:destinationIndex];
-    
-    [_tiles swapChildAtIndex:tileIndex withChildAtIndex:destinationIndex];
-    
-    STCoordinate* tmpCoordinate = [[STCoordinate alloc] initWithX:coordinate.x y:coordinate.y];
-    destTile.coordinate = tile.coordinate;
-    tile.coordinate = tmpCoordinate;
-}
-
 - (int)convertCoordinateToGID:(STCoordinate*)coordinate {
     int result = (coordinate.y*_width) + coordinate.x;
+    return result;
+}
+
+- (float)convertCoordinateToX:(STCoordinate*)coordinate {
+    float result = (coordinate.x*_tileWidth);
+    return result;
+}
+
+- (float)convertCoordinateToY:(STCoordinate*)coordinate {
+    float result = (coordinate.y*_tileHeight);
     return result;
 }
 
@@ -161,6 +160,22 @@
         if (curTile == tile) return true;
     }
     return false;
+}
+
+- (STTile*)tileAtIndex:(int)index {
+    return (STTile*)[_tiles childAtIndex:index];
+}
+
+- (STTile*)tileAtCoordinate:(STCoordinate*)coordinate {
+    int index = [self convertCoordinateToGID:coordinate];
+    return (STTile*) [_tiles childAtIndex:index];
+}
+
+- (void)swapTile:(STTile*)tile1 withTile:(STTile*)tile2 {
+    STCoordinate* tempTile1Coordinate = tile1.coordinate;
+    tile1.coordinate = tile2.coordinate;
+    tile2.coordinate = tempTile1Coordinate;
+    [_tiles swapChild:tile1 withChild:tile2];
 }
 
 - (void)removeTile:(STTile*)tile {

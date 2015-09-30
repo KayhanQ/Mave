@@ -57,16 +57,20 @@
 
 - (id)initWithLayerElement:(TBXMLElement*)layerElement tileset:(STTileset *)tileset folderPath:(NSString*)folderPath;
 
-- (STTile *)tileAtIndex:(int)index;
 - (int)convertCoordinateToGID:(STCoordinate*)coordinate;
 - (STTile*)getObstacleRelativeToTile:(enum RelativePosition)position tile:(STTile*)tile;
 - (NSMutableArray*)getTilesInRowOfTile:(STTile*)tile;
 - (NSMutableArray*)getTilesInColumnOfTile:(STTile*)tile;
 - (void)moveTileTo:(STTile*)tile coordinate:(STCoordinate*)coordinate;
 - (BOOL)containsTile:(STTile*)tile;
-
+- (STTile*)tileAtIndex:(int)index;
+- (STTile*)tileAtCoordinate:(STCoordinate*)coordinate;
+- (void)swapTile:(STTile*)tile1 withTile:(STTile*)tile2;
 - (FinishTile*)getFinishTileForNextLevel:(NSString*)nextLevel;
 
+- (float)convertCoordinateToX:(STCoordinate*)coordinate;
+- (float)convertCoordinateToY:(STCoordinate*)coordinate;
+    
 - (void)removeTile:(STTile*)tile;
 
 @end

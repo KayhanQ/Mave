@@ -10,6 +10,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HelperFunctions.h"
 #import "STCoordinate.h"
 
 @class SPTexture;
@@ -27,5 +28,6 @@
 @property (nonatomic) int tileHeight;
 
 - (id)initWithType:(enum STType)type texture:(SPTexture*)texture coordinate:(STCoordinate*)coordinate;
+- (STCoordinate*)getCoordinateForCollisionFromDirection:(Direction)direction;
 
 @end

@@ -73,6 +73,7 @@
 		F1943DF01B8E49E20088922F /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = F1943DEF1B8E49E20088922F /* Assets */; };
 		F1943DF31B8F50390088922F /* SetCustomConditionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F1943DF21B8F50390088922F /* SetCustomConditionEvent.m */; };
 		F196D6E01B7D332000AE89B4 /* Sparrow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17101741B7D263A00349039 /* Sparrow.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		F1CCDCC01BBC799300F28EA0 /* Animator.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CCDCBF1BBC799300F28EA0 /* Animator.m */; };
 		F1ECE2091BA5E2D700081A14 /* LevelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE2081BA5E2D700081A14 /* LevelEvent.m */; };
 		F1ECE20E1BA5E9A400081A14 /* HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE20D1BA5E9A400081A14 /* HUD.m */; };
 		F1ECE2101BA5EC1100081A14 /* ResetButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE20F1BA5EC1100081A14 /* ResetButton.m */; };
@@ -205,6 +206,8 @@
 		F1943DEF1B8E49E20088922F /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		F1943DF11B8F502F0088922F /* SetCustomConditionEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetCustomConditionEvent.h; sourceTree = "<group>"; };
 		F1943DF21B8F50390088922F /* SetCustomConditionEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCustomConditionEvent.m; sourceTree = "<group>"; };
+		F1CCDCBE1BBC798A00F28EA0 /* Animator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animator.h; sourceTree = "<group>"; };
+		F1CCDCBF1BBC799300F28EA0 /* Animator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animator.m; sourceTree = "<group>"; };
 		F1ECE2081BA5E2D700081A14 /* LevelEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelEvent.m; sourceTree = "<group>"; };
 		F1ECE20A1BA5E2E400081A14 /* LevelEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelEvent.h; sourceTree = "<group>"; };
 		F1ECE20C1BA5E99B00081A14 /* HUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUD.h; sourceTree = "<group>"; };
@@ -383,6 +386,8 @@
 				F16FD67F1B82711000860749 /* Game.m */,
 				F16FD6801B82711000860749 /* LevelEngine.h */,
 				F16FD6811B82711000860749 /* LevelEngine.m */,
+				F1CCDCBE1BBC798A00F28EA0 /* Animator.h */,
+				F1CCDCBF1BBC799300F28EA0 /* Animator.m */,
 				F1ECE20B1BA5E98D00081A14 /* UI */,
 			);
 			path = Game;
@@ -846,6 +851,7 @@
 				F16FD68E1B82711000860749 /* Game.m in Sources */,
 				F16FD68F1B82711000860749 /* LevelEngine.m in Sources */,
 				F1ECE20E1BA5E9A400081A14 /* HUD.m in Sources */,
+				F1CCDCC01BBC799300F28EA0 /* Animator.m in Sources */,
 				F16FD6FF1B82713700860749 /* NPCSpeechBox.m in Sources */,
 				F16FD7151B82713700860749 /* STLayer.m in Sources */,
 				F16FD6FA1B82713700860749 /* NPCResponse.m in Sources */,

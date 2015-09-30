@@ -18,6 +18,7 @@
 #import "STTile.h"
 #import "NPC.h"
 #import "FinishTile.h"
+#import "Animator.h"
 
 @interface STMap ()
 - (void)loadXMLFile:(NSString *)filename;
@@ -227,6 +228,24 @@
     }
     
     return closestTile;
+}
+
+- (void)moveTile:(STTile*)tile inDirection:(Direction)direction {
+    STTile* obstacle = [self getTileClosestToTileInDirection:tile direction:direction];
+    STCoordinate* coordinate = [obstacle getCoordinateForCollisionFromDirection:direction];
+    
+    STLayer* layer = [self getLayerWithTile:tile];
+    STTile* destTile = [layer tileAtCoordinate:coordinate];
+    
+    SPTween *tween = [SPTween tweenWithTarget:tile time:0.5f];
+    [tween moveToX:[layer convertCoordinateToX:destTile.coordinate] y:[layer convertCoordinateToY:destTile.coordinate]];
+    [[[Animator sharedAnimator] mainJuggler] addObject:tween];
+    
+    
+    tween.onComplete = ^{
+        [layer swapTile:tile withTile:destTile];
+        NSLog(@"Tween completed");
+    };
 }
 
 - (STLayer*)getLayerWithTile:(STTile*)tile {

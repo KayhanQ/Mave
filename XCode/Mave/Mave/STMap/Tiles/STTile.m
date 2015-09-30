@@ -10,7 +10,6 @@
 //
 
 #import "STTile.h"
-#import "STCoordinate.h"
 
 @implementation STTile
 
@@ -43,6 +42,64 @@
     _coordinate = coordinate;
     self.x = coordinate.x*_tileWidth;
     self.y = coordinate.y*_tileHeight;
+}
+
+- (STCoordinate*)getCoordinateForCollisionFromDirection:(Direction)direction {
+    STCoordinate* coordinate;
+
+    switch (self.collisionType) {
+        case STOPBEFORE:
+        {
+            coordinate = [self getCoordinateForCollisionInDirection:direction distance:1 fromCoordinate:self.coordinate];
+            break;
+        }
+        case STOPONTOPOF:
+        {
+            coordinate = self.coordinate;
+            break;
+        }
+        case KILL:
+        {
+            coordinate = self.coordinate;
+            break;
+        }
+        default:
+            break;
+    }
+    return coordinate;
+}
+
+- (STCoordinate*)getCoordinateForCollisionInDirection:(Direction)direction distance:(int)distance fromCoordinate:(STCoordinate*)coordinate {
+    int x = coordinate.x;
+    int y = coordinate.y;
+    
+    switch (direction) {
+        case DirectionUp:
+        {
+            y += distance;
+            break;
+        }
+        case DirectionRight:
+        {
+            x -= distance;
+            break;
+        }
+        case DirectionDown:
+        {
+            y -= distance;
+            break;
+        }
+        case DirectionLeft:
+        {
+            x += distance;
+            break;
+        }
+        default:
+            break;
+    }
+    
+    STCoordinate* result = [[STCoordinate alloc] initWithX:x y:y];
+    return result;
 }
 
 @end
