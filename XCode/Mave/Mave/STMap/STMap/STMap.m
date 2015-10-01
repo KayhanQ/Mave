@@ -19,6 +19,7 @@
 #import "NPC.h"
 #import "FinishTile.h"
 #import "Animator.h"
+#import "GameEvents.h"
 
 @interface STMap ()
 - (void)loadXMLFile:(NSString *)filename;
@@ -134,6 +135,7 @@
     }
     
 	[_layers setObject:layer forKey:[name lowercaseString]];
+    [self addChild:layer];
 }
 
 - (STLayer *)layerByName:(NSString *)name {
@@ -237,16 +239,90 @@
     STLayer* layer = [self getLayerWithTile:tile];
     STTile* destTile = [layer tileAtCoordinate:coordinate];
     
-    SPTween *tween = [SPTween tweenWithTarget:tile time:0.5f];
+    
+    float animationTime = ((float)[self getDistanceFromCoordinate:tile.coordinate toCoordinate:coordinate])/8;
+    NSLog(@"animation time: %f", animationTime);
+    
+    SPTween *tween = [SPTween tweenWithTarget:tile time:animationTime];
     [tween moveToX:[layer convertCoordinateToX:destTile.coordinate] y:[layer convertCoordinateToY:destTile.coordinate]];
     [[[Animator sharedAnimator] mainJuggler] addObject:tween];
     
     
     tween.onComplete = ^{
         [layer swapTile:tile withTile:destTile];
+        
+        BOOL animationCompleted = true;
+        
+        switch (obstacle.type) {
+            case STPUSHROCK:
+            {
+                animationCompleted = false;
+                [self moveTile:obstacle inDirection:direction];
+                break;
+            }
+            case STHOLE:
+            {
+                if (tile.type == STPLAYER) {
+                    LevelEvent *event = [[LevelEvent alloc] initWithType:EVENT_TYPE_LEVEL_LOST];
+                    [self dispatchEvent:event];
+                }
+                else {
+                    [self removeTile:tile];
+                    
+                }
+                break;
+            }
+            case STSPIKES:
+            {
+                if (tile.type == STPLAYER) {
+                    LevelEvent *event = [[LevelEvent alloc] initWithType:EVENT_TYPE_LEVEL_LOST];
+                    [self dispatchEvent:event];
+                }
+                break;
+            }
+            case STFINISH:
+            {
+                FinishTile* finishTile = (FinishTile*)obstacle;
+                if (finishTile.functional) {
+                    if (tile.type == STPLAYER) {
+                        LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithCurrentLevelName:nil nextLevelName:finishTile.nextLevelName];
+                        [self dispatchEvent:event];
+                    }
+                    else {
+                        [self removeTile:tile];
+                    }
+                }
+                
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+        
+
+        if (animationCompleted) {
+            MoveTileCompletedEvent* event = [[MoveTileCompletedEvent alloc] initWithTile:tile];
+            [self dispatchEvent:event];
+        }
+        
         NSLog(@"Tween completed");
     };
 }
+
+- (int)getDistanceFromTiles:(STTile*)tile1 tile:(STTile*)tile2 {
+    int distx = abs(tile1.coordinate.x - tile2.coordinate.x);
+    int disty = abs(tile1.coordinate.y - tile2.coordinate.y);
+    return distx + disty;
+}
+
+- (int)getDistanceFromCoordinate:(STCoordinate*)coordinate1 toCoordinate:(STCoordinate*)coordinate2 {
+    int distx = abs(coordinate1.x - coordinate2.x);
+    int disty = abs(coordinate1.y - coordinate2.y);
+    return distx + disty;
+}
+
 
 - (STLayer*)getLayerWithTile:(STTile*)tile {
     NSEnumerator *enumerator = [_layers objectEnumerator];

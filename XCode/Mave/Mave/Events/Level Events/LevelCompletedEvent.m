@@ -13,7 +13,7 @@
 
 @synthesize nextLevelName = _nextLevelName;
 
-- (id)initWithCurrentLevelname:(NSString *)currentLevelName nextLevelName:(NSString *)nextLevelName
+- (id)initWithCurrentLevelName:(NSString *)currentLevelName nextLevelName:(NSString *)nextLevelName
 {
     if ((self = [super initWithType:EVENT_TYPE_LEVEL_COMPLETED levelName:currentLevelName]))
     {

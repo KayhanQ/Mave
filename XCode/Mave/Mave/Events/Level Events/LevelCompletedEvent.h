@@ -17,7 +17,7 @@
 
 @property(nonatomic, readonly)NSString* nextLevelName;
 
-- (id)initWithCurrentLevelname:(NSString*)currentLevelName nextLevelName:(NSString*)nextLevelName;
+- (id)initWithCurrentLevelName:(NSString*)currentLevelName nextLevelName:(NSString*)nextLevelName;
 
 
 @end

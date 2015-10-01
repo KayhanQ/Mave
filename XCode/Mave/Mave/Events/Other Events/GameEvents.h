@@ -13,3 +13,5 @@
 #import "NPCTouchedEvent.h"
 #import "NPCSpeechFinishedEvent.h"
 #import "NPCResponseClickedEvent.h"
+
+#import "MoveTileCompletedEvent.h"

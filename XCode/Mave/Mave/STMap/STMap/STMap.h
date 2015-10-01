@@ -18,7 +18,7 @@
 @class NPC;
 @class STCoordinate;
 
-@interface STMap : NSObject {
+@interface STMap : SPSprite {
 //	NSString *mFilename;
 //	NSString *mVersion;
 //	NSString *mOrientation;
@@ -55,5 +55,7 @@
 
 
 - (void)moveTile:(STTile*)tile inDirection:(Direction)direction;
+- (int)getDistanceFromTiles:(STTile*)tile1 tile:(STTile*)tile2;
+
 
 @end

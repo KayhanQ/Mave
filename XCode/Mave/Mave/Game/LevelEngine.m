@@ -67,15 +67,11 @@
     filename = [filename stringByAppendingString:@".tmx"];
     
     _map = [[STMap alloc] initWithLevelFolderPath:folderPath filename:filename];
+    [container addChild:_map];
     _groundLayer = [_map layerByName:@"Ground"];
     _obstacleLayer = [_map layerByName:@"Obstacles"];
     STLayer* movableObstaclesLayer = [_map layerByName:@"MovableObstacles"];
     _characterLayer = (NPCLayer*)[_map layerByName:@"Characters"];
-    
-    [container addChild:_groundLayer];
-    [container addChild:_obstacleLayer];
-    if (movableObstaclesLayer) [container addChild:movableObstaclesLayer];
-    [container addChild:_characterLayer];
 
     HUD* hud = [[HUD alloc] init];
     [container addChild:hud];
@@ -101,6 +97,8 @@
 
     [self addEventListener:@selector(onEnterFrame:) atObject:self forType:SP_EVENT_TYPE_ENTER_FRAME];
 
+    [self addEventListener:@selector(moveTileCompleted:) atObject:self forType:EVENT_TYPE_MOVE_TILE_COMPLETED];
+
 }
 
 - (void)swipeInDirection:(UISwipeGestureRecognizerDirection)swipeDirection {
@@ -109,81 +107,24 @@
 }
 
 - (void)moveTileInDirection:(STTile*)tile direction:(Direction)direction {
-    STTile* obstacle = [_map getTileClosestToTileInDirection:tile direction:direction];
-
+    [self stopGameInput];
     [_map moveTile:tile inDirection:direction];
     
-    //Layer moves the tile
+    //map moves the tile
 
-    switch (obstacle.type) {
-        case STPUSHROCK:
-        {
-            [self moveTileInDirection:obstacle direction:direction];
-            break;
-        }
-        case STHOLE:
-        {
-            if (tile.type == STPUSHROCK) {
-                [_map removeTile:tile];
-            }
-            break;
-        }
-        default:
-            break;
-    }
+}
 
+- (void)moveTileCompleted:(MoveTileCompletedEvent*)event {
     
-    switch (obstacle.type) {
-        case STSPIKES:
-        {
-            if (tile == _player) {
-                LevelEvent *event = [[LevelEvent alloc] initWithType:EVENT_TYPE_LEVEL_COMPLETED];
-                [self dispatchEvent:event];
-            }
-            break;
-        }
-        case STHOLE:
-        {
-            if (tile == _player) {
-                LevelEvent *event = [[LevelEvent alloc] initWithType:EVENT_TYPE_LEVEL_LOST];
-                [self dispatchEvent:event];
-            }
-            else {
-                [_map removeTile:tile];
-            }
-            break;
-        }
-        case STFINISH:
-        {
-            FinishTile* finishTile = (FinishTile*)obstacle;
-            if (finishTile.functional) {
-                if (tile == _player) {
-                    LevelCompletedEvent *event = [[LevelCompletedEvent alloc] initWithCurrentLevelname:_levelName nextLevelName:finishTile.nextLevelName];
-                    [self dispatchEvent:event];
-                }
-                else {
-                    [_map removeTile:tile];
-                }
-            }
-            
-            break;
-        }
-        default:
-            break;
-    }
+    NSLog(@"move Tile completed");
 
+    [self startGameInput];
+    
 }
-
-- (int)getDistanceFromTiles:(STTile*)tile1 tile:(STTile*)tile2 {
-    int distx = abs(tile1.coordinate.x - tile2.coordinate.x);
-    int disty = abs(tile1.coordinate.y - tile2.coordinate.y);
-    return distx + disty;
-}
-
 
 - (void)moveNPCWithIDEvent:(MoveNPCEvent*)event {
     NSString* npcID = event.npcID;
-    UISwipeGestureRecognizerDirection direction = event.direction;
+    Direction direction = event.direction;
     NPC* npc = [_characterLayer getNPCWithID:npcID];
     [self moveTileInDirection:npc direction:direction];
 }
@@ -201,7 +142,7 @@
     NPC* npc = event.npc;
     
     //set value to 1 to get real gameplay
-    if ([self getDistanceFromTiles:_player tile:npc] <= 1) {
+    if ([_map getDistanceFromTiles:_player tile:npc] <= 9999) {
         [self startDialogue:npc];
     }
 }
@@ -234,13 +175,13 @@
     [_conditionHandler setConditionWithName:event.conditionName toValue:event.value];
 }
 
-- (void)removeGameInput {
-    self.stage.touchable = false;
+- (void)stopGameInput {
+    _characterLayer.touchable = false;
     [self removeSwipeRecognizers];
 }
 
-- (void)addGameInput {
-    self.stage.touchable = true;
+- (void)startGameInput {
+    _characterLayer.touchable = true;
     [self removeSwipeRecognizers];
     [self addSwipeRecognizers];
 }
