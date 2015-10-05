@@ -42,6 +42,9 @@
     SPSprite* _dialogueSprite;
     
     ConditionHandler* _conditionHandler;
+    
+    NSMutableArray* _actionEvents;
+    
 }
 
 @synthesize levelName = _levelName;
@@ -85,13 +88,15 @@
     _player = [_characterLayer getPlayer];
     _conditionHandler = [[ConditionHandler alloc] initWithNPCLayer:_characterLayer];
     
-    
+    _actionEvents = [[NSMutableArray alloc] init];
     
     [self addSwipeRecognizers];
     [self addEventListener:@selector(npcTouched:) atObject:self forType:EVENT_TYPE_NPC_TOUCHED];
     [self addEventListener:@selector(npcDialogueFinished:) atObject:self forType:EVENT_NPC_DIALOGUE_FINISHED];
     [self addEventListener:@selector(moveNPCWithIDEvent:) atObject:self forType:EVENT_TYPE_MOVE_NPC];
     [self addEventListener:@selector(giveItemEvent:) atObject:self forType:EVENT_TYPE_GIVE_ITEM];
+    [self addEventListener:@selector(performActionEvents:) atObject:self forType:EVENT_TYPE_PERFORM_ACTION_EVENTS_EVENT];
+
     [self addEventListener:@selector(setCustomConditionEvent:) atObject:self forType:EVENT_TYPE_SET_CUSTOM_CONDITION];
     [self addEventListener:@selector(setFinishTileFunctionality:) atObject:self forType:EVENT_TYPE_SET_FINISH_TILE_FUNCTIONALITY];
 
@@ -103,7 +108,11 @@
 
 - (void)swipeInDirection:(UISwipeGestureRecognizerDirection)swipeDirection {
     Direction direction = [HelperFunctions directionFromUISwipeGestureRecognizerDirection:swipeDirection];
-    [self moveTileInDirection:_player direction:direction];
+    MoveNPCEvent* event = [[MoveNPCEvent alloc] initWithNPCID:@"player" direction:direction];
+    [_actionEvents addObject:event];
+    [self performActionEvent];
+    
+    //[self moveTileInDirection:_player direction:direction];
 }
 
 - (void)moveTileInDirection:(STTile*)tile direction:(Direction)direction {
@@ -119,7 +128,25 @@
     NSLog(@"move Tile completed");
 
     [self startGameInput];
+    [self performActionEvent];
     
+}
+
+- (void)performActionEvents:(PerformActionEventsEvent*)event {
+    [_actionEvents addObjectsFromArray:event.actionEvents];
+    [self performActionEvent];
+}
+
+- (void)performActionEvent {
+    if (_actionEvents.count > 0) {
+        ActionEvent* event = [_actionEvents objectAtIndex:0];
+        [_actionEvents removeObjectAtIndex:0];
+        [self dispatchEvent:event];
+        
+        if (![event.type isEqual:EVENT_TYPE_MOVE_NPC]) {
+            [self performActionEvent];
+        }
+    }
 }
 
 - (void)moveNPCWithIDEvent:(MoveNPCEvent*)event {
@@ -152,14 +179,12 @@
     [_dialogueSprite addChild:dialogueHandler];
     [dialogueHandler startDialogue];
     
-    _characterLayer.touchable = false;
-    [self removeSwipeRecognizers];
+    [self stopGameInput];
 }
 
 - (void)npcDialogueFinished:(BasicEvent*)event {
     [_dialogueSprite removeAllChildren];
-    _characterLayer.touchable = true;
-    [self addSwipeRecognizers];
+    [self startGameInput];
 }
 
 

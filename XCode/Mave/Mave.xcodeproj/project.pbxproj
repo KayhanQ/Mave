@@ -75,6 +75,7 @@
 		F196D6E01B7D332000AE89B4 /* Sparrow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17101741B7D263A00349039 /* Sparrow.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		F1CCDCC01BBC799300F28EA0 /* Animator.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CCDCBF1BBC799300F28EA0 /* Animator.m */; };
 		F1CCDCC31BBCC99800F28EA0 /* MoveTileCompletedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CCDCC21BBCC99800F28EA0 /* MoveTileCompletedEvent.m */; };
+		F1CCDCC71BC3345D00F28EA0 /* PerformActionEventsEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CCDCC61BC3345D00F28EA0 /* PerformActionEventsEvent.m */; };
 		F1ECE2091BA5E2D700081A14 /* LevelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE2081BA5E2D700081A14 /* LevelEvent.m */; };
 		F1ECE20E1BA5E9A400081A14 /* HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE20D1BA5E9A400081A14 /* HUD.m */; };
 		F1ECE2101BA5EC1100081A14 /* ResetButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ECE20F1BA5EC1100081A14 /* ResetButton.m */; };
@@ -211,6 +212,8 @@
 		F1CCDCBF1BBC799300F28EA0 /* Animator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animator.m; sourceTree = "<group>"; };
 		F1CCDCC21BBCC99800F28EA0 /* MoveTileCompletedEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveTileCompletedEvent.m; sourceTree = "<group>"; };
 		F1CCDCC41BBCC9A000F28EA0 /* MoveTileCompletedEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveTileCompletedEvent.h; sourceTree = "<group>"; };
+		F1CCDCC51BC3345000F28EA0 /* PerformActionEventsEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerformActionEventsEvent.h; sourceTree = "<group>"; };
+		F1CCDCC61BC3345D00F28EA0 /* PerformActionEventsEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerformActionEventsEvent.m; sourceTree = "<group>"; };
 		F1ECE2081BA5E2D700081A14 /* LevelEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelEvent.m; sourceTree = "<group>"; };
 		F1ECE20A1BA5E2E400081A14 /* LevelEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelEvent.h; sourceTree = "<group>"; };
 		F1ECE20C1BA5E99B00081A14 /* HUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUD.h; sourceTree = "<group>"; };
@@ -368,6 +371,8 @@
 			children = (
 				F1530B9E1B879698001872EF /* ActionHandler.h */,
 				F1530B9F1B879698001872EF /* ActionHandler.m */,
+				F1CCDCC51BC3345000F28EA0 /* PerformActionEventsEvent.h */,
+				F1CCDCC61BC3345D00F28EA0 /* PerformActionEventsEvent.m */,
 				F1530B981B87957C001872EF /* ActionEvent.h */,
 				F1530B991B87957C001872EF /* ActionEvent.m */,
 				F1530B9A1B87957C001872EF /* MoveNPCEvent.h */,
@@ -861,6 +866,7 @@
 				F16FD7161B82713700860749 /* STMap+Viewport.m in Sources */,
 				F16FD72E1B82722B00860749 /* NPCResponseClickedEvent.m in Sources */,
 				F1CCDCC31BBCC99800F28EA0 /* MoveTileCompletedEvent.m in Sources */,
+				F1CCDCC71BC3345D00F28EA0 /* PerformActionEventsEvent.m in Sources */,
 				F1530B9D1B87957C001872EF /* MoveNPCEvent.m in Sources */,
 				F16FD68E1B82711000860749 /* Game.m in Sources */,
 				F16FD68F1B82711000860749 /* LevelEngine.m in Sources */,

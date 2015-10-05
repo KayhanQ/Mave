@@ -70,10 +70,15 @@
 
 - (void)currentSpeechFinished:(NPCSpeechFinsihedEvent*)event {
     NPCSpeech* npcSpeech = event.npcSpeech;
-    for (ActionEvent* actionEvent in npcSpeech.actionEvents) {
-        if (actionEvent) [self dispatchEvent: actionEvent];
-    }
     
+    PerformActionEventsEvent* performActionsEvents = [[PerformActionEventsEvent alloc] initWithActionEvents:npcSpeech.actionEvents];
+    [self dispatchEvent:performActionsEvents];
+    
+//    for (ActionEvent* actionEvent in npcSpeech.actionEvents) {
+//        if (actionEvent) [self dispatchEvent: actionEvent];
+//    }
+    
+    //need a callback to finish the speech
     if ([self npcSpeechIsTerminatingSpeech:npcSpeech]) [self endDialogue];
     else [self presentResponses: npcSpeech.responses];
 }
