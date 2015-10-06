@@ -1,33 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <npc npcID="smurg" displayName="Smurg" customConditions="smurgPosition,topLeft">
+ <npc npcID="smurg" displayName="Smurg" customConditions="smurgWantsToKill,false|convincedSmurg,false">
 
- <npcSpeech displayName="Smurg" text="He keeps escaing me!" conditions="cutom:presbyterMovedRock,false" maxPlayCount="1">
- 	<response text="What's the vulnerability?">
- 		<npcSpeech displayName="Smurg" text="It's big. Presbyter could kill the program for years. It would take years to rebuild everything. He doesn't have the right to make that decision, but he's taken it into his own hands." actions="setCustomCondition:smurgPosition,topRight">
+ <npcSpeech displayName="Smurg" text="Hey! It's you again! I'm stuck here! Get me out! I'll do anything." conditions="custom:smurgWantsToKill,false|custom:convincedSmurg,false">
+ 	<response text="Will you leave Presbyter alone.">
+ 		<npcSpeech displayName="Smurg" text="What! How can I do that! He is trying to take away our rights! He's out of control! Look what he did to me!! I cannot.">
+ 			<response text="What's your plan?">
+		 		<npcSpeech displayName="Smurg" text="To take him to the board and make him confess!">
+		 			<response text="They won't beleive you!">
+				 		<npcSpeech displayName="Smurg" text="They won't beleive me? I'm worked there! I am a scientist!">
+				 			<response text="You're an Imp.">
+						 		<npcSpeech displayName="Smurg" text="An Imp.... You are right.... he'll just lie. There's only one option then...." actions="setCustomCondition:smurgWantsToKill,true">
+						 		</npcSpeech>
+						 	</response>
+						</npcSpeech>
+				 	</response>
+		 		</npcSpeech>
+		 	</response>
  		</npcSpeech>
  	</response>
- 	<response text="">
- 		<npcSpeech displayName="Smurg" text="AIIIIIII." conditions="cutom:presbyterPosition,bottom" actions="moveNPC:smurg,right|moveNPC:smurg,right|moveNPC:smurg,down|moveNPC:smurg,left|moveNPC:smurg,up|moveNPC:smurg,left|setCustomCondition:smurgPosition,bottom">
+ 	<response text="I don't know how to help.">
+ 		<npcSpeech displayName="Smurg" text="I am trapped for a while then... Who will stop that monster?" maxPlayCount="1">
  		</npcSpeech>
- 		<npcSpeech displayName="Smurg" text="GLUUU." actions="moveNPC:smurg,right|moveNPC:smurg,right|moveNPC:smurg,down|moveNPC:smurg,left|moveNPC:smurg,up|moveNPC:smurg,left|setCustomCondition:smurgPosition,bottom">
+ 		<npcSpeech displayName="Smurg" text="Only Imps will suffer from this.">
  		</npcSpeech>
  	</response>
 </npcSpeech>
 
- <npcSpeech displayName="Smurg" text="I don't see him!!!?" conditions="custom:smurgPosition,topRight">
- 	<response text="He moved down!">
- 		<npcSpeech displayName="Smurg" text="AIIIIIII." conditions="custom:presbyterPosition,bottom" actions="moveNPC:smurg,right|moveNPC:smurg,down|moveNPC:smurg,left|moveNPC:smurg,up|moveNPC:smurg,left|setCustomCondition:smurgPosition,bottom">
- 		</npcSpeech>
- 		<npcSpeech displayName="Smurg" text="GLUUU." actions="moveNPC:smurg,right|moveNPC:smurg,down|moveNPC:smurg,left|moveNPC:smurg,up|setCustomCondition:smurgPosition,bottom">
+ <npcSpeech displayName="Smurg" text="I know what I have to do. I have to kill him. That way the vulnerability will be kept a secret." conditions="custom:smurgWantsToKill,true">
+ 	<response text="More people might know.">
+ 		<npcSpeech displayName="Smurg" text="Do you have any better ideas?">
+ 			<response text="Find IMP501">
+		 		<npcSpeech displayName="Smurg" text="Wait. IMP501 is missing? I heard Presbyter talking about, it's important, but what is it? If I can find it I can use it as leverage. Alright. I'll leave him." actions="setCustomCondition:convincedSmurg,true|setCustomCondition:smurgWantsToKill,false">
+		 		</npcSpeech>
+		 	</response>
+		 	<response text="You can't kill him.">
+		 		<npcSpeech displayName="Smurg" text="I won't let you stop me.">
+		 		</npcSpeech>
+		 	</response>
  		</npcSpeech>
  	</response>
- 	<response text="Stay put, he will come.">
- 		<npcSpeech displayName="Smurg" text="OK.">
+ 	<response text="You can't kill him.">
+ 		<npcSpeech displayName="Smurg" text="I won't let you stop me.">
  		</npcSpeech>
  	</response>
 </npcSpeech>
 
-<npcSpeech displayName="Smurg" text="Where is he....">
+<npcSpeech displayName="Smurg" text="I hope we run into each other again soon. I'm sorry for being so harsh before... I haven't been myself... Goodbye." conditions="custom:presbyterMoved,true" actions="moveNPC:smurg,left">
+</npcSpeech>
+
+<npcSpeech displayName="Smurg" text="How can I get out of here though...">
 </npcSpeech>
 
 </npc>
