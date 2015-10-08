@@ -280,6 +280,11 @@
                 }
                 break;
             }
+            case STPOPROCK:
+            {
+                [self removeTile:obstacle];
+                break;
+            }
             case STFINISH:
             {
                 FinishTile* finishTile = (FinishTile*)obstacle;

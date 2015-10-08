@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <npc npcID="cress" displayName="Cress" customConditions="cressPos,0|slidingTalk,false">
+ 	
 <npcSpeech displayName="Cress" text="Ah Hello! It's good to see you again!" maxPlayCount="1">
 </npcSpeech>
 

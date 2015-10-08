@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="jane" displayName="Jane" customConditions="guilty,false|janeMoved,0">
+
+ <npcSpeech displayName="Jane" text="Hmmm... and the trail runs cold right here... Oh you again">
+ 	<response text="How is the search going?">
+ 		<npcSpeech displayName="Jane" text="It is progressing. I have two suspects but I'm struggling to find motives... in fact I'm struggling to find them. Maybe I just need to keep searching. Could be! Be careful what crowd you hang around these days. There have been arrests to stop the recent Imp Riots. You don't wan't to be put in that box." actions="moveNPC:jane,right">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Can I get by?">
+ 		<npcSpeech displayName="Jane" text="Yes, sure. If you hear anything about IMP501 let me know. I think I'm going to need ears on the ground. Our department is stretched at the moment because of the Imp riots that have been taking place in Cote Sud." actions="moveNPC:jane,up">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+</npc>

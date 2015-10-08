@@ -28,7 +28,7 @@
 
         LevelsMenu* menu = [[LevelsMenu alloc] initWithName:@"world1"];
         [self addChild:menu];
-        
+        menu.scale = 0.7;
         _levelSprite = [[SPSprite alloc] init];
         [self addChild:_levelSprite];
         

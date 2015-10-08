@@ -35,7 +35,7 @@
  		<npcSpeech displayName="Darby" text="Great, who's number?">
  			<response text="Generic1.">
 		 		<npcSpeech displayName="Darby" text="Ok what is it?">		
- 					<response text="" userInput="true" correctAnswer="1">
+ 					<response text="" userInput="true" correctAnswer="5384841904">
 		 				<npcSpeech displayName="Darby" text="Oi! We have an inspector here so I need you to move out of facility 1.2.2! Got it? Ok good. You're all set." actions="moveNPC:generic1,down|moveNPC:generic1,right|setCustomCondition:movedAGeneric,true">
 		 				</npcSpeech>
 		 				<npcSpeech displayName="Darby" text="That doesn't seem to be right...">
@@ -45,7 +45,7 @@
  			</response>
 		 	<response text="Generic2.">
 				<npcSpeech displayName="Darby" text="Ok what is it?">		
- 					<response text="" userInput="true" correctAnswer="2">
+ 					<response text="" userInput="true" correctAnswer="5385290704">
 		 				<npcSpeech displayName="Darby" text="Oi! We have an inspector here so I need you to move out of facility 1.2.2! Got it? Ok good. You're all set." actions="moveNPC:generic2,right|moveNPC:generic2,down|setCustomCondition:movedAGeneric,true">
 		 				</npcSpeech>
 		 				<npcSpeech displayName="Darby" text="That doesn't seem to be right...">

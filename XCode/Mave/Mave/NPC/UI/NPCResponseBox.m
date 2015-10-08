@@ -33,8 +33,8 @@
 
 - (void)onTouch:(SPTouchEvent*)event
 {
-    SPTouch *touchBegan = [[event touchesWithTarget:self andPhase:SPTouchPhaseBegan] anyObject];
-    if (touchBegan)
+    SPTouch *touchEnded = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] anyObject];
+    if (touchEnded)
     {
         //tell the dialogue handler which response was chosen
         NPCResponseClickedEvent *event = [[NPCResponseClickedEvent alloc] initWithNPCResponse:_npcResponse];

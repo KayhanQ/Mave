@@ -28,7 +28,10 @@
             if (i == 18) levelName = @"Level_18s";
             else if (i == 19) levelName = @"Level_19s";
             else if (i == 20) levelName = @"Level_20s";
-
+            else if (i == 21) levelName = @"Level_18j";
+            else if (i == 22) levelName = @"Level_19j";
+            else if (i == 23) levelName = @"Level_20j";
+            
             LevelButton* button = [[LevelButton alloc] initWithLevelName:levelName];
             x = button.width*(i%15) +20;
             button.x = x;

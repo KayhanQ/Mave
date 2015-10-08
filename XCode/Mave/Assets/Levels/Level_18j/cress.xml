@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="cress" displayName="Cress">
+
+ <npcSpeech displayName="Cress" text="Hello! I'm glad you're out of danger from Gemtech security now. There's a weird obstacle in these parts. It's that red rock on the right. When you touch them they disappear! Here, look!" actions="moveNPC:cress,right|moveNPC:cress,left" maxPlayCount="1">
+</npcSpeech>
+
+<npcSpeech displayName="Cress" text="Hope that helps!" actions="moveNPC:cress,right" maxPlayCount="1">
+</npcSpeech>
+
+<npcSpeech displayName="Cress" text="Yep?">
+	<response text="What are your interests?">
+ 		<npcSpeech displayName="Cress" text="I like philosophy. Mostly Epistimology.">
+ 			<response text="Favorite Philosopher?">
+		 		<npcSpeech displayName="Cress" text="Witgenstein.">
+		 		</npcSpeech>
+ 			</response>
+ 		</npcSpeech>
+ 	</response>
+	<response text="Why do those things disappear.">
+		<npcSpeech displayName="Cress" text="I do have a theory about them, but it's only conjecture... I think they are from space....">
+		</npcSpeech>
+	</response>
+</npcSpeech>
+
+</npc>

@@ -82,7 +82,7 @@
     _dialogueSprite = [[SPSprite alloc] init];
     [container addChild:_dialogueSprite];
     
-    container.scale = 0.8;
+    container.scale = 0.74;
     _swipeGestureRecognizers = [[NSMutableArray alloc] init];
     
     _player = [_characterLayer getPlayer];
@@ -169,7 +169,7 @@
     NPC* npc = event.npc;
     
     //set value to 1 to get real gameplay
-    if ([_map getDistanceFromTiles:_player tile:npc] <= 9999) {
+    if ([_map getDistanceFromTiles:_player tile:npc] <= 1) {
         [self startDialogue:npc];
     }
 }

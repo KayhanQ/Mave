@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <npc npcID="jane" displayName="Jane" customConditions="guilty,false|janeMoved,0">
+
+ <npcSpeech displayName="Jane" text="Argh, I thouht I had it! Lost it again! See those strange footsteps right there? It's like a very large cat's paws... but they keep disappearing. That's my key suspect.">
+ 	<response text="What do you think it is?">
+ 		<npcSpeech displayName="Jane" text="I have no clue? Maybe some Imp experiment gone wrong. Uh... I mean probably a large bear. There are no Imp experiments.">
+ 		</npcSpeech>
+ 	</response>
+ 	<response text="Maybe I can help you?">
+ 		<npcSpeech displayName="Jane" text="... Normally I would never compromise an operation like that... but you do know Presbyter and I need help." actions="moveNPC:jane,right">
+ 		</npcSpeech>
+ 	</response>
+</npcSpeech>
+
+</npc>

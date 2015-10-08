@@ -28,7 +28,7 @@
  		</npcSpeech>
  	</response>
  	<response displayName="wit" text="Yes please!">
- 		<npcSpeech displayName="Cress" text="Ok. Great! So I had mentioned how rocks stop you. There's another thing that could happen. If you slide onto a rough piece of ground, you'll stop on top of it. That may seem like a small difference but it can make a huge difference in where you want to go. You'll see the difference. Look!" conditions="custom:metSmurg,true|custom:metCharles,true" actions="moveNPC:cress,left|setCustomCondition:cressPos,++">
+ 		<npcSpeech displayName="Cress" text="Ok. Great! So I had mentioned how rocks stop you. There's another thing that could happen. If you slide onto a rough piece of ground, you'll stop on top of it. That may seem like a small difference but it can make a huge difference in where you want to go. You'll see the difference. Look!" conditions="custom:metSmurg,true|custom:metCharles,true" actions="moveNPC:cress,right|moveNPC:cress,left|setCustomCondition:cressPos,++">
  		</npcSpeech>
  		<npcSpeech displayName="Cress" text="Maybe you should try out what I told you a bit first. Explore, practice a little.">
  		</npcSpeech>
@@ -37,7 +37,7 @@
 
  <npcSpeech displayName="Cress" text="That is all I have for you at the moment... I'm sure we'll see each other soon though." conditions="custom:cressPos,3" maxPlayCount="1">
  	<response displayName="wit" text="You've been super helpful.">
- 		<npcSpeech displayName="Cress" text="That means a lot to me. Thank you. I always beleived I would be here...">
+ 		<npcSpeech displayName="Cress" text="That means a lot to me. Thank you. I always beieved I'd be doing something this important...">
  		</npcSpeech>
  	</response>
  	<response displayName="wit" text="See you soon" >

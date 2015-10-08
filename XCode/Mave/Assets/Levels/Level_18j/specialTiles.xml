@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tiles>
+	 <npcTiles>
+		<data npcFile="jane.xml"/>
+		<data npcFile="cress.xml"/>
+	 </npcTiles>
+
+	 <playerTile>
+		<data npcFile="player.xml"/>
+	 </playerTile>
+
+	 <finishTiles>
+	 	<data nextLevel="Level_19j" functional="true"/>
+	 </finishTiles>
+</tiles>
